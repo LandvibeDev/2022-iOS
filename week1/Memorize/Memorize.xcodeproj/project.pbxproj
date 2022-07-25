@@ -20,6 +20,7 @@
 		D441E066288E87C20098CA43 /* MemorizeButtonListVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E065288E87C20098CA43 /* MemorizeButtonListVIew.swift */; };
 		D441E068288E8EBA0098CA43 /* MemorizeCardGameManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E067288E8EBA0098CA43 /* MemorizeCardGameManger.swift */; };
 		D441E06E288EB7370098CA43 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E06D288EB7370098CA43 /* TitleView.swift */; };
+		D441E070288EBA070098CA43 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E06F288EBA070098CA43 /* CardListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D441E065288E87C20098CA43 /* MemorizeButtonListVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeButtonListVIew.swift; sourceTree = "<group>"; };
 		D441E067288E8EBA0098CA43 /* MemorizeCardGameManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeCardGameManger.swift; sourceTree = "<group>"; };
 		D441E06D288EB7370098CA43 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		D441E06F288EBA070098CA43 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D441E051288E75360098CA43 /* Preview Content */,
 				D441E04F288E75360098CA43 /* Assets.xcassets */,
 				D441E04B288E75360098CA43 /* MemorizeApp.swift */,
+				D441E04D288E75360098CA43 /* MainGameBoardView.swift */,
 				D441E069288E8F2C0098CA43 /* Enum&Struct */,
 				D441E06A288E8F770098CA43 /* SubView */,
 				D441E06C288E92C80098CA43 /* View */,
@@ -120,8 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				D441E065288E87C20098CA43 /* MemorizeButtonListVIew.swift */,
-				D441E04D288E75360098CA43 /* MainGameBoardView.swift */,
 				D441E06D288EB7370098CA43 /* TitleView.swift */,
+				D441E06F288EBA070098CA43 /* CardListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				D441E04C288E75360098CA43 /* MemorizeApp.swift in Sources */,
 				D441E06E288EB7370098CA43 /* TitleView.swift in Sources */,
 				D441E05E288E7D450098CA43 /* MemorizeExtension.swift in Sources */,
+				D441E070288EBA070098CA43 /* CardListView.swift in Sources */,
 				D441E068288E8EBA0098CA43 /* MemorizeCardGameManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

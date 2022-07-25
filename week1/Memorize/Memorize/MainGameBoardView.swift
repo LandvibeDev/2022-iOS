@@ -9,12 +9,13 @@ import SwiftUI
 
 struct MainGameBoardView: View {
     
-   
+    @EnvironmentObject var gameManager: MemorizeCardGameManger
     
     var body: some View {
         VStack{
             TitleView()
-            Spacer()
+                .foregroundColor(gameManager.currentTheme.themeColor)
+            CardListView()
             MemorizeButtonListView()
         }
         .padding()

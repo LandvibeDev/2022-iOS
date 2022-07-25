@@ -46,4 +46,27 @@ enum ThemeInfo: Memorize {
         }
     }
     
+    var powerOfImageList: [ImageAndText] {
+        switch self{
+        case .country:
+            var list = imageElements
+            imageElements.forEach{ element in
+                list.append(ImageAndText(element.Image, element.Text, "1"))
+            }
+            return list
+        case .emotion:
+            var list = imageElements
+            imageElements.forEach{ element in
+                list.append(ImageAndText(element.Image, element.Text, "1"))
+            }
+            return list
+        case .food:
+            var list = imageElements
+            imageElements.forEach{ element in
+                list.append(ImageAndText(element.Image, element.Text, "1"))
+            }
+            return list
+        }
+    }
+    
 }

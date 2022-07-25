@@ -23,10 +23,19 @@ struct ThemeButtonListView: View {
                                 switch content.Text {
                                 case "Country":
                                     gameManager.changeTheme(.country)
+                                    if gameManager.currentCardNumber > ThemeInfo.country.maxCardNumber {
+                                        gameManager.currentCardNumber = ThemeInfo.country.maxCardNumber
+                                    }
                                 case "Emotion":
                                     gameManager.changeTheme(.emotion)
+                                    if gameManager.currentCardNumber > ThemeInfo.emotion.maxCardNumber {
+                                        gameManager.currentCardNumber = ThemeInfo.emotion.maxCardNumber
+                                    }
                                 case "Food":
                                     gameManager.changeTheme(.food)
+                                    if gameManager.currentCardNumber > ThemeInfo.food.maxCardNumber {
+                                        gameManager.currentCardNumber = ThemeInfo.food.maxCardNumber
+                                    }
                                 default:
                                     fatalError("Wrong Theme Tapped in ThemeButtonListView")
                                 }
