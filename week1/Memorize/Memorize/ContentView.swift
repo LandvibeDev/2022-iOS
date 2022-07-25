@@ -2,21 +2,24 @@
 //  ContentView.swift
 //  Memorize
 //
-//  Created by Byeongjo Koo on 2022/07/24.
+//  Created by ohhyeongseok on 2022/07/25.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     let emojis = ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥"]
-    
     var body: some View {
         VStack {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
+                Text("Memorize!")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65 ))]) {
                     ForEach(emojis, id: \.self, content: { emoji in
                         CardView(content: emoji).aspectRatio(2 / 3, contentMode: .fit)
                     })
+                    
                 }
             }
             Spacer()
@@ -25,7 +28,6 @@ struct ContentView: View {
         .foregroundColor(.red)
         .padding()
     }
-    
     var addCard: some View {
         Button {
             // TODO: Add Card
