@@ -8,55 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥"]
+    @State var cardNum: Int = Theme.emotion.emojis.count
     var body: some View {
         VStack {
             ScrollView {
                 Text("Memorize!")
                     .font(.largeTitle)
                     .foregroundColor(.black)
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65 ))]) {
-                    ForEach(emojis, id: \.self, content: { emoji in
-                        CardView(content: emoji).aspectRatio(2 / 3, contentMode: .fit)
-                    })
-                    
-                }
+                CardListView(cardNum: $cardNum)
             }
             Spacer()
-            addCard
+            HStack{
+                addCard
+                Spacer()
+                subtractCard
+            }
+            .padding()
         }
         .foregroundColor(.red)
         .padding()
     }
     var addCard: some View {
         Button {
-            // TODO: Add Card
+            if(Theme.emotion.emojis.count > cardNum)
+            {
+                cardNum += 1
+            }
+            
         } label: {
             Image(systemName: "plus.circle")
         }
     }
-}
-
-struct CardView: View {
-    @State var isFaceUp = true
-    let content: String
-    
-    var body: some View {
-        ZStack {
-            let shape = RoundedRectangle(cornerRadius: 20)
-            if isFaceUp {
-                shape.fill().foregroundColor(.white)
-                shape.strokeBorder(lineWidth: 5)
-                Text(content).font(.largeTitle)
-            } else {
-                shape.fill()
+    var subtractCard: some View {
+        Button {
+            if(cardNum > 0)
+            {
+                cardNum -= 1
             }
-        }
-        .onTapGesture {
-            isFaceUp.toggle()
+
+        } label: {
+            Image(systemName: "minus.circle")
         }
     }
+
+
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
