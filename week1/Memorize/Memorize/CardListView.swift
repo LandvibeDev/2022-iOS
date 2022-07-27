@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardListView: View {
-    @ObservedObject var toBeObserved: ToBeObserved
+    @EnvironmentObject var toBeObserved : ToBeObserved
 
     var body: some View {
         ScrollView {

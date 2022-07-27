@@ -9,18 +9,18 @@ import SwiftUI
 
 struct FooterVIew: View {
 
-    @ObservedObject var toBeObserved: ToBeObserved
+    @EnvironmentObject var toBeObserved : ToBeObserved
     var body: some View {
         HStack{
-            calculateButtonView(isPlus: false, toBeOberved: toBeObserved)
+            calculateButtonView(isPlus: false)
                 .padding()
-            themeButtonView(theme: .animal, themeName: "animal", toBeOberved: toBeObserved)
+            themeButtonView(theme: .animal, themeName: "animal")
                 .padding()
-            themeButtonView(theme: .emotion, themeName: "emotion", toBeOberved: toBeObserved)
+            themeButtonView(theme: .emotion, themeName: "emotion")
                 .padding()
-            themeButtonView(theme: .fruit, themeName: "fruit", toBeOberved: toBeObserved)
+            themeButtonView(theme: .fruit, themeName: "fruit")
                 .padding()
-            calculateButtonView(isPlus: true, toBeOberved: toBeObserved)
+            calculateButtonView(isPlus: true)
                 .padding()
         }
         .font(.largeTitle)
@@ -31,6 +31,6 @@ struct FooterVIew: View {
 
 struct FooterVIew_Previews: PreviewProvider {
     static var previews: some View {
-        FooterVIew(toBeObserved: ToBeObserved())
+        FooterVIew()
     }
 }

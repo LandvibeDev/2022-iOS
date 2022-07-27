@@ -9,15 +9,15 @@ import Foundation
 import SwiftUI
 
 struct themeButtonView: View {
-    @ObservedObject var toBeObserved: ToBeObserved
+    @EnvironmentObject var toBeObserved : ToBeObserved
     var theme: Theme
     var themeName: String
     
-    init(theme: Theme, themeName: String, toBeOberved: ToBeObserved)
+    init(theme: Theme, themeName: String)
     {
         self.theme = theme
         self.themeName = themeName
-        toBeObserved = toBeOberved
+        
     }
     var body: some View {
         Button(action: {

@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct calculateButtonView: View {
-    @ObservedObject var toBeObserved: ToBeObserved
+    @EnvironmentObject var toBeObserved : ToBeObserved
     var isPlus: Bool
-    init(isPlus: Bool, toBeOberved: ToBeObserved)
+    init(isPlus: Bool)
     {
         self.isPlus = isPlus
-        toBeObserved = toBeOberved
     }
     
     var body: some View {

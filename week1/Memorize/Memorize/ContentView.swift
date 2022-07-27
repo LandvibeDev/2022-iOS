@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @StateObject var toBeObserved = ToBeObserved()
+
+    @StateObject private var toBeObserved = ToBeObserved()
     var body: some View {
         VStack {
             ScrollView {
                 Text("Memorize!")
                     .font(.largeTitle)
                     .foregroundColor(.black)
-                CardListView(toBeObserved: toBeObserved)
+                CardListView()
+                    .environmentObject(toBeObserved)
             }
             Spacer()
-            FooterVIew(toBeObserved: toBeObserved)
+            FooterVIew()
+                .environmentObject(toBeObserved)
         }
         .foregroundColor(.red)
         .padding()
