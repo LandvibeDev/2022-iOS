@@ -17,7 +17,7 @@
 		A69F17D5288FC04B00AF88CC /* FooterVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D4288FC04B00AF88CC /* FooterVIew.swift */; };
 		A69F17D72890CBC700AF88CC /* ToBeObserved.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D62890CBC700AF88CC /* ToBeObserved.swift */; };
 		A69F17D92890FAD800AF88CC /* ThemeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D82890FAD800AF88CC /* ThemeButtonView.swift */; };
-		A69F17DB2891154100AF88CC /* calculateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17DA2891154100AF88CC /* calculateButtonView.swift */; };
+		A69F17DB2891154100AF88CC /* CalculateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17DA2891154100AF88CC /* CalculateButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		A69F17D4288FC04B00AF88CC /* FooterVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterVIew.swift; sourceTree = "<group>"; };
 		A69F17D62890CBC700AF88CC /* ToBeObserved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeObserved.swift; sourceTree = "<group>"; };
 		A69F17D82890FAD800AF88CC /* ThemeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonView.swift; sourceTree = "<group>"; };
-		A69F17DA2891154100AF88CC /* calculateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculateButtonView.swift; sourceTree = "<group>"; };
+		A69F17DA2891154100AF88CC /* CalculateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 				A69F17CE288F9B6400AF88CC /* CardListView.swift */,
 				A69F17D4288FC04B00AF88CC /* FooterVIew.swift */,
 				A69F17D82890FAD800AF88CC /* ThemeButtonView.swift */,
-				A69F17DA2891154100AF88CC /* calculateButtonView.swift */,
+				A69F17DA2891154100AF88CC /* CalculateButtonView.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 				A69F17C5288F77E100AF88CC /* Theme.swift in Sources */,
 				A69F17B1288E87F600AF88CC /* ContentView.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,
-				A69F17DB2891154100AF88CC /* calculateButtonView.swift in Sources */,
+				A69F17DB2891154100AF88CC /* CalculateButtonView.swift in Sources */,
 				A69F17D92890FAD800AF88CC /* ThemeButtonView.swift in Sources */,
 				A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */,
 				A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */,

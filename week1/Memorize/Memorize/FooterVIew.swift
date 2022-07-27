@@ -12,7 +12,7 @@ struct FooterVIew: View {
     @EnvironmentObject var toBeObserved : ToBeObserved
     var body: some View {
         HStack{
-            calculateButtonView(isPlus: false)
+            CalculateButtonView(isPlus: false)
                 .padding()
             themeButtonView(theme: .animal, themeName: "animal")
                 .padding()
@@ -20,7 +20,7 @@ struct FooterVIew: View {
                 .padding()
             themeButtonView(theme: .fruit, themeName: "fruit")
                 .padding()
-            calculateButtonView(isPlus: true)
+            CalculateButtonView(isPlus: true)
                 .padding()
         }
         .font(.largeTitle)

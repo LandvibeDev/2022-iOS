@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct calculateButtonView: View {
+struct CalculateButtonView: View {
     @EnvironmentObject var toBeObserved : ToBeObserved
     var isPlus: Bool
     init(isPlus: Bool)
