@@ -17,7 +17,7 @@
 		D441E060288E80B80098CA43 /* PlusMinusButtonVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E05F288E80B80098CA43 /* PlusMinusButtonVIew.swift */; };
 		D441E062288E82220098CA43 /* ThemeButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E061288E82220098CA43 /* ThemeButtonListView.swift */; };
 		D441E064288E82C60098CA43 /* ThemeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E063288E82C60098CA43 /* ThemeButtonView.swift */; };
-		D441E066288E87C20098CA43 /* MemorizeButtonListVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E065288E87C20098CA43 /* MemorizeButtonListVIew.swift */; };
+		D441E066288E87C20098CA43 /* BottomButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E065288E87C20098CA43 /* BottomButtonListView.swift */; };
 		D441E068288E8EBA0098CA43 /* MemorizeCardGameManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E067288E8EBA0098CA43 /* MemorizeCardGameManger.swift */; };
 		D441E06E288EB7370098CA43 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E06D288EB7370098CA43 /* TitleView.swift */; };
 		D441E070288EBA070098CA43 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E06F288EBA070098CA43 /* CardListView.swift */; };
@@ -35,7 +35,7 @@
 		D441E05F288E80B80098CA43 /* PlusMinusButtonVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusMinusButtonVIew.swift; sourceTree = "<group>"; };
 		D441E061288E82220098CA43 /* ThemeButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonListView.swift; sourceTree = "<group>"; };
 		D441E063288E82C60098CA43 /* ThemeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonView.swift; sourceTree = "<group>"; };
-		D441E065288E87C20098CA43 /* MemorizeButtonListVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeButtonListVIew.swift; sourceTree = "<group>"; };
+		D441E065288E87C20098CA43 /* BottomButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonListView.swift; sourceTree = "<group>"; };
 		D441E067288E8EBA0098CA43 /* MemorizeCardGameManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeCardGameManger.swift; sourceTree = "<group>"; };
 		D441E06D288EB7370098CA43 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D441E06F288EBA070098CA43 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		D441E06C288E92C80098CA43 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D441E065288E87C20098CA43 /* MemorizeButtonListVIew.swift */,
+				D441E065288E87C20098CA43 /* BottomButtonListView.swift */,
 				D441E06D288EB7370098CA43 /* TitleView.swift */,
 				D441E06F288EBA070098CA43 /* CardListView.swift */,
 			);
@@ -203,7 +203,7 @@
 				D441E060288E80B80098CA43 /* PlusMinusButtonVIew.swift in Sources */,
 				D441E064288E82C60098CA43 /* ThemeButtonView.swift in Sources */,
 				D441E05C288E76E90098CA43 /* ThemeInfo.swift in Sources */,
-				D441E066288E87C20098CA43 /* MemorizeButtonListVIew.swift in Sources */,
+				D441E066288E87C20098CA43 /* BottomButtonListView.swift in Sources */,
 				D441E05A288E75FE0098CA43 /* CardView.swift in Sources */,
 				D441E062288E82220098CA43 /* ThemeButtonListView.swift in Sources */,
 				D441E04C288E75360098CA43 /* MemorizeApp.swift in Sources */,

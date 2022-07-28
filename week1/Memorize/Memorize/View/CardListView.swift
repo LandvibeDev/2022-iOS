@@ -14,17 +14,12 @@ struct CardListView: View {
     var body: some View {
         ScrollView{
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
-                ForEach(gameManager.emitCard(), id: \.hashValue, content: { element in
-                    CardView(isFaceUp: true, content: element)
+                ForEach(gameManager.emitCard(), id: \.hashValue){ element in
+                    CardView(content: element)
                         .aspectRatio(2 / 3, contentMode: .fit)
-                })
+                        .foregroundColor(gameManager.currentTheme.themeColor)
+                }
             }
         }
-    }
-}
-
-struct CardListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardListView()
     }
 }

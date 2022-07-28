@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct ThemeButtonView: View{
-    var content: ImageAndText
+    
+    var content: ThemeInfo
+    
+    @EnvironmentObject var gameManager: MemorizeCardGameManger
+    
     var body: some View {
-        VStack{
-            Image(systemName: content.Image)
-                .font(.largeTitle)
-            Text(content.Text)
-                .lineLimit(1)
+        Button(action: {
+            gameManager.currentTheme = content
+        }){
+            VStack{
+                Image(systemName: content.themeRepresentativeImage)
+                Text(content.rawValue)
+                    .font(.subheadline)
+                    .lineLimit(1)
+            }
         }
     }
 }
 
-struct ThemeButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeButtonView(content: ImageAndText("globe.asia.australia","Country"))
-    }
-}

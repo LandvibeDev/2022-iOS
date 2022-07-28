@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct PlusMinusButtonVIew: View {
-    //true means plus mode
-    //false meas minus mode
+///true means plus mode
+///false meas minus mode
+struct PlusMinusButtonView: View {
+   
     var mode: Bool
     
     @EnvironmentObject var gameManager: MemorizeCardGameManger
@@ -17,23 +18,14 @@ struct PlusMinusButtonVIew: View {
     var body: some View {
         Button(action: {
             if mode {
-                gameManager.addOrSubtractCard(oneOrMinusOne: 1)
+                gameManager.plusCard()
             }
             else {
-                gameManager.addOrSubtractCard(oneOrMinusOne: -1)
+                gameManager.minusCard()
             }
         }){
             Image(systemName: mode ? "plus.app" : "minus.square")
-                .font(.largeTitle)
                 .padding()
-          
         }
-        
     }
 }
-
-//struct PlusMinusButtonVIew_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlusMinusButtonVIew(mode: true)
-//    }
-//}

@@ -8,12 +8,36 @@
 import Foundation
 import SwiftUI
 
-enum ThemeInfo: Memorize {
-    case country // default
-    case emotion
-    case food
+
+enum ThemeInfo: String, Identifiable{
     
-    var maxCardNumber: Int {
+    case country = "Coutry" // default case
+    case emotion = "Emotion"
+    case food = "Food"
+    
+    var id: String {
+        switch self{
+        case .country:
+            return "1"
+        case .emotion:
+            return "2"
+        case .food:
+            return "3"
+        }
+    }
+    
+    var themeRepresentativeImage: String {
+        switch self {
+        case .country:
+            return "globe.asia.australia"
+        case .emotion:
+            return "face.dashed"
+        case .food:
+            return "fork.knife.circle"
+        }
+    }
+    
+    var maxCardCount: Int {
         switch self {
         case .country:
             return 20
@@ -35,7 +59,7 @@ enum ThemeInfo: Memorize {
         }
     }
     
-    var imageElements: [ImageAndText] {
+    var imageList: [ImageAndText] {
         switch self{
         case .country:
             return [ImageAndText("🇰🇷", "대한민국"),ImageAndText("🇯🇵","일본"),ImageAndText("🇹🇷","튀르키예즈"),ImageAndText("🇱🇦","라오스"),ImageAndText("🇨🇦","캐나다"),ImageAndText("🇧🇫","부르키나 파소"),ImageAndText("🇧🇩","방글라데시"),ImageAndText("🇧🇪","독일"),ImageAndText("🇨🇮","코트디부아르"),ImageAndText("🇫🇮","핀란드")]
@@ -47,26 +71,10 @@ enum ThemeInfo: Memorize {
     }
     
     var powerOfImageList: [ImageAndText] {
-        switch self{
-        case .country:
-            var list = imageElements
-            imageElements.forEach{ element in
-                list.append(ImageAndText(element.Image, element.Text, "1"))
-            }
-            return list
-        case .emotion:
-            var list = imageElements
-            imageElements.forEach{ element in
-                list.append(ImageAndText(element.Image, element.Text, "1"))
-            }
-            return list
-        case .food:
-            var list = imageElements
-            imageElements.forEach{ element in
-                list.append(ImageAndText(element.Image, element.Text, "1"))
-            }
-            return list
+        var list = imageList
+        imageList.forEach{ element in
+            list.append(ImageAndText(element.Image, element.Text, "1"))
         }
+        return list
     }
-    
 }

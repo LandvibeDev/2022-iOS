@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct CardView: View, Memorize{
-    @State var isFaceUp = true
+struct CardView: View{
+    
     let content: ImageAndText
+    
+    @State private var isFaceUp = true
     
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
-            
             if isFaceUp {
                 shape
                     .fill()
@@ -22,7 +23,6 @@ struct CardView: View, Memorize{
                 
                 shape
                     .strokeBorder(lineWidth: 5)
-                    .foregroundColor(.blue)
                 
                 VStack{
                     Text(content.Image)
@@ -33,17 +33,10 @@ struct CardView: View, Memorize{
             } else {
                 shape
                     .fill()
-                    .foregroundColor(.blue)
             }
         }
         .onTapGesture {
             isFaceUp.toggle()
         }
-    }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(content: ImageAndText("🥞","팬 케이트"))
     }
 }

@@ -1,47 +1,46 @@
-
-
 import SwiftUI
-import Foundation
-import Combine
 
 class MemorizeCardGameManger: ObservableObject{
     
-    @Published var currentTheme: ThemeInfo = .country
-    @Published var currentCardNumber: Int = 0
+    static var themeList: [ThemeInfo] = [.country, .emotion, .food]
+    
+    @Published var currentTheme: ThemeInfo = .country {
+        didSet {
+            powerOfImageList = currentTheme.powerOfImageList
+            powerOfImageList.shuffle()
+            
+            if currentCardCount > currentTheme.maxCardCount {
+                currentCardCount = currentTheme.maxCardCount
+            }
+        }
+    }
+    @Published var currentCardCount: Int = 0
     @Published var powerOfImageList: [ImageAndText] = [ImageAndText]()
     
     init(){
         self.powerOfImageList = self.currentTheme.powerOfImageList
     }
-   
-    func changeTheme(_ theme: ThemeInfo){
-        currentTheme = theme
-        powerOfImageList = currentTheme.powerOfImageList
-        powerOfImageList.shuffle()
-        
-        if currentCardNumber > currentTheme.maxCardNumber {
-            currentCardNumber = currentTheme.maxCardNumber
+    
+    func plusCard(_ num: Int = 1){
+        if currentCardCount < currentTheme.maxCardCount{
+            currentCardCount += num
         }
-        
     }
-
-    func addOrSubtractCard(oneOrMinusOne num: Int) {
-        if num == -1 && currentCardNumber >= 1 {
-            currentCardNumber += -1
-        }
-        else if num == 1 &&  currentCardNumber < currentTheme.maxCardNumber{
-            currentCardNumber += 1
+    
+    func minusCard(_ num: Int = 1) {
+        let newValue = num * -1
+        if currentCardCount >= 1 {
+            currentCardCount += newValue
         }
     }
     
     func emitCard() -> [ImageAndText] {
         var emitCardList = [ImageAndText]()
         powerOfImageList.enumerated().forEach{ idx, element in
-            if( idx < currentCardNumber){
+            if( idx < currentCardCount){
                 emitCardList.append(element)
             }
         }
         return emitCardList
     }
-
 }

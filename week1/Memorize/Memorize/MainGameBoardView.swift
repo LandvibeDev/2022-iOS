@@ -16,7 +16,7 @@ struct MainGameBoardView: View {
             TitleView()
                 .foregroundColor(gameManager.currentTheme.themeColor)
             CardListView()
-            MemorizeButtonListView()
+            BottomButtonListView()
         }
         .padding()
     }
