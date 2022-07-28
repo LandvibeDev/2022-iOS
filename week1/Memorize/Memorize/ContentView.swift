@@ -1,18 +1,21 @@
 //
 //  ContentView.swift
-//  Memorize
+//  SummerCoding
 //
-//  Created by Byeongjo Koo on 2022/07/24.
+//  Created by Kyungsoo Lee on 2022/07/18.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥"]
+    let emojis = ["🤣", "☺️", "😝", "😎", "😇", "🤪", "🤯", "🤩", "😡", "🥶"]
     
     var body: some View {
-        VStack {
-            ScrollView {
+        VStack{
+            Text("Memorize!")
+                .foregroundColor(.black)
+                .font(.largeTitle)
+            ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
                     ForEach(emojis, id: \.self, content: { emoji in
                         CardView(content: emoji).aspectRatio(2 / 3, contentMode: .fit)
@@ -28,21 +31,19 @@ struct ContentView: View {
     
     var addCard: some View {
         Button {
-            // TODO: Add Card
         } label: {
             Image(systemName: "plus.circle")
         }
     }
 }
 
-struct CardView: View {
-    @State var isFaceUp = true
+struct CardView: View{
+    @State var isFaceUP: Bool = true
     let content: String
-    
     var body: some View {
-        ZStack {
+        ZStack{
             let shape = RoundedRectangle(cornerRadius: 20)
-            if isFaceUp {
+            if isFaceUP{
                 shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 5)
                 Text(content).font(.largeTitle)
@@ -51,7 +52,7 @@ struct CardView: View {
             }
         }
         .onTapGesture {
-            isFaceUp.toggle()
+            isFaceUP.toggle()
         }
     }
 }
