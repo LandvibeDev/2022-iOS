@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct PlusMinusButton: View {
-    @EnvironmentObject var admin: Admin
-    var isPlus: plusOrMinus
+    @EnvironmentObject var memorizeGame: MemorizeGame
+    var isPlus: Calculate
     var body: some View {
-        if isPlus == plusOrMinus.plus {
+        if isPlus == Calculate.plus {
             Button {
-                if admin.currentTheme.maxNumber > admin.cardNumber {
-                    admin.cardNumber += 1
+                if memorizeGame.currentTheme.maxNumber > memorizeGame.cardNumber {
+                    memorizeGame.cardNumber += 1
                 }
             } label: {
                 Image(systemName: "plus.circle")
@@ -18,9 +18,9 @@ struct PlusMinusButton: View {
         }
         else {
             Button {
-                if admin.cardNumber > 0
+                if memorizeGame.cardNumber > 0
                 {
-                    admin.cardNumber -= 1
+                    memorizeGame.cardNumber -= 1
                 }
             } label: {
                 Image(systemName: "minus.circle")

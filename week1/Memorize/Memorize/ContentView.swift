@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var admin = Admin()
+    @StateObject private var memorizeGame = MemorizeGame()
     var body: some View {
         VStack {
             ScrollView {
@@ -9,11 +9,11 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .foregroundColor(.black)
                 CardListView()
-                    .environmentObject(admin)
+                    .environmentObject(memorizeGame)
             }
             Spacer()
             ButtonBar()
-                .environmentObject(admin)
+                .environmentObject(memorizeGame)
         }
         .foregroundColor(.red)
         .padding()

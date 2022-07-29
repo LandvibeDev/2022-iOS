@@ -1,6 +1,6 @@
 import Foundation
 
-class Admin: ObservableObject {
+class MemorizeGame: ObservableObject {
     @Published var cardNumber = Theme.emotion.emojis.count
     @Published var currentTheme = Theme.emotion
     var themeEmojis: [String] = Theme.emotion.emojis

@@ -1,6 +1,6 @@
 import Foundation
 
-enum plusOrMinus {
+enum Calculate {
     case plus
     case minus
 }
