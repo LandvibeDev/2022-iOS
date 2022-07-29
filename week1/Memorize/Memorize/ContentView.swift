@@ -9,57 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
   
-  @State var countOfCards = 10
-  
-  var buttonTabView: some View {
-    HStack(alignment: .center, spacing: 40) {
-      ForEach(0..<5) { i in
-        Button {
-          switch i {
-          case 0:
-            countOfCards -= 1
-          case 1:
-            print("vehicle")
-          case 2:
-            print("face")
-          case 3:
-            print("sports")
-          default:
-            countOfCards += 1
-          }
-        } label: {
-          VStack {
-            switch i{
-            case 0:
-              Image(systemName: "minus.circle")
-              
-            case 1:
-              Image(systemName: "car")
-              Text("vehicle")
-                .font(.system(size: 12))
-              
-            case 2:
-              Image(systemName: "face.smiling")
-              Text("face")
-                .font(.system(size: 12))
-              
-            case 3:
-              Image(systemName: "sportscourt")
-              Text("sports")
-                .font(.system(size: 12))
-              
-            default:
-              Image(systemName: "plus.circle")
-            }
-          Spacer()
-          }///VStack
-        }///HStack
-        .font(.system(size: 20))
-        .foregroundColor(Color.red)
-        .frame(height: UIScreen.main.bounds.height * 0.08)
-      }
-    }
-  }
+  @State var countOfCards = 8
+  @State var content = Emoji.vehicle
   
   var body: some View {
     ZStack {
@@ -70,12 +21,12 @@ struct ContentView: View {
         
         ScrollView(showsIndicators: false) {
           LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
-            ForEach(0...countOfCards, id: \.self) {_ in
-              CardView()
+            ForEach(0..<countOfCards, id: \.self) {idx in
+              CardView(content: content[idx])
             }
           }
         }.padding()
-        buttonTabView
+        buttonTabbar(countOfCards: $countOfCards, content: $content)
       }
     }
   }
@@ -86,4 +37,3 @@ struct ContentView_Previews: PreviewProvider {
     ContentView()
   }
 }
-
