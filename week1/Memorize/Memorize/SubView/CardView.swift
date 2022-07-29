@@ -1,42 +1,34 @@
-//
-//  CardView.swift
-//  Memorize
-//
-//  Created by changgyo seo on 2022/07/25.
-//
 
 import SwiftUI
 
-struct CardView: View{
+struct CardView: View {
     
-    let content: ImageAndText
+    let content: CardInfo
     
-    @State private var isFaceUp = true
+    @State private var cardIsFaceUp: cardIsFaceUp = .isFaceUp
     
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
-            if isFaceUp {
+            switch cardIsFaceUp {
+            case .isFaceUp:
                 shape
                     .fill()
                     .foregroundColor(.white)
-                
                 shape
                     .strokeBorder(lineWidth: 5)
-                
-                VStack{
-                    Text(content.Image)
+                VStack {
+                    Text(content.image)
                         .font(.largeTitle)
-
-                    Text(content.Text)
+                    Text(content.text)
                 }
-            } else {
+            case .isFaceDown:
                 shape
                     .fill()
             }
         }
         .onTapGesture {
-            isFaceUp.toggle()
+            cardIsFaceUp.toggle()
         }
     }
 }
