@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct buttonTabbar: View {
+struct ButtonTabbar: View {
   
   @Binding var countOfCards: Int
   @Binding var content: [String]
@@ -23,13 +23,13 @@ struct buttonTabbar: View {
               countOfCards -= 1
             }
           case 1:
-            adjustCountOfCards(previous: content.count, current: Emoji.vehicle.count)
+            adjustCountOfCards(currentMaxCount: Emoji.vehicle.count)
             content = Emoji.vehicle.shuffled()
           case 2:
-            adjustCountOfCards(previous: content.count, current: Emoji.face.count)
+            adjustCountOfCards(currentMaxCount: Emoji.face.count)
             content = Emoji.face.shuffled()
           case 3:
-            adjustCountOfCards(previous: content.count, current: Emoji.sports.count)
+            adjustCountOfCards(currentMaxCount: Emoji.sports.count)
             content = Emoji.sports.shuffled()
           default:
             if countOfCards < content.count {
@@ -70,16 +70,16 @@ struct buttonTabbar: View {
     }
   }
   
-  func adjustCountOfCards(previous: Int, current: Int) {
-    if previous > current {
-      countOfCards = current
+  func adjustCountOfCards(currentMaxCount: Int) {
+    if countOfCards > currentMaxCount {
+      countOfCards = currentMaxCount
     }
   }
 }
 
-struct buttonTabbar_Previews: PreviewProvider {
+struct ButtonTabbar_Previews: PreviewProvider {
   static var previews: some View {
-    buttonTabbar(countOfCards: .constant(8), content: .constant([""]))
+    ButtonTabbar(countOfCards: .constant(8), content: .constant([""]))
       .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1))
   }
 }

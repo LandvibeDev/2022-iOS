@@ -26,7 +26,7 @@ struct ContentView: View {
             }
           }
         }.padding()
-        buttonTabbar(countOfCards: $countOfCards, content: $content)
+        ButtonTabbar(countOfCards: $countOfCards, content: $content)
       }
     }
   }
