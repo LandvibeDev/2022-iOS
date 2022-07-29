@@ -2,14 +2,14 @@ import Foundation
 import SwiftUI
 
 struct ThemeButtonView: View {
-    @EnvironmentObject var toBeObserved: ToBeObserved
+    @EnvironmentObject var admin: Admin
     var themeName: String
     init(themeName: String) {
         self.themeName = themeName
     }
     var body: some View {
         Button(action: {
-            toBeObserved.changeTheme(afterTheme: Theme(rawValue: themeName) ?? .emotion)
+            admin.changeTheme(afterTheme: Theme(rawValue: themeName) ?? .emotion)
         }) {
             VStack {
                 Theme(rawValue: themeName)?.symbol

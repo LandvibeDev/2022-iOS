@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct ButtonView: View {
-    @EnvironmentObject var toBeObserved: ToBeObserved
+struct ButtonBar: View {
+    @EnvironmentObject var admin: Admin
     var body: some View {
         HStack {
             PlusMinusButton(isPlus: .minus)
@@ -14,8 +14,8 @@ struct ButtonView: View {
         .padding()
     }
 }
-struct ButtonView_Previews: PreviewProvider {
+struct ButtonBar_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView()
+        ButtonBar()
     }
 }

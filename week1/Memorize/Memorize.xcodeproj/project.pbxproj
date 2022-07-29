@@ -14,9 +14,9 @@
 		A69F17C5288F77E100AF88CC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17C4288F77E100AF88CC /* Theme.swift */; };
 		A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CA288F8BC400AF88CC /* CardView.swift */; };
 		A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CE288F9B6400AF88CC /* CardListView.swift */; };
-		A69F17D5288FC04B00AF88CC /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D4288FC04B00AF88CC /* ButtonView.swift */; };
-		A69F17D72890CBC700AF88CC /* ToBeObserved.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D62890CBC700AF88CC /* ToBeObserved.swift */; };
-		A69F17D92890FAD800AF88CC /* ThemeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D82890FAD800AF88CC /* ThemeButtonView.swift */; };
+		A69F17D5288FC04B00AF88CC /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D4288FC04B00AF88CC /* ButtonBar.swift */; };
+		A69F17D72890CBC700AF88CC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D62890CBC700AF88CC /* Admin.swift */; };
+		A69F17D92890FAD800AF88CC /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D82890FAD800AF88CC /* ThemeButton.swift */; };
 		A69F17DB2891154100AF88CC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17DA2891154100AF88CC /* PlusMinusButton.swift */; };
 		A69F17E32893636F00AF88CC /* PlusOrMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E22893636F00AF88CC /* PlusOrMinus.swift */; };
 /* End PBXBuildFile section */
@@ -30,9 +30,9 @@
 		A69F17C4288F77E100AF88CC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A69F17CA288F8BC400AF88CC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A69F17CE288F9B6400AF88CC /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
-		A69F17D4288FC04B00AF88CC /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		A69F17D62890CBC700AF88CC /* ToBeObserved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeObserved.swift; sourceTree = "<group>"; };
-		A69F17D82890FAD800AF88CC /* ThemeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonView.swift; sourceTree = "<group>"; };
+		A69F17D4288FC04B00AF88CC /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
+		A69F17D62890CBC700AF88CC /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		A69F17D82890FAD800AF88CC /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		A69F17DA2891154100AF88CC /* PlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusMinusButton.swift; sourceTree = "<group>"; };
 		A69F17E22893636F00AF88CC /* PlusOrMinus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOrMinus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,8 +74,8 @@
 				A69F17B0288E87F600AF88CC /* ContentView.swift */,
 				A69F17CA288F8BC400AF88CC /* CardView.swift */,
 				A69F17CE288F9B6400AF88CC /* CardListView.swift */,
-				A69F17D4288FC04B00AF88CC /* ButtonView.swift */,
-				A69F17D82890FAD800AF88CC /* ThemeButtonView.swift */,
+				A69F17D4288FC04B00AF88CC /* ButtonBar.swift */,
+				A69F17D82890FAD800AF88CC /* ThemeButton.swift */,
 				A69F17DA2891154100AF88CC /* PlusMinusButton.swift */,
 			);
 			path = Memorize;
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A69F17C4288F77E100AF88CC /* Theme.swift */,
-				A69F17D62890CBC700AF88CC /* ToBeObserved.swift */,
+				A69F17D62890CBC700AF88CC /* Admin.swift */,
 				A69F17E22893636F00AF88CC /* PlusOrMinus.swift */,
 			);
 			path = Model;
@@ -173,12 +173,12 @@
 				A69F17B1288E87F600AF88CC /* ContentView.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,
 				A69F17DB2891154100AF88CC /* PlusMinusButton.swift in Sources */,
-				A69F17D92890FAD800AF88CC /* ThemeButtonView.swift in Sources */,
+				A69F17D92890FAD800AF88CC /* ThemeButton.swift in Sources */,
 				A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */,
 				A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */,
 				A69F17E32893636F00AF88CC /* PlusOrMinus.swift in Sources */,
-				A69F17D72890CBC700AF88CC /* ToBeObserved.swift in Sources */,
-				A69F17D5288FC04B00AF88CC /* ButtonView.swift in Sources */,
+				A69F17D72890CBC700AF88CC /* Admin.swift in Sources */,
+				A69F17D5288FC04B00AF88CC /* ButtonBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

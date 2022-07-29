@@ -1,6 +1,6 @@
 import Foundation
 
-class ToBeObserved: ObservableObject {
+class Admin: ObservableObject {
     @Published var cardNumber = Theme.emotion.emojis.count
     @Published var currentTheme = Theme.emotion
     var themeEmojis: [String] = Theme.emotion.emojis
