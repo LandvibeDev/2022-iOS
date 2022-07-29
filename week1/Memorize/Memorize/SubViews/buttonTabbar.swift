@@ -11,6 +11,7 @@ struct buttonTabbar: View {
   
   @Binding var countOfCards: Int
   @Binding var content: [String]
+  @State var previousCount = 0
   
   var body: some View {
     HStack(alignment: .center, spacing: 40) {
@@ -22,10 +23,13 @@ struct buttonTabbar: View {
               countOfCards -= 1
             }
           case 1:
+            adjustCountOfCards(previous: content.count, current: Emoji.vehicle.count)
             content = Emoji.vehicle.shuffled()
           case 2:
+            adjustCountOfCards(previous: content.count, current: Emoji.face.count)
             content = Emoji.face.shuffled()
           case 3:
+            adjustCountOfCards(previous: content.count, current: Emoji.sports.count)
             content = Emoji.sports.shuffled()
           default:
             if countOfCards < content.count {
@@ -63,6 +67,12 @@ struct buttonTabbar: View {
         .foregroundColor(Color.red)
         .frame(height: UIScreen.main.bounds.height * 0.08)
       }
+    }
+  }
+  
+  func adjustCountOfCards(previous: Int, current: Int) {
+    if previous > current {
+      countOfCards = current
     }
   }
 }
