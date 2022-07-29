@@ -1,14 +1,6 @@
-//
-//  ContentView.swift
-//  Memorize
-//
-//  Created by ohhyeongseok on 2022/07/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-
     @StateObject private var toBeObserved = ToBeObserved()
     var body: some View {
         VStack {
@@ -20,7 +12,7 @@ struct ContentView: View {
                     .environmentObject(toBeObserved)
             }
             Spacer()
-            FooterVIew()
+            ButtonView()
                 .environmentObject(toBeObserved)
         }
         .foregroundColor(.red)
