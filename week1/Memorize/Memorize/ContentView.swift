@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Memorize
+//  SummerCoding
 //
 //  Created by Kyungsoo Lee on 2022/07/18.
 //
@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
-    
     @State var emojiCount = 1
     @State var theme = 2
     @State var refreshView: Bool = true
@@ -107,12 +106,12 @@ struct themeButton: View {
 
 struct CardView: View {
     @State var isFaceUp: Bool = true
+
     let content: String
-    
     var body: some View {
-        ZStack {
+        ZStack{
             let shape = RoundedRectangle(cornerRadius: 20)
-            if isFaceUp {
+            if isFaceUP{
                 shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 5)
                 Text(content).font(.largeTitle)
@@ -121,7 +120,7 @@ struct CardView: View {
             }
         }
         .onTapGesture {
-            isFaceUp.toggle()
+            isFaceUP.toggle()
         }
     }
 }
