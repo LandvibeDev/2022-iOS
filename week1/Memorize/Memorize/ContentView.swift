@@ -9,11 +9,9 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .foregroundColor(.black)
                 CardListView()
-                    .environmentObject(memorizeGame)
             }
             Spacer()
             ButtonBar()
-                .environmentObject(memorizeGame)
         }
         .foregroundColor(.red)
         .padding()
