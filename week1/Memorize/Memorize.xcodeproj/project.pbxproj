@@ -69,6 +69,7 @@
 			children = (
 				A69F17C3288F77AC00AF88CC /* Model */,
 				A69F17B4288E87F700AF88CC /* Preview Content */,
+				A69F17D62890CBC700AF88CC /* MemorizeGame.swift */,
 				A69F17B2288E87F700AF88CC /* Assets.xcassets */,
 				A69F17AE288E87F600AF88CC /* MemorizeApp.swift */,
 				A69F17B0288E87F600AF88CC /* ContentView.swift */,
@@ -93,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				A69F17C4288F77E100AF88CC /* Theme.swift */,
-				A69F17D62890CBC700AF88CC /* MemorizeGame.swift */,
 				A69F17E22893636F00AF88CC /* Calculate.swift */,
 			);
 			path = Model;
