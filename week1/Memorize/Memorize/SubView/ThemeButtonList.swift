@@ -16,7 +16,7 @@ struct ThemeButtonList: View {
                     ThemeButton(content: element)
                 }
             }
+            Spacer()
         }
-        Spacer()
     }
 }
