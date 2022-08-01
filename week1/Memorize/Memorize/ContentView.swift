@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var memorizeGame = MemorizeGame()
+    @EnvironmentObject var memorizeGame: MemorizeGame
     var body: some View {
         VStack {
             ScrollView {
