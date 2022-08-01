@@ -8,26 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-  
   @State var countOfCards = 8
-  @State var content = Emoji.vehicle
+  @State var contents = Emoji.vehicles
   
   var body: some View {
-    ZStack {
-      VStack {
-        Text("Memorize!")
-          .font(.largeTitle)
-          .padding()
-        
-        ScrollView(showsIndicators: false) {
-          LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
-            ForEach(0..<countOfCards, id: \.self) {idx in
-              CardView(content: content[idx])
-            }
+    VStack {
+      Text("Memorize!")
+        .font(.largeTitle)
+        .padding()
+      ScrollView(showsIndicators: false) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
+          ForEach(0..<countOfCards, id: \.self) { index in
+            CardView(content: contents[index])
           }
-        }.padding()
-        ButtonTabbar(countOfCards: $countOfCards, content: $content)
-      }
+        }
+      }.padding()
+      ButtonTabbar(countOfCards: $countOfCards, content: $contents)
     }
   }
 }

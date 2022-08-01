@@ -9,12 +9,11 @@ import SwiftUI
 
 struct CardView: View {
   @State var isFaceUp = true
-  var content: String = ""
+  var content = ""
   
   var body: some View {
     ZStack{
       let shape = RoundedRectangle(cornerRadius: 15)
-      
       if isFaceUp {
         shape.strokeBorder(lineWidth: 5)
         Text(content).font(.system(size: 40))
