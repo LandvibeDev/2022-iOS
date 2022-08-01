@@ -12,7 +12,7 @@ struct ThemeButtonView: View {
             memorizeGame.changeTheme(afterTheme: Theme(rawValue: themeName) ?? .emotion)
         }) {
             VStack {
-                Theme(rawValue: themeName)?.symbol
+                Image(systemName: Theme(rawValue: themeName)?.symbol ?? "face.smiling")
                 Text("\(themeName)")
                     .fixedSize(horizontal: true, vertical: true)
                     .font(.system(size: 10))

@@ -1,4 +1,3 @@
-import SwiftUI
 enum Theme: String {
     case animal = "animal"
     case emotion = "emotion"
@@ -14,14 +13,14 @@ enum Theme: String {
             return ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈"]
         }
     }
-    var symbol: Image {
+    var symbol: String {
         switch self {
         case .animal:
-            return Image(systemName: "pawprint.circle")
+            return "pawprint.circle"
         case .emotion:
-            return Image(systemName: "face.smiling")
+            return "face.smiling"
         case .fruit:
-            return Image(systemName: "applelogo")
+            return "applelogo"
         }
     }
     var maxNumber: Int {
