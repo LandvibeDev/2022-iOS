@@ -14,11 +14,9 @@
 		A69F17C5288F77E100AF88CC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17C4288F77E100AF88CC /* Theme.swift */; };
 		A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CA288F8BC400AF88CC /* CardView.swift */; };
 		A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CE288F9B6400AF88CC /* CardListView.swift */; };
-		A69F17D5288FC04B00AF88CC /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D4288FC04B00AF88CC /* ButtonBar.swift */; };
 		A69F17D72890CBC700AF88CC /* MemorizeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D62890CBC700AF88CC /* MemorizeGame.swift */; };
-		A69F17D92890FAD800AF88CC /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D82890FAD800AF88CC /* ThemeButton.swift */; };
-		A69F17DB2891154100AF88CC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17DA2891154100AF88CC /* PlusMinusButton.swift */; };
-		A69F17E32893636F00AF88CC /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E22893636F00AF88CC /* Calculate.swift */; };
+		A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E42898B11C00AF88CC /* ThemeNameView.swift */; };
+		A69F17E72898B26C00AF88CC /* NewStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E62898B26C00AF88CC /* NewStartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +28,9 @@
 		A69F17C4288F77E100AF88CC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A69F17CA288F8BC400AF88CC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A69F17CE288F9B6400AF88CC /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
-		A69F17D4288FC04B00AF88CC /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		A69F17D62890CBC700AF88CC /* MemorizeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeGame.swift; sourceTree = "<group>"; };
-		A69F17D82890FAD800AF88CC /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
-		A69F17DA2891154100AF88CC /* PlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusMinusButton.swift; sourceTree = "<group>"; };
-		A69F17E22893636F00AF88CC /* Calculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
+		A69F17E42898B11C00AF88CC /* ThemeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNameView.swift; sourceTree = "<group>"; };
+		A69F17E62898B26C00AF88CC /* NewStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +71,8 @@
 				A69F17B0288E87F600AF88CC /* ContentView.swift */,
 				A69F17CA288F8BC400AF88CC /* CardView.swift */,
 				A69F17CE288F9B6400AF88CC /* CardListView.swift */,
-				A69F17D4288FC04B00AF88CC /* ButtonBar.swift */,
-				A69F17D82890FAD800AF88CC /* ThemeButton.swift */,
-				A69F17DA2891154100AF88CC /* PlusMinusButton.swift */,
+				A69F17E42898B11C00AF88CC /* ThemeNameView.swift */,
+				A69F17E62898B26C00AF88CC /* NewStartButton.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -94,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				A69F17C4288F77E100AF88CC /* Theme.swift */,
-				A69F17E22893636F00AF88CC /* Calculate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,14 +165,12 @@
 			files = (
 				A69F17C5288F77E100AF88CC /* Theme.swift in Sources */,
 				A69F17B1288E87F600AF88CC /* ContentView.swift in Sources */,
+				A69F17E72898B26C00AF88CC /* NewStartButton.swift in Sources */,
+				A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,
-				A69F17DB2891154100AF88CC /* PlusMinusButton.swift in Sources */,
-				A69F17D92890FAD800AF88CC /* ThemeButton.swift in Sources */,
 				A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */,
 				A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */,
-				A69F17E32893636F00AF88CC /* Calculate.swift in Sources */,
 				A69F17D72890CBC700AF88CC /* MemorizeGame.swift in Sources */,
-				A69F17D5288FC04B00AF88CC /* ButtonBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,13 +5,11 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ScrollView {
-                Text("Memorize!")
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
+                ThemeNameView()
                 CardListView()
             }
             Spacer()
-            ButtonBar()
+            
         }
         .foregroundColor(.red)
         .padding()
