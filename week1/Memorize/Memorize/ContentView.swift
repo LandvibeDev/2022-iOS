@@ -1,18 +1,17 @@
 //
 //  ContentView.swift
-//  SummerCoding
+//  Memorize
 //
 //  Created by Kyungsoo Lee on 2022/07/18.
 //
 
 import SwiftUI
-import Foundation
 
 struct ContentView: View {
+    
     @State var emojiCount = 1
     @State var theme = 2
-    @State var refreshView: Bool = true
-    @State var contentList: [String] = Emoji.emojis[0]
+    @State var contentList = Emoji.emojis[0]
     var emojiTheme = [
         ["Vehicle", "car"],
         ["Face", "face.smiling"],
@@ -34,10 +33,10 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Spacer()
-                subCard
+                substractCard
                 Spacer()
                 ForEach(0 ..< 3) {
-                    index in themeButton(themeTitle: emojiTheme[index][0], themeImage: emojiTheme[index][1])
+                    index in ThemeButton(themeTitle: emojiTheme[index][0], themeImage: emojiTheme[index][1])
                         .onTapGesture {
                             let countBeforeChange = emojiCount;
                             theme = index
@@ -56,7 +55,7 @@ struct ContentView: View {
         .padding()
     }
     
-    var subCard: some View {
+    var substractCard: some View {
         Button {
             if emojiCount > 0 {
                 emojiCount -= 1
@@ -83,19 +82,19 @@ struct Emoji {
         ["🤣", "☺️", "😝", "😎", "😇", "🤪", "🤯", "🤩", "😡", "🥶"],
         ["🏀", "🥎", "🏐", "⚽️", "⛳️", "🥊", "🏑"]
     ]
-    enum emojiType {
+    enum Kind {
         case Vehicle
         case Face
         case Sports
     }
 }
 
-struct themeButton: View {
+struct ThemeButton: View {
     var themeTitle: String
     var themeImage: String
     
     var body: some View {
-//  Button으로 다시 구현해보기
+        //  Button으로 다시 구현해보기
         VStack {
             Image(systemName: themeImage)
             Text(themeTitle)
@@ -106,12 +105,12 @@ struct themeButton: View {
 
 struct CardView: View {
     @State var isFaceUp: Bool = true
-
     let content: String
+    
     var body: some View {
-        ZStack{
+        ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
-            if isFaceUP{
+            if isFaceUp {
                 shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 5)
                 Text(content).font(.largeTitle)
@@ -120,13 +119,13 @@ struct CardView: View {
             }
         }
         .onTapGesture {
-            isFaceUP.toggle()
+            isFaceUp.toggle()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-            ContentView()
+        ContentView()
     }
 }
