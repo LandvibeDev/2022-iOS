@@ -14,66 +14,70 @@ struct ButtonTabbar: View {
   
   var body: some View {
     HStack(alignment: .center, spacing: 40) {
-      ForEach(0..<5) { index in
-        switch index {
-        case 0:
-          Button {
-            if countOfCards > 1 {
-              countOfCards -= 1
-            }
-          } label: {
-            Image(systemName: "minus.circle")
-          }
-        case 1:
-          Button {
-            adjustCountOfCards(currentMaxCount: Emoji.vehicles.count)
-            content = Emoji.vehicles.shuffled()
-          } label: {
-            VStack {
-              Image(systemName: "car")
-              Text("vehicle")
-                .font(.system(size: 12))
-            }
-          }
-        case 2:
-          Button {
-            adjustCountOfCards(currentMaxCount: Emoji.faces.count)
-            content = Emoji.faces.shuffled()
-          } label: {
-            VStack {
-              Image(systemName: "face.smiling")
-              Text("face")
-                .font(.system(size: 12))
-            }
-          }
-        case 3:
-          Button {
-            adjustCountOfCards(currentMaxCount: Emoji.sports.count)
-            content = Emoji.sports.shuffled()
-          } label: {
-            VStack {
-              Image(systemName: "sportscourt")
-              Text("sports")
-                .font(.system(size: 12))
-            }
-          }
-        case 4:
-          Button {
-            if countOfCards < content.count {
-              countOfCards += 1
-            }
-          } label: {
-            Image(systemName: "plus.circle")
-          }
-        default:
-          Button {
-          } label: {
-          }
-        }
+      minus
+      changeThemeSport
+      changeThemFace
+      changeThemeSport
+      plus
+    }
+    .font(.system(size: 20))
+    .foregroundColor(Color.red)
+    .frame(height: UIScreen.main.bounds.height * 0.08)
+  }
+  
+  var minus: some View {
+    Button {
+      if countOfCards > 1 {
+        countOfCards -= 1
       }
-      .font(.system(size: 20))
-      .foregroundColor(Color.red)
-      .frame(height: UIScreen.main.bounds.height * 0.08)
+    } label: {
+      Image(systemName: "minus.circle")
+    }
+  }
+  
+  var plus: some View {
+    Button {
+      if countOfCards < content.count {
+        countOfCards += 1
+      }
+    } label: {
+      Image(systemName: "plus.circle")
+    }
+  }
+  
+  var changeThemeSport: some View {
+    Button {
+      adjustCountOfCards(currentMaxCount: Emoji.sports.emojiList.count)
+      content = Emoji.sports.shuffle
+    } label: {
+      VStack {
+        Image(systemName: "sportscourt")
+        Text("sports").font(.system(size: 12))
+      }
+    }
+  }
+  
+  var changeThemFace: some View {
+    Button {
+      adjustCountOfCards(currentMaxCount: Emoji.faces.emojiList.count)
+      content = Emoji.faces.shuffle
+    } label: {
+      VStack {
+        Image(systemName: "face.smiling")
+        Text("face").font(.system(size: 12))
+      }
+    }
+  }
+  
+  var changeThemVehicle: some View {
+    Button {
+      adjustCountOfCards(currentMaxCount: Emoji.vehicles.emojiList.count)
+      content = Emoji.vehicles.shuffle
+    } label: {
+      VStack {
+        Image(systemName: "car")
+        Text("vehicle").font(.system(size: 12))
+      }
     }
   }
   

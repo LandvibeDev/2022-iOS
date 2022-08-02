@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   @State var countOfCards = 8
-  @State var contents = Emoji.vehicles
+  @State var contents = Emoji.vehicles.emojiList
   
   var body: some View {
     VStack {

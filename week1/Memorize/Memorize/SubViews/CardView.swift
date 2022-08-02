@@ -22,7 +22,7 @@ struct CardView: View {
       }
     }
     .foregroundColor(Color.red)
-    .aspectRatio(2/3, contentMode: .fit)
+    .aspectRatio(2 / 3, contentMode: .fit)
     .onTapGesture {
       isFaceUp.toggle()
     }
