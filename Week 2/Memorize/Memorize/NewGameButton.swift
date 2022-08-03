@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct NewStartButton: View {
+struct NewGameButton: View {
+    @EnvironmentObject var memorizeGame: MemorizeGame
     var body: some View {
         Button("New Game") {
-            //action
+            memorizeGame.changeTheme(nextTheme: Theme.randomTheme)
         }
     }
 }
 
 struct NewStartButton_Previews: PreviewProvider {
     static var previews: some View {
-        NewStartButton()
+        NewGameButton()
     }
 }

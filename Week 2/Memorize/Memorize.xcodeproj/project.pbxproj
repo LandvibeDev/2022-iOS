@@ -16,7 +16,9 @@
 		A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CE288F9B6400AF88CC /* CardListView.swift */; };
 		A69F17D72890CBC700AF88CC /* MemorizeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D62890CBC700AF88CC /* MemorizeGame.swift */; };
 		A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E42898B11C00AF88CC /* ThemeNameView.swift */; };
-		A69F17E72898B26C00AF88CC /* NewStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E62898B26C00AF88CC /* NewStartButton.swift */; };
+		A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E62898B26C00AF88CC /* NewGameButton.swift */; };
+		A69F17E92898C1CD00AF88CC /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E82898C1CD00AF88CC /* MemoryGame.swift */; };
+		A69F17EF2899056000AF88CC /* CardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17EE2899056000AF88CC /* CardColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,9 @@
 		A69F17CE288F9B6400AF88CC /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		A69F17D62890CBC700AF88CC /* MemorizeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeGame.swift; sourceTree = "<group>"; };
 		A69F17E42898B11C00AF88CC /* ThemeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNameView.swift; sourceTree = "<group>"; };
-		A69F17E62898B26C00AF88CC /* NewStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStartButton.swift; sourceTree = "<group>"; };
+		A69F17E62898B26C00AF88CC /* NewGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameButton.swift; sourceTree = "<group>"; };
+		A69F17E82898C1CD00AF88CC /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		A69F17EE2899056000AF88CC /* CardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,16 +67,16 @@
 		A69F17AD288E87F600AF88CC /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
-				A69F17C3288F77AC00AF88CC /* Model */,
-				A69F17B4288E87F700AF88CC /* Preview Content */,
-				A69F17D62890CBC700AF88CC /* MemorizeGame.swift */,
 				A69F17B2288E87F700AF88CC /* Assets.xcassets */,
+				A69F17B4288E87F700AF88CC /* Preview Content */,
+				A69F17C3288F77AC00AF88CC /* Model */,
+				A69F17D62890CBC700AF88CC /* MemorizeGame.swift */,
 				A69F17AE288E87F600AF88CC /* MemorizeApp.swift */,
 				A69F17B0288E87F600AF88CC /* ContentView.swift */,
 				A69F17CA288F8BC400AF88CC /* CardView.swift */,
 				A69F17CE288F9B6400AF88CC /* CardListView.swift */,
 				A69F17E42898B11C00AF88CC /* ThemeNameView.swift */,
-				A69F17E62898B26C00AF88CC /* NewStartButton.swift */,
+				A69F17E62898B26C00AF88CC /* NewGameButton.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				A69F17C4288F77E100AF88CC /* Theme.swift */,
+				A69F17E82898C1CD00AF88CC /* MemoryGame.swift */,
+				A69F17EE2899056000AF88CC /* CardColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,9 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69F17EF2899056000AF88CC /* CardColor.swift in Sources */,
+				A69F17E92898C1CD00AF88CC /* MemoryGame.swift in Sources */,
 				A69F17C5288F77E100AF88CC /* Theme.swift in Sources */,
 				A69F17B1288E87F600AF88CC /* ContentView.swift in Sources */,
-				A69F17E72898B26C00AF88CC /* NewStartButton.swift in Sources */,
+				A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */,
 				A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,
 				A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */,

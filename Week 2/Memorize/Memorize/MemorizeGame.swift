@@ -1,26 +1,21 @@
 import Foundation
 
 class MemorizeGame: ObservableObject {
-    @Published var cardNumber = Theme.emotion.emojis.count
-    @Published var currentTheme = Theme.emotion
-    var themeEmojis = Theme.emotion.emojis
-    var emojiList: [String] {
-        var cardList: [String] = []
-        for (index, emoji) in themeEmojis.enumerated() {
-            if index < cardNumber {
-                cardList.append(emoji)
-            }
-        }
-        return cardList
+    @Published private var model = createEmojiMemoryGame(nowTheme: Theme.randomTheme)
+    var cards: [MemoryGame<String>.Card] {
+        model.cards.shuffled()
+    }
+    var currentTheme: Theme {
+        return model.theme
     }
     
-    func changeTheme(afterTheme: Theme) {
-        currentTheme = afterTheme
-        if cardNumber > currentTheme.maxNumber {
-            cardNumber = currentTheme.maxNumber
+    static func createEmojiMemoryGame(nowTheme: Theme) -> MemoryGame<String> {
+        MemoryGame<String>(numberOfPairsOfCard: nowTheme.numberOfCards, theme: nowTheme) { pairIndex in nowTheme.emojis[pairIndex]
         }
-        themeEmojis = afterTheme.emojis
-        themeEmojis.shuffle()
     }
-  
+    func changeTheme(nextTheme: Theme) {
+        model.changeTheme(numberOfPairsOfCard: nextTheme.numberOfCards, nextTheme: nextTheme) { pairIndex in
+            nextTheme.emojis[pairIndex]
+        }
+    }
 }

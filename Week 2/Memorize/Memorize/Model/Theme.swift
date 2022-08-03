@@ -1,4 +1,4 @@
-enum Theme: String {
+enum Theme: String, CaseIterable {
     case animal = "animal"
     case emotion = "emotion"
     case fruit = "fruit"
@@ -12,7 +12,7 @@ enum Theme: String {
         case .animal:
             return ["🐶", "🐱","🐭", "🐰", "🐻", "🐼", "🐨", "🦁", "🐮", "🐷", "🐥", "🦊", "🐵", "🦄", "🦓"]
         case .emotion:
-            return ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥", "😝", "🤑", "😎", "🤓", "🤠",  "🤡", "😏", "😶", "😐", "🫤", "😑", "😒", "🙄", "🤨", "🤔", "🤫"]
+            return ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥", "😝", "🤑", "😎"]
         case .fruit:
             return ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈"]
         case .activity:
@@ -25,8 +25,34 @@ enum Theme: String {
             return ["🥓", "🍔", "🍟", "🌭", "🍕", "🍝", "🥪", "🌮", "🌯", "🫔", "🥙", "🧆", "🍜", "🥘", "🍲", "🫕", "🥫", "🍩", "🍿", "🍫", "🍭", "🍮", "🍘", "🍙"]
         }
     }
-    var maxNumber: Int {
-        return self.emojis.count
+    var cardColor: CardColor {
+        switch self {
+        case .animal:
+            return .red
+        case .emotion:
+            return .orange
+        case .fruit:
+            return .yellow
+        case .activity:
+            return .green
+        case .vehicle:
+            return .blue
+        case .nation:
+            return .indigo
+        case .food:
+            return .purple
+        }
+    }
+    static var randomTheme: Theme {
+        return Theme.allCases.randomElement() ?? .animal
+    }
+    var numberOfCards: Int {
+        switch self {
+        case .nation:
+            return 8
+        default:
+            return self.emojis.count
+        }
     }
 }
 

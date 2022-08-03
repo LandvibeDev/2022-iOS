@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct CardView: View {
-    @State var isFaceUp = true
-    let content: String
+    @EnvironmentObject var memorizeGame: MemorizeGame
+    var content: String
+    @State var isFaceUp = false
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
@@ -11,7 +12,7 @@ struct CardView: View {
                 shape.strokeBorder(lineWidth: 5)
                 Text(content).font(.largeTitle)
             } else {
-                shape.fill()
+                shape.fill().foregroundColor(memorizeGame.currentTheme.cardColor.color)
             }
         }
         .onTapGesture {
@@ -19,9 +20,10 @@ struct CardView: View {
         }
     }
 }
+
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(content: "abc")
+        CardView(content: "emotion")
     }
 }
 

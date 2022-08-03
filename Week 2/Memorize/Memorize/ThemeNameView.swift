@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ThemeNameView: View {
     @EnvironmentObject var memorizeGame: MemorizeGame
+    
     var body: some View {
         Text("\(memorizeGame.currentTheme.rawValue)")
             .font(.largeTitle)
