@@ -6,7 +6,11 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ScrollView {
-                ThemeNameView()
+                HStack() {
+                    ThemeNameView()
+                    ScoreView()
+                        .frame(width: 150, alignment: .trailing)
+                }
                 CardListView()
             }
             Spacer()

@@ -13,7 +13,7 @@ struct ThemeNameView: View {
     var body: some View {
         Text("\(memorizeGame.currentTheme.rawValue)")
             .font(.largeTitle)
-            .foregroundColor(.black)
+            .foregroundColor(memorizeGame.currentTheme.cardColor.color)
     }
 }
 

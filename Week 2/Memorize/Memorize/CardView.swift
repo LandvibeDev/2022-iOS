@@ -3,6 +3,7 @@ import SwiftUI
 struct CardView: View {
     @EnvironmentObject var memorizeGame: MemorizeGame
     @ObservedObject var card: MemoryGame<String>.Card
+    
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
@@ -15,7 +16,8 @@ struct CardView: View {
             }
         }
         .onTapGesture {
-            card.isFaceUp.toggle()
+            memorizeGame.choose(card)
+            
         }
     }
 }

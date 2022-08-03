@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewGameButton: View {
     @EnvironmentObject var memorizeGame: MemorizeGame
+    
     var body: some View {
         Button("New Game") {
             memorizeGame.changeTheme(nextTheme: Theme.randomTheme)

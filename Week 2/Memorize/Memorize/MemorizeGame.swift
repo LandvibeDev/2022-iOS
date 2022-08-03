@@ -2,11 +2,15 @@ import Foundation
 
 class MemorizeGame: ObservableObject {
     @Published private var model = createEmojiMemoryGame(nowTheme: Theme.randomTheme)
+    var nowOpenedCards = [MemoryGame<String>.Card]()
     var cards: [MemoryGame<String>.Card] {
-        model.cards.shuffled()
+        return model.cards
     }
     var currentTheme: Theme {
         return model.theme
+    }
+    var score: Int {
+        return model.score
     }
     
     static func createEmojiMemoryGame(nowTheme: Theme) -> MemoryGame<String> {
@@ -17,5 +21,11 @@ class MemorizeGame: ObservableObject {
         model.changeTheme(numberOfPairsOfCard: nextTheme.numberOfCards, nextTheme: nextTheme) { pairIndex in
             nextTheme.emojis[pairIndex]
         }
+    }
+    func changeScore(how: Int) {
+        model.score += how
+    }
+    func choose(_ card: MemoryGame<String>.Card) {
+        model.choose(card)
     }
 }

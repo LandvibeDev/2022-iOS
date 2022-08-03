@@ -19,6 +19,7 @@
 		A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E62898B26C00AF88CC /* NewGameButton.swift */; };
 		A69F17E92898C1CD00AF88CC /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E82898C1CD00AF88CC /* MemoryGame.swift */; };
 		A69F17EF2899056000AF88CC /* CardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17EE2899056000AF88CC /* CardColor.swift */; };
+		A69F17F1289A2D7A00AF88CC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17F0289A2D7A00AF88CC /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A69F17E62898B26C00AF88CC /* NewGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameButton.swift; sourceTree = "<group>"; };
 		A69F17E82898C1CD00AF88CC /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		A69F17EE2899056000AF88CC /* CardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColor.swift; sourceTree = "<group>"; };
+		A69F17F0289A2D7A00AF88CC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				A69F17CE288F9B6400AF88CC /* CardListView.swift */,
 				A69F17E42898B11C00AF88CC /* ThemeNameView.swift */,
 				A69F17E62898B26C00AF88CC /* NewGameButton.swift */,
+				A69F17F0289A2D7A00AF88CC /* ScoreView.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */,
 				A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,
+				A69F17F1289A2D7A00AF88CC /* ScoreView.swift in Sources */,
 				A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */,
 				A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */,
 				A69F17D72890CBC700AF88CC /* MemorizeGame.swift in Sources */,
