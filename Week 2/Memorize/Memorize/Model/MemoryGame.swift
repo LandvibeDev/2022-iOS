@@ -37,10 +37,15 @@ struct MemoryGame<CardContent> {
         theme = nextTheme
     }
     
-    struct Card: Identifiable {
-        var isFaceUp = false
+    class Card: Identifiable, ObservableObject {
+        @Published var isFaceUp = false
         var isMatched = false
         var content: CardContent
         var id: Int
+        init(content: CardContent, id: Int)
+        {
+            self.content = content
+            self.id = id
+        }
     }
 }
