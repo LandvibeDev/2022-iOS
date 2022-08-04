@@ -13,7 +13,7 @@ struct ScoreView: View {
     var body: some View {
         Text("Score:\(memorizeGame.score)")
             .font(.title)
-            .foregroundColor(memorizeGame.currentTheme.cardColor.color)
+            .foregroundColor(memorizeGame.themeColor)
     }
 }
 

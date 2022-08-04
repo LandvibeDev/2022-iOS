@@ -12,7 +12,7 @@ struct CardView: View {
                 shape.strokeBorder(lineWidth: 5)
                 Text(card.content).font(.largeTitle)
             } else {
-                shape.fill().foregroundColor(memorizeGame.currentTheme.cardColor.color)
+                shape.fill().foregroundColor(memorizeGame.themeColor)
             }
         }
         .onTapGesture {

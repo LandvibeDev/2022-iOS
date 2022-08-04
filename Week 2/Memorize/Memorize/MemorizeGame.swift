@@ -1,8 +1,7 @@
-import Foundation
+import SwiftUI
 
 class MemorizeGame: ObservableObject {
     @Published private var model = createEmojiMemoryGame(nowTheme: Theme.randomTheme)
-    var nowOpenedCards = [MemoryGame<String>.Card]()
     var cards: [MemoryGame<String>.Card] {
         return model.cards
     }
@@ -11,6 +10,24 @@ class MemorizeGame: ObservableObject {
     }
     var score: Int {
         return model.score
+    }
+    var themeColor: Color {
+        switch currentTheme.cardColor {
+        case .red:
+            return Color.red
+        case .orange:
+            return Color.orange
+        case .yellow:
+            return Color.yellow
+        case .green:
+            return Color.green
+        case .blue:
+            return Color.blue
+        case .indigo:
+            return Color.indigo
+        case .purple:
+            return Color.purple
+        }
     }
     
     static func createEmojiMemoryGame(nowTheme: Theme) -> MemoryGame<String> {

@@ -37,9 +37,9 @@ struct MemoryGame<CardContent: Equatable> {
                 else {
                     for index in 0 ... 1 {
                         if nowOpendCard[index].isOpend {
-                            if score > 0 {
-                                score -= 1
-                            }
+                            
+                            score -= 1
+                            
                         }
                         nowOpendCard[index].isOpend = true
                     }
@@ -57,6 +57,7 @@ struct MemoryGame<CardContent: Equatable> {
         theme = nextTheme
         cards = cards.shuffled()
         score = 0
+        nowOpendCard = []
     }
     
     class Card: Identifiable, ObservableObject {
