@@ -3,8 +3,8 @@ import Foundation
 struct MemoryGame<CardContent: Equatable> {
     var cards: [Card]
     var theme: Theme
-    var score = 0
     var nowOpendCard: [Card] = []
+    var score = 0
     var numberOfMatchedPairs = 0
     init(numberOfPairsOfCard: Int, theme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
@@ -19,14 +19,16 @@ struct MemoryGame<CardContent: Equatable> {
     
     mutating func choose(_ card: Card) {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
+            if nowOpendCard.count == 1 && nowOpendCard[0].id == card.id {
+                return
+            }
             cards[chosenIndex].isFaceUp.toggle()
             nowOpendCard.append(card)
             if nowOpendCard.count == 3 {
                 for index in 0 ... 1 {
                     nowOpendCard[index].isFaceUp.toggle()
                 }
-                nowOpendCard.remove(at: 0)
-                nowOpendCard.remove(at: 0)
+                nowOpendCard.removeSubrange(0 ... 1)
             }
             if nowOpendCard.count == 2 {
                 if nowOpendCard[0].content == nowOpendCard[1].content && abs(nowOpendCard[0].id - nowOpendCard[1].id) == 1 {
@@ -64,9 +66,9 @@ struct MemoryGame<CardContent: Equatable> {
     class Card: Identifiable, ObservableObject {
         @Published var isFaceUp = false
         var isMatched = false
-        var content: CardContent
-        var id: Int
         var isOpend = false
+        let content: CardContent
+        let id: Int
         init(content: CardContent, id: Int) {
             self.content = content
             self.id = id

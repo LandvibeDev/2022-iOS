@@ -28,7 +28,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView( card: MemoryGame<String>.Card(content: "aa", id: 1))
+        CardView(card: MemoryGame<String>.Card(content: "aa", id: 1))
     }
 }
 

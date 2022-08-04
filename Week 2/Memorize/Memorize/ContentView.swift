@@ -5,8 +5,8 @@ struct ContentView: View {
     
     var body: some View {
         if !memorizeGame.checkGameIsDone() {
-            VStack{
-                ScrollView{
+            VStack {
+                ScrollView {
                     HStack() {
                         ThemeNameView()
                         ScoreView()

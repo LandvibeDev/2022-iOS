@@ -57,8 +57,6 @@ class MemorizeGame: ObservableObject {
         if model.numberOfMatchedPairs == model.cards.count {
             return true
         } else {
-            print(model.numberOfMatchedPairs)
-            print(model.cards.count)
             return false
         }
     }
