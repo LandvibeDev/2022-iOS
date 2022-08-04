@@ -11,12 +11,16 @@ struct CardView: View {
                 shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 5)
                 Text(card.content).font(.largeTitle)
+            } else if card.isMatched {
+                shape.fill(.white)
             } else {
                 shape.fill().foregroundColor(memorizeGame.themeColor)
             }
         }
         .onTapGesture {
-            memorizeGame.choose(card)
+            if !card.isMatched {
+                memorizeGame.choose(card)
+            }
             
         }
     }

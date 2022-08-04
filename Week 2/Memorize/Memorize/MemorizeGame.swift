@@ -1,7 +1,7 @@
 import SwiftUI
 
 class MemorizeGame: ObservableObject {
-    @Published private var model = createEmojiMemoryGame(nowTheme: Theme.randomTheme)
+    @Published private var model = createEmojiMemoryGame(currentTheme: Theme.randomTheme)
     var cards: [MemoryGame<String>.Card] {
         return model.cards
     }
@@ -30,12 +30,20 @@ class MemorizeGame: ObservableObject {
         }
     }
     
-    static func createEmojiMemoryGame(nowTheme: Theme) -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCard: nowTheme.numberOfCards, theme: nowTheme) { pairIndex in nowTheme.emojis[pairIndex]
+    static func createEmojiMemoryGame(currentTheme: Theme) -> MemoryGame<String> {
+        var numberOfPairsOfCard = currentTheme.numberOfCardsToShow
+        if currentTheme.numberOfCardsToShow > currentTheme.emojis.count {
+            numberOfPairsOfCard = currentTheme.emojis.count
+        }
+        return MemoryGame<String>(numberOfPairsOfCard: numberOfPairsOfCard, theme: currentTheme) { pairIndex in currentTheme.emojis[pairIndex]
         }
     }
     func changeTheme(nextTheme: Theme) {
-        model.changeTheme(numberOfPairsOfCard: nextTheme.numberOfCards, nextTheme: nextTheme) { pairIndex in
+        var numberOfPairsOfCard = nextTheme.numberOfCardsToShow
+        if nextTheme.numberOfCardsToShow > nextTheme.emojis.count {
+            numberOfPairsOfCard = nextTheme.emojis.count
+        }
+        model.changeTheme(numberOfPairsOfCard: numberOfPairsOfCard, nextTheme: nextTheme) { pairIndex in
             nextTheme.emojis[pairIndex]
         }
     }
@@ -44,5 +52,14 @@ class MemorizeGame: ObservableObject {
     }
     func choose(_ card: MemoryGame<String>.Card) {
         model.choose(card)
+    }
+    func checkGameIsDone() -> Bool {
+        if model.numberOfMatchedPairs == model.cards.count {
+            return true
+        } else {
+            print(model.numberOfMatchedPairs)
+            print(model.cards.count)
+            return false
+        }
     }
 }

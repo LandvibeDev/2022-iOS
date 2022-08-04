@@ -20,6 +20,7 @@
 		A69F17E92898C1CD00AF88CC /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E82898C1CD00AF88CC /* MemoryGame.swift */; };
 		A69F17EF2899056000AF88CC /* CardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17EE2899056000AF88CC /* CardColor.swift */; };
 		A69F17F1289A2D7A00AF88CC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17F0289A2D7A00AF88CC /* ScoreView.swift */; };
+		A69F17F7289B5A9300AF88CC /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17F6289B5A9300AF88CC /* SuccessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A69F17E82898C1CD00AF88CC /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		A69F17EE2899056000AF88CC /* CardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColor.swift; sourceTree = "<group>"; };
 		A69F17F0289A2D7A00AF88CC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		A69F17F6289B5A9300AF88CC /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				A69F17E42898B11C00AF88CC /* ThemeNameView.swift */,
 				A69F17E62898B26C00AF88CC /* NewGameButton.swift */,
 				A69F17F0289A2D7A00AF88CC /* ScoreView.swift */,
+				A69F17F6289B5A9300AF88CC /* SuccessView.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				A69F17E92898C1CD00AF88CC /* MemoryGame.swift in Sources */,
 				A69F17C5288F77E100AF88CC /* Theme.swift in Sources */,
 				A69F17B1288E87F600AF88CC /* ContentView.swift in Sources */,
+				A69F17F7289B5A9300AF88CC /* SuccessView.swift in Sources */,
 				A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */,
 				A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,

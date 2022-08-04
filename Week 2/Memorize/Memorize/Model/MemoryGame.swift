@@ -5,6 +5,7 @@ struct MemoryGame<CardContent: Equatable> {
     var theme: Theme
     var score = 0
     var nowOpendCard: [Card] = []
+    var numberOfMatchedPairs = 0
     init(numberOfPairsOfCard: Int, theme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
         for pairIndex in 0 ..< numberOfPairsOfCard {
@@ -32,14 +33,13 @@ struct MemoryGame<CardContent: Equatable> {
                     score += 2
                     for index in 0 ... 1 {
                         nowOpendCard[index].isMatched = true
+                        numberOfMatchedPairs += 1
                     }
                 }
                 else {
                     for index in 0 ... 1 {
                         if nowOpendCard[index].isOpend {
-                            
                             score -= 1
-                            
                         }
                         nowOpendCard[index].isOpend = true
                     }
@@ -58,6 +58,7 @@ struct MemoryGame<CardContent: Equatable> {
         cards = cards.shuffled()
         score = 0
         nowOpendCard = []
+        numberOfMatchedPairs = 0
     }
     
     class Card: Identifiable, ObservableObject {

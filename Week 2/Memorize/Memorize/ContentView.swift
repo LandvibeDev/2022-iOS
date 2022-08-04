@@ -4,21 +4,27 @@ struct ContentView: View {
     @EnvironmentObject var memorizeGame: MemorizeGame
     
     var body: some View {
-        VStack {
-            ScrollView {
-                HStack() {
-                    ThemeNameView()
-                    ScoreView()
-                        .frame(width: 150, alignment: .trailing)
+        if !memorizeGame.checkGameIsDone() {
+            VStack{
+                ScrollView{
+                    HStack() {
+                        ThemeNameView()
+                        ScoreView()
+                            .frame(width: 150, alignment: .trailing)
+                    }
+                    CardListView()
+                    Spacer()
                 }
-                CardListView()
+                .padding()
+                NewGameButton()
             }
-            Spacer()
-            NewGameButton()
         }
-        .padding()
+        else {
+            SuccessView()
+        }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

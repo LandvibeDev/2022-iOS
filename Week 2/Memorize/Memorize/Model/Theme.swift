@@ -14,7 +14,7 @@ enum Theme: String, CaseIterable {
         case .emotion:
             return ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥", "😝", "🤑", "😎"]
         case .fruit:
-            return ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈"]
+            return ["🍏", "🍎", "🍐", "🍊", "🍋"]
         case .activity:
             return ["🥎", "🎱", "⚾", "⚽", "🏀", "🏈", "🎾", "🏐", "🏉"]
         case .vehicle:
@@ -46,10 +46,14 @@ enum Theme: String, CaseIterable {
     static var randomTheme: Theme {
         return Theme.allCases.randomElement() ?? .animal
     }
-    var numberOfCards: Int {
+    var numberOfCardsToShow: Int {
         switch self {
         case .nation:
             return 8
+        case .fruit:
+            return 7
+        case .vehicle:
+            return 5
         default:
             return self.emojis.count
         }
