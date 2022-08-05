@@ -4,7 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var memorizeGame: MemorizeGameDealer
     
     var body: some View {
-        if !memorizeGame.checkGameIsDone() {
+        if memorizeGame.checkGameIsDone() {
             VStack {
                 ScrollView {
                     HStack() {

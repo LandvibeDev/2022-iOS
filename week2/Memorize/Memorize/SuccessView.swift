@@ -4,8 +4,9 @@ struct SuccessView: View {
     @EnvironmentObject var memorizeGame: MemorizeGameDealer
     
     var body: some View {
-        VStack {
+        VStack{
             Text("Well Done!!")
+                .padding(.top, 150)
             Text("You got \(memorizeGame.score) Points!!")
         }
         .font(.title)
