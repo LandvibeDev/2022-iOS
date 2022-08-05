@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewGameButton: View {
-    @EnvironmentObject var memorizeGame: MemorizeGame
+    @EnvironmentObject var memorizeGame: MemorizeGameDealer
     
     var body: some View {
         Button("New Game") {

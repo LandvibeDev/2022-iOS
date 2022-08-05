@@ -1,6 +1,6 @@
 import Foundation
 
-struct MemoryGame<CardContent: Equatable> {
+struct MemorizeGame<CardContent: Equatable> {
     private(set) var cards: [Card]
     private(set) var theme: Theme
     private(set) var currentOpenedCards: [Card] = []

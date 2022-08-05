@@ -1,8 +1,8 @@
 import SwiftUI
 
-class MemorizeGame: ObservableObject {
+class MemorizeGameDealer: ObservableObject {
     @Published private var model = createEmojiMemoryGame(currentTheme: Theme.randomTheme)
-    var cards: [MemoryGame<String>.Card] {
+    var cards: [MemorizeGame<String>.Card] {
         return model.cards
     }
     var currentTheme: Theme {
@@ -30,14 +30,14 @@ class MemorizeGame: ObservableObject {
         }
     }
     
-    static func createEmojiMemoryGame(currentTheme: Theme) -> MemoryGame<String> {
+    static func createEmojiMemoryGame(currentTheme: Theme) -> MemorizeGame<String> {
         var numberOfPairsOfCards = currentTheme.numberOfPairsOfCardsToShow
         let constantEmojis = currentTheme.emojis
         
         if currentTheme.numberOfPairsOfCardsToShow > currentTheme.emojis.count {
             numberOfPairsOfCards = currentTheme.emojis.count
         }
-        return MemoryGame<String>(numberOfPairsOfCards: numberOfPairsOfCards, theme: currentTheme) { pairIndex in
+        return MemorizeGame<String>(numberOfPairsOfCards: numberOfPairsOfCards, theme: currentTheme) { pairIndex in
             constantEmojis[pairIndex]
         }
     }
@@ -52,7 +52,7 @@ class MemorizeGame: ObservableObject {
             constantEmojis[pairIndex]
         }
     }
-    func choose(card: MemoryGame<String>.Card) {
+    func choose(card: MemorizeGame<String>.Card) {
         model.choose(card: card)
     }
     func checkGameIsDone() -> Bool {

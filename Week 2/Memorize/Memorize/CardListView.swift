@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CardListView: View {
-    @EnvironmentObject var memorizeGame: MemorizeGame
+    @EnvironmentObject var memorizeGame: MemorizeGameDealer
     
     var body: some View {
         ScrollView {

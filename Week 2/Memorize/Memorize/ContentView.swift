@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var memorizeGame: MemorizeGame
+    @EnvironmentObject var memorizeGame: MemorizeGameDealer
     
     var body: some View {
         if !memorizeGame.checkGameIsDone() {

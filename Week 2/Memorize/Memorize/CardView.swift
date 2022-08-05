@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct CardView: View {
-    @EnvironmentObject var memorizeGame: MemorizeGame
-    @ObservedObject var card: MemoryGame<String>.Card
+    @EnvironmentObject var memorizeGame: MemorizeGameDealer
+    @ObservedObject var card: MemorizeGame<String>.Card
     
     var body: some View {
         ZStack {
@@ -28,7 +28,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: MemoryGame<String>.Card(content: "aa", id: 1))
+        CardView(card: MemorizeGame<String>.Card(content: "aa", id: 1))
     }
 }
 

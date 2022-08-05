@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SuccessView: View {
-    @EnvironmentObject var memorizeGame: MemorizeGame
+    @EnvironmentObject var memorizeGame: MemorizeGameDealer
     
     var body: some View {
         VStack {

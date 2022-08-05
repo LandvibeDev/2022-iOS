@@ -8,7 +8,7 @@ enum Theme: String, CaseIterable {
     case food = "food"
     
     static var randomTheme: Theme {
-        return Theme.allCases.randomElement() ?? .animal
+        return Theme.allCases.randomElement() ?? .emotion
     }
     var emojis: [String] {
         switch self {
