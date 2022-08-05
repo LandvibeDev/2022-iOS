@@ -20,7 +20,11 @@ struct ContentView: View {
             }
         }
         else {
-            SuccessView()
+            VStack {
+                SuccessView()
+                Spacer()
+                NewGameButton()
+            }
         }
     }
 }
