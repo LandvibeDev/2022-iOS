@@ -1,10 +1,3 @@
-//
-//  ScoreView.swift
-//  Memorize
-//
-//  Created by ohhyeongseok on 2022/08/03.
-//
-
 import SwiftUI
 
 struct ScoreView: View {

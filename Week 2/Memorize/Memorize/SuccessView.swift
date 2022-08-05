@@ -1,10 +1,3 @@
-//
-//  SuccessView.swift
-//  Memorize
-//
-//  Created by ohhyeongseok on 2022/08/04.
-//
-
 import SwiftUI
 
 struct SuccessView: View {

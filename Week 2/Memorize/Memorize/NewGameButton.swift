@@ -1,10 +1,3 @@
-//
-//  NewStartButton.swift
-//  Memorize
-//
-//  Created by ohhyeongseok on 2022/08/02.
-//
-
 import SwiftUI
 
 struct NewGameButton: View {
