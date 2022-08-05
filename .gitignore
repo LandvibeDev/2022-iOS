@@ -50,4 +50,7 @@ xcuserdata/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+### persnal ignore path
+*/week2/2022-ios-2week-newArchitecture
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,xcode
