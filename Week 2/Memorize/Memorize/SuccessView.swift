@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SuccessView: View {
     @EnvironmentObject var memorizeGame: MemorizeGame
+    
     var body: some View {
         VStack {
             Text("Well Done!!")

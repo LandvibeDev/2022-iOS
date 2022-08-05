@@ -31,30 +31,27 @@ class MemorizeGame: ObservableObject {
     }
     
     static func createEmojiMemoryGame(currentTheme: Theme) -> MemoryGame<String> {
-        var numberOfPairsOfCard = currentTheme.numberOfCardsToShow
-        if currentTheme.numberOfCardsToShow > currentTheme.emojis.count {
-            numberOfPairsOfCard = currentTheme.emojis.count
+        var numberOfPairsOfCards = currentTheme.numberOfPairsOfCardsToShow
+        if currentTheme.numberOfPairsOfCardsToShow > currentTheme.emojis.count {
+            numberOfPairsOfCards = currentTheme.emojis.count
         }
-        return MemoryGame<String>(numberOfPairsOfCard: numberOfPairsOfCard, theme: currentTheme) { pairIndex in currentTheme.emojis[pairIndex]
+        return MemoryGame<String>(numberOfPairsOfCards: numberOfPairsOfCards, theme: currentTheme) { pairIndex in currentTheme.emojis.shuffled()[pairIndex]
         }
     }
     func changeTheme(nextTheme: Theme) {
-        var numberOfPairsOfCard = nextTheme.numberOfCardsToShow
-        if nextTheme.numberOfCardsToShow > nextTheme.emojis.count {
-            numberOfPairsOfCard = nextTheme.emojis.count
+        var numberOfPairsOfCards = nextTheme.numberOfPairsOfCardsToShow
+        if nextTheme.numberOfPairsOfCardsToShow > nextTheme.emojis.count {
+            numberOfPairsOfCards = nextTheme.emojis.count
         }
-        model.changeTheme(numberOfPairsOfCard: numberOfPairsOfCard, nextTheme: nextTheme) { pairIndex in
-            nextTheme.emojis[pairIndex]
+        model.changeTheme(numberOfPairsOfCards: numberOfPairsOfCards, nextTheme: nextTheme) { pairIndex in
+            nextTheme.emojis.shuffled()[pairIndex]
         }
     }
-    func changeScore(how: Int) {
-        model.score += how
-    }
-    func choose(_ card: MemoryGame<String>.Card) {
-        model.choose(card)
+    func choose(card: MemoryGame<String>.Card) {
+        model.choose(card: card)
     }
     func checkGameIsDone() -> Bool {
-        if model.numberOfMatchedPairs == model.cards.count {
+        if model.numberOfMatchedPairsOfCards == model.cards.count {
             return true
         } else {
             return false

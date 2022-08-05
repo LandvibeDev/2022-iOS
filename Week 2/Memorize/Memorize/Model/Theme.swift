@@ -7,6 +7,9 @@ enum Theme: String, CaseIterable {
     case nation = "nation"
     case food = "food"
     
+    static var randomTheme: Theme {
+        return Theme.allCases.randomElement() ?? .animal
+    }
     var emojis: [String] {
         switch self {
         case .animal:
@@ -43,10 +46,7 @@ enum Theme: String, CaseIterable {
             return .purple
         }
     }
-    static var randomTheme: Theme {
-        return Theme.allCases.randomElement() ?? .animal
-    }
-    var numberOfCardsToShow: Int {
+    var numberOfPairsOfCardsToShow: Int {
         switch self {
         case .nation:
             return 8

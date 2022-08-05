@@ -19,7 +19,7 @@ struct CardView: View {
         }
         .onTapGesture {
             if !card.isMatched {
-                memorizeGame.choose(card)
+                memorizeGame.choose(card: card)
             }
             
         }

@@ -1,14 +1,15 @@
 import Foundation
 
 struct MemoryGame<CardContent: Equatable> {
-    var cards: [Card]
-    var theme: Theme
-    var nowOpendCard: [Card] = []
-    var score = 0
-    var numberOfMatchedPairs = 0
-    init(numberOfPairsOfCard: Int, theme: Theme, createContent: (Int) -> CardContent) {
+    private(set) var cards: [Card]
+    private(set) var theme: Theme
+    private(set) var currentOpenedCards: [Card] = []
+    private(set) var score = 0
+    private(set) var numberOfMatchedPairsOfCards = 0
+    
+    init(numberOfPairsOfCards: Int, theme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
-        for pairIndex in 0 ..< numberOfPairsOfCard {
+        for pairIndex in 0 ..< numberOfPairsOfCards {
             let content = createContent(pairIndex)
             cards.append(Card(content: content, id: 2 * pairIndex))
             cards.append(Card(content: content, id: 2 * pairIndex + 1))
@@ -17,50 +18,50 @@ struct MemoryGame<CardContent: Equatable> {
         self.theme = theme
     }
     
-    mutating func choose(_ card: Card) {
+    mutating func choose(card: Card) {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
-            if nowOpendCard.count == 1 && nowOpendCard[0].id == card.id {
+            if currentOpenedCards.count == 1 && currentOpenedCards[0].id == card.id {
                 return
             }
             cards[chosenIndex].isFaceUp.toggle()
-            nowOpendCard.append(card)
-            if nowOpendCard.count == 3 {
+            currentOpenedCards.append(card)
+            if currentOpenedCards.count == 3 {
                 for index in 0 ... 1 {
-                    nowOpendCard[index].isFaceUp.toggle()
+                    currentOpenedCards[index].isFaceUp.toggle()
                 }
-                nowOpendCard.removeSubrange(0 ... 1)
+                currentOpenedCards.removeSubrange(0 ... 1)
             }
-            if nowOpendCard.count == 2 {
-                if nowOpendCard[0].content == nowOpendCard[1].content && abs(nowOpendCard[0].id - nowOpendCard[1].id) == 1 {
+            if currentOpenedCards.count == 2 {
+                if currentOpenedCards[0].content == currentOpenedCards[1].content && abs(currentOpenedCards[0].id - currentOpenedCards[1].id) == 1 {
                     score += 2
                     for index in 0 ... 1 {
-                        nowOpendCard[index].isMatched = true
-                        numberOfMatchedPairs += 1
+                        currentOpenedCards[index].isMatched = true
+                        numberOfMatchedPairsOfCards += 1
                     }
                 }
                 else {
                     for index in 0 ... 1 {
-                        if nowOpendCard[index].isOpend {
+                        if currentOpenedCards[index].isOpend {
                             score -= 1
                         }
-                        nowOpendCard[index].isOpend = true
+                        currentOpenedCards[index].isOpend = true
                     }
                 }
             }
         }
     }
-    mutating func changeTheme(numberOfPairsOfCard: Int, nextTheme: Theme, createContent: (Int) -> CardContent) {
+    mutating func changeTheme(numberOfPairsOfCards: Int, nextTheme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
-        for pairIndex in 0 ..< numberOfPairsOfCard {
+        score = 0
+        currentOpenedCards = []
+        numberOfMatchedPairsOfCards = 0
+        theme = nextTheme
+        for pairIndex in 0 ..< numberOfPairsOfCards {
             let content = createContent(pairIndex)
             cards.append(Card(content: content, id: 2 * pairIndex))
             cards.append(Card(content: content, id: 2 * pairIndex + 1))
         }
-        theme = nextTheme
         cards = cards.shuffled()
-        score = 0
-        nowOpendCard = []
-        numberOfMatchedPairs = 0
     }
     
     class Card: Identifiable, ObservableObject {
@@ -69,6 +70,7 @@ struct MemoryGame<CardContent: Equatable> {
         var isOpend = false
         let content: CardContent
         let id: Int
+        
         init(content: CardContent, id: Int) {
             self.content = content
             self.id = id
