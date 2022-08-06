@@ -31,5 +31,3 @@ struct CardView_Previews: PreviewProvider {
         CardView(card: MemorizeGame<String>.Card(content: "aa", id: 1))
     }
 }
-
-
