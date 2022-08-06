@@ -2,7 +2,7 @@
 import SwiftUI
 
 @main
-struct changgyoAssignment: App {
+struct ChanggyoAssignment: App {
     let environmentObject = MemorizeGameManger()
     
     var body: some Scene {
