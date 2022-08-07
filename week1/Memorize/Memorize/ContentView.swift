@@ -13,24 +13,29 @@ struct ContentView: View {
   
   var body: some View {
     VStack {
-      Text("Memorize!")
-        .font(.largeTitle)
-        .padding()
-      ScrollView(showsIndicators: false) {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
-          ForEach(viewModel.cards) { card in
-            CardView(card: card)
-              .onTapGesture{
-                viewModel.choose(card)
-              }
+      
+        Text("Memorize!")
+          .font(.largeTitle)
+          .padding()
+        ScrollView(showsIndicators: false) {
+          LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
+            ForEach(viewModel.cards) { card in
+              CardView(card: card)
+                .onTapGesture{
+                  print("state")
+                  print(viewModel.state)
+                  viewModel.choose(card)
+                }
+            }
           }
-        }
-      }.padding()
+        }.padding()
+      
     }
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
+  
   static var previews: some View {
     ContentView()
   }

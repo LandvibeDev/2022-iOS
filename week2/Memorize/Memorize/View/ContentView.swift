@@ -13,24 +13,31 @@ struct ContentView: View {
   
   var body: some View {
     VStack {
-      Text("Memorize!")
-        .font(.largeTitle)
-        .padding()
-      ScrollView(showsIndicators: false) {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
-          ForEach(viewModel.cards) { card in
-            CardView(card: card)
-              .onTapGesture{
-                viewModel.choose(card)
-              }
+      switch viewModel.state {
+      case .playing:
+        Text("Memorize!")
+        ScrollView(showsIndicators: false) {
+          LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
+            ForEach(viewModel.cards) { card in
+              CardView(card: card)
+                .onTapGesture{
+                  viewModel.choose(card)
+                }
+            }
           }
         }
-      }.padding()
+      case .done:
+        Text("Well Done!")
+        Text("You got Points!!")
+      }
     }
+    .font(.largeTitle)
+    .padding()
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
+  
   static var previews: some View {
     ContentView(viewModel: EmojiMemoryGame())
   }

@@ -10,12 +10,19 @@ import Foundation
 struct MemoryGame<CardContent: Equatable> {
   
   var cards: [Card]
+  var gameState: GameState = .playing
   private var firstChosenCardIndex: Int?
   private var secondChosenCardIndex: Int?
+  private var numberOfMatchedCard = 0
   
-  init(numberOfPairsOfCard: Int, createContent: (Int) -> CardContent) {
+  enum GameState {
+    case playing
+    case done
+  }
+  
+  init(numberOfCardPairs: Int, createContent: (Int) -> CardContent) {
     cards = [Card]()
-    for pairIndex in 0..<numberOfPairsOfCard {
+    for pairIndex in 0..<numberOfCardPairs {
       let content = createContent(pairIndex)
       cards.append(Card(content: content, id: 2 * pairIndex))
       cards.append(Card(content: content, id: 2 * pairIndex + 1))
@@ -23,23 +30,29 @@ struct MemoryGame<CardContent: Equatable> {
   }
   
   mutating func choose(_ card: Card) {
-    if let currentChosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
-      cards[currentChosenIndex].isFaceUp.toggle()
+    if let currentChosenCardIndex = cards.firstIndex(where: { $0.id == card.id }) {
+      cards[currentChosenCardIndex].isFaceUp.toggle()
         if let prevChosenCardIndex = firstChosenCardIndex {
           if let afterChosenCardIndex = secondChosenCardIndex {
           if cards[afterChosenCardIndex].content == cards[prevChosenCardIndex].content {
             cards[afterChosenCardIndex].isMatched = true
             cards[prevChosenCardIndex].isMatched = true
+            numberOfMatchedCard += 2
           }
           cards[afterChosenCardIndex].isFaceUp.toggle()
           cards[prevChosenCardIndex].isFaceUp.toggle()
           secondChosenCardIndex = nil
-          firstChosenCardIndex = currentChosenIndex
+          firstChosenCardIndex = currentChosenCardIndex
         } else {
-          secondChosenCardIndex = currentChosenIndex
+          if (numberOfMatchedCard == cards.count-2) {
+            cards[currentChosenCardIndex].isMatched = true
+            cards[prevChosenCardIndex].isMatched = true
+            gameState = .done
+          }
+          secondChosenCardIndex = currentChosenCardIndex
         }
       } else {
-        firstChosenCardIndex = currentChosenIndex
+        firstChosenCardIndex = currentChosenCardIndex
       }
     }
   }
