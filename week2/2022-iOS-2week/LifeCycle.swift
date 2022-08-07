@@ -3,11 +3,11 @@ import SwiftUI
 
 @main
 struct ChanggyoAssignment: App {
-    let environmentObject = MemorizeGameManger()
+    let imojiMemorizeGameManager = MemorizeGameManger()
     
     var body: some Scene {
         WindowGroup {
-            MainGameBoardView().environmentObject(environmentObject)
+            MainGameBoardView().environmentObject(imojiMemorizeGameManager)
         }
     }
 }

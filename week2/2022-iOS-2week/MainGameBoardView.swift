@@ -11,7 +11,7 @@ struct MainGameBoardView: View {
                     Spacer()
                     Text("Finish this round")
                         .font(.system(size: 40))
-                    Text("you got a \(gameManager.gameManage.point) Point")
+                    Text("you got \(gameManager.gameManage.point) Points")
                     Spacer()
                 }
             }
