@@ -19,7 +19,7 @@ class MemorizeGameDealer: ObservableObject {
         return memorizeGameManager.numberOfMatchedPairsOfCards == memorizeGameManager.cards.count / 2
     }
     var themeColor: Color {
-        switch currentTheme.cardColor {
+        switch currentTheme.themeColor {
         case .red:
             return .red
         case .orange:

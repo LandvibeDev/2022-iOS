@@ -30,7 +30,7 @@ enum Theme: String, CaseIterable {
         }
         return emoji.shuffled()
     }
-    var cardColor: CardColor {
+    var themeColor: ThemeColor {
         switch self {
         case .animal:
             return .red
@@ -63,7 +63,7 @@ enum Theme: String, CaseIterable {
 }
 
 extension Theme {
-    enum CardColor {
+    enum ThemeColor {
         case red
         case orange
         case yellow
