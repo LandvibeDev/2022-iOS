@@ -3,7 +3,7 @@ import Foundation
 struct MemorizeGame<CardContent: Equatable> {
     private(set) var cards: [Card] = []
     private(set) var score = 0
-    var currentOpenedCards: [Card] = []
+    private var currentOpenedCards: [Card] = []
     var numberOfMatchedPairsOfCards: Int {
         cards.filter({ $0.isMatched }).count / 2
     }
@@ -29,49 +29,9 @@ struct MemorizeGame<CardContent: Equatable> {
     }
     
     mutating func choose(card: Card) {
-        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
-            if currentOpenedCards.count == 1 && currentOpenedCards[0].id == card.id {
-                return
-            }
-            cards[chosenIndex].isFaceUp = true
-            currentOpenedCards.append(card)
-        }
-        if currentOpenedCards.count == 3 {
-            for _ in 0 ... 1 {
-                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
-                    cards[someIndex].isFaceUp = false
-                }
-                currentOpenedCards.remove(at: 0)
-            }
-        }
-        if currentOpenedCards.count == 2 {
-            if currentOpenedCards.first?.content == currentOpenedCards.reversed().first?.content {
-                score += 2
-                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
-                    cards[someIndex].isMatched = true
-                }
-                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
-                    cards[someIndex].isMatched = true
-                }
-            } else {
-                if let someBool = currentOpenedCards.first {
-                    if someBool.isFaceUpAtLeastOnce {
-                        score -= 1
-                    }
-                }
-                if let someBool = currentOpenedCards.reversed().first {
-                    if someBool.isFaceUpAtLeastOnce {
-                        score -= 1
-                    }
-                }
-                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
-                    cards[someIndex].isFaceUpAtLeastOnce = true
-                }
-                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
-                    cards[someIndex].isFaceUpAtLeastOnce = true
-                }
-            }
-        }
+        faceUpCardAftercheck(card: card)
+        FaceDownTwoCards()
+        IsTwoCardsFaceUp()
     }
     
     struct Card: Identifiable {
@@ -81,4 +41,55 @@ struct MemorizeGame<CardContent: Equatable> {
         let content: CardContent
         var id: Int
     }
+}
+
+extension MemorizeGame {
+    mutating func IsTwoCardsFaceUp() {
+        if currentOpenedCards.count == 2 {
+            if currentOpenedCards.first?.content == currentOpenedCards.reversed().first?.content {
+                score += 2
+                
+                if let chosenIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
+                    cards[chosenIndex].isMatched = true
+                }
+                if let chosenIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
+                    cards[chosenIndex].isMatched = true
+                }
+            } else {
+                if currentOpenedCards.first?.isFaceUpAtLeastOnce == true {
+                    score -= 1
+                }
+                if currentOpenedCards.reversed().first?.isFaceUpAtLeastOnce == true {
+                    score -= 1
+                }
+                
+                if let chosenIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
+                    cards[chosenIndex].isFaceUpAtLeastOnce = true
+                }
+                if let chosenIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
+                    cards[chosenIndex].isFaceUpAtLeastOnce = true
+                }
+            }
+        }
+    }
+    mutating func FaceDownTwoCards() {
+        if currentOpenedCards.count == 3 {
+            for _ in 0 ... 1 {
+                if let chosenIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
+                    cards[chosenIndex].isFaceUp = false
+                }
+                currentOpenedCards.remove(at: 0)
+            }
+        }
+    }
+    mutating func faceUpCardAftercheck(card: Card) {
+        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
+            if currentOpenedCards.count == 1 && currentOpenedCards[0].id == card.id {
+                return
+            }
+            cards[chosenIndex].isFaceUp = true
+            currentOpenedCards.append(card)
+        }
+    }
+    
 }

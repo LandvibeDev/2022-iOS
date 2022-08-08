@@ -44,8 +44,6 @@ class MemorizeGameDealer: ObservableObject {
         if Self.theme.numberOfPairsOfCardsToShow > emojis.count {
             numberOfPairsOfCards = emojis.count
         }
-        print(Self.theme)
-        print(emojis[0])
         return MemorizeGame<String>(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in
             emojis[pairIndex]
         }
