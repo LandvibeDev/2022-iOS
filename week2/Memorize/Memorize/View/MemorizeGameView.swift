@@ -11,8 +11,7 @@ struct MemorizeGameView: View {
                 NewGameButton()
             }
             .foregroundColor(memorizeGame.themeColor)
-        }
-        else {
+        } else {
             VStack {
                 ScrollView {
                     HStack {
