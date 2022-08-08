@@ -2,21 +2,31 @@ import Foundation
 
 struct MemorizeGame<CardContent: Equatable> {
     private(set) var cards: [Card] = []
-    private(set) var theme: Theme
     private(set) var score = 0
     var currentOpenedCards: [Card] = []
     var numberOfMatchedPairsOfCards: Int {
         cards.filter({ $0.isMatched }).count / 2
     }
     
-    init(numberOfPairsOfCards: Int, theme: Theme, createContent: (Int) -> CardContent) {
-        self.theme = theme
+    init(numberOfPairsOfCards: Int, createContent: (Int) -> CardContent) {
+        cards = makeCards(numberOfPairsOfCards: numberOfPairsOfCards, createContent: createContent)
+    }
+    
+    func makeCards(numberOfPairsOfCards: Int, createContent: (Int) -> CardContent) -> [Card] {
+        var cards: [Card] = []
         for pairIndex in 0 ..< numberOfPairsOfCards {
             let content = createContent(pairIndex)
             cards.append(Card(content: content, id: 2 * pairIndex))
             cards.append(Card(content: content, id: 2 * pairIndex + 1))
         }
-        cards = cards.shuffled()
+        return cards.shuffled()
+    }
+    
+    mutating func newGame(numberOfPairsOfCards: Int, createContent: (Int) -> CardContent) {
+        score = 0
+        currentOpenedCards = []
+        cards = makeCards(numberOfPairsOfCards: numberOfPairsOfCards, createContent: createContent)
+        
     }
     
     mutating func choose(card: Card) {
@@ -65,19 +75,6 @@ struct MemorizeGame<CardContent: Equatable> {
             }
         }
         
-    }
-    
-    mutating func newGame(numberOfPairsOfCards: Int, nextTheme: Theme, createContent: (Int) -> CardContent) {
-        cards = [Card]()
-        score = 0
-        currentOpenedCards = []
-        theme = nextTheme
-        for pairIndex in 0 ..< numberOfPairsOfCards {
-            let content = createContent(pairIndex)
-            cards.append(Card(content: content, id: 2 * pairIndex))
-            cards.append(Card(content: content, id: 2 * pairIndex + 1))
-        }
-        cards = cards.shuffled()
     }
     
     struct Card: Identifiable {

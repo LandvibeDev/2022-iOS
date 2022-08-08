@@ -2,17 +2,18 @@ import SwiftUI
 
 class MemorizeGameDealer: ObservableObject {
     @Published private var memorizeGameManager = createEmojiMemoryGame()
+    private var theme = Theme.randomTheme
     var cards: [MemorizeGame<String>.Card] {
         return memorizeGameManager.cards
     }
     var currentTheme: Theme {
-        return memorizeGameManager.theme
+        return theme
     }
     var score: Int {
         return memorizeGameManager.score
     }
     var currentThemeName: String {
-        return memorizeGameManager.theme.rawValue
+        return theme.rawValue
     }
     var gameIsFinished: Bool {
         return memorizeGameManager.numberOfMatchedPairsOfCards == memorizeGameManager.cards.count / 2
@@ -43,20 +44,20 @@ class MemorizeGameDealer: ObservableObject {
         if currentTheme.numberOfPairsOfCardsToShow > emojis.count {
             numberOfPairsOfCards = emojis.count
         }
-        return MemorizeGame<String>(numberOfPairsOfCards: numberOfPairsOfCards, theme: currentTheme) { pairIndex in
+        return MemorizeGame<String>(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in
             emojis[pairIndex]
         }
     }
     
     func newGame() {
-        let nextTheme = Theme.randomTheme
-        var numberOfPairsOfCards = nextTheme.numberOfPairsOfCardsToShow
-        let emojis = nextTheme.emojis
+        theme = Theme.randomTheme
+        var numberOfPairsOfCards = theme.numberOfPairsOfCardsToShow
+        let emojis = theme.emojis
         
-        if nextTheme.numberOfPairsOfCardsToShow > emojis.count {
+        if theme.numberOfPairsOfCardsToShow > emojis.count {
             numberOfPairsOfCards = emojis.count
         }
-        memorizeGameManager.newGame(numberOfPairsOfCards: numberOfPairsOfCards, nextTheme: nextTheme) { pairIndex in
+        memorizeGameManager.newGame(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in
             emojis[pairIndex]
         }
     }
