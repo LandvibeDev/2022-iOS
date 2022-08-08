@@ -15,7 +15,7 @@ class MemorizeGameDealer: ObservableObject {
     var currentThemeName: String {
         return Self.theme.rawValue
     }
-    var gameIsFinished: Bool {
+    var isFinished: Bool {
         return memorizeGameManager.numberOfMatchedPairsOfCards == memorizeGameManager.cards.count / 2
     }
     var themeColor: Color {

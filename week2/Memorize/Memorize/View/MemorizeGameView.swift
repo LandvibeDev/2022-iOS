@@ -1,22 +1,22 @@
 import SwiftUI
 
 struct MemorizeGameView: View {
-    @EnvironmentObject var memorizeGame: MemorizeGameDealer
+    @EnvironmentObject var memorizeGameDealer: MemorizeGameDealer
     
     var body: some View {
-        if memorizeGame.gameIsFinished {
+        if memorizeGameDealer.isFinished {
             VStack {
-                SuccessView(score: memorizeGame.score)
+                SuccessView(score: memorizeGameDealer.score)
                 Spacer()
                 NewGameButton()
             }
-            .foregroundColor(memorizeGame.themeColor)
+            .foregroundColor(memorizeGameDealer.themeColor)
         } else {
             VStack {
                 ScrollView {
                     HStack {
-                        ThemeNameView(currentThemeName: memorizeGame.currentThemeName)
-                        ScoreView(score: memorizeGame.score)
+                        ThemeNameView(currentThemeName: memorizeGameDealer.currentThemeName)
+                        ScoreView(score: memorizeGameDealer.score)
                             .frame(width: 150, alignment: .trailing)
                     }
                     CardListView()
@@ -25,7 +25,7 @@ struct MemorizeGameView: View {
                 .padding()
                 NewGameButton()
             }
-            .foregroundColor(memorizeGame.themeColor)
+            .foregroundColor(memorizeGameDealer.themeColor)
         }
     }
 }

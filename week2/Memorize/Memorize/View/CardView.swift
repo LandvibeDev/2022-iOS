@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CardView: View {
-    @EnvironmentObject var memorizeGame: MemorizeGameDealer
+    @EnvironmentObject var memorizeGameDealer: MemorizeGameDealer
     var card: MemorizeGame<String>.Card
     
     var body: some View {
@@ -14,12 +14,12 @@ struct CardView: View {
             } else if card.isMatched {
                 shape.fill(.white)
             } else {
-                shape.fill().foregroundColor(memorizeGame.themeColor)
+                shape.fill().foregroundColor(memorizeGameDealer.themeColor)
             }
         }
         .onTapGesture {
             if !card.isMatched {
-                memorizeGame.choose(card: card)
+                memorizeGameDealer.choose(card: card)
             }
             
         }
