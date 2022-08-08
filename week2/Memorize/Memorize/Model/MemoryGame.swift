@@ -7,17 +7,16 @@
 
 import Foundation
 
-struct MemoryGame<CardContent: Equatable> {
+struct MemoryGame<CardContent> where CardContent: Equatable {
   
-  var cards: [Card]
-  var gameState: GameState = .playing
-  private var firstChosenCardIndex: Int?
-  private var secondChosenCardIndex: Int?
+  private(set) var cards: [Card]
+  private(set) var gameState: GameState = .playing
+  private(set) var point = 0
+  private var prevChosenCardIndex: Int?
   private var numberOfMatchedCard = 0
   
   enum GameState {
-    case playing
-    case done
+    case playing, done
   }
   
   init(numberOfCardPairs: Int, createContent: (Int) -> CardContent) {
@@ -27,32 +26,34 @@ struct MemoryGame<CardContent: Equatable> {
       cards.append(Card(content: content, id: 2 * pairIndex))
       cards.append(Card(content: content, id: 2 * pairIndex + 1))
     }
+    cards.shuffle()
   }
   
   mutating func choose(_ card: Card) {
     if let currentChosenCardIndex = cards.firstIndex(where: { $0.id == card.id }) {
-      cards[currentChosenCardIndex].isFaceUp.toggle()
-        if let prevChosenCardIndex = firstChosenCardIndex {
-          if let afterChosenCardIndex = secondChosenCardIndex {
-          if cards[afterChosenCardIndex].content == cards[prevChosenCardIndex].content {
-            cards[afterChosenCardIndex].isMatched = true
-            cards[prevChosenCardIndex].isMatched = true
-            numberOfMatchedCard += 2
-          }
-          cards[afterChosenCardIndex].isFaceUp.toggle()
-          cards[prevChosenCardIndex].isFaceUp.toggle()
-          secondChosenCardIndex = nil
-          firstChosenCardIndex = currentChosenCardIndex
-        } else {
-          if (numberOfMatchedCard == cards.count-2) {
+      if cards[currentChosenCardIndex].isAlreadyOpened == true {
+        point -= 1
+      }
+      if let alreadyChosenCardIndex = prevChosenCardIndex {
+        if cards[currentChosenCardIndex].id != cards[alreadyChosenCardIndex].id {
+          if cards[currentChosenCardIndex].content == cards[alreadyChosenCardIndex].content {
             cards[currentChosenCardIndex].isMatched = true
-            cards[prevChosenCardIndex].isMatched = true
-            gameState = .done
+            cards[alreadyChosenCardIndex].isMatched = true
+            numberOfMatchedCard += 2
+            point += 3
           }
-          secondChosenCardIndex = currentChosenCardIndex
+          prevChosenCardIndex = nil
         }
       } else {
-        firstChosenCardIndex = currentChosenCardIndex
+        for index in 0..<cards.count {
+          cards[index].isFaceUp = false
+        }
+        prevChosenCardIndex = currentChosenCardIndex
+      }
+      cards[currentChosenCardIndex].isFaceUp.toggle()
+      cards[currentChosenCardIndex].isAlreadyOpened = true
+      if numberOfMatchedCard == cards.count {
+        gameState = .done
       }
     }
   }
@@ -61,6 +62,7 @@ struct MemoryGame<CardContent: Equatable> {
     
     var isFaceUp = false
     var isMatched = false
+    var isAlreadyOpened = false
     var content: CardContent
     var id: Int
   }
