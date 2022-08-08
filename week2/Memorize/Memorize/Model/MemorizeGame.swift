@@ -26,7 +26,6 @@ struct MemorizeGame<CardContent: Equatable> {
         score = 0
         currentOpenedCards = []
         cards = makeCards(numberOfPairsOfCards: numberOfPairsOfCards, createContent: createContent)
-        
     }
     
     mutating func choose(card: Card) {
@@ -54,8 +53,7 @@ struct MemorizeGame<CardContent: Equatable> {
                 if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
                     cards[someIndex].isMatched = true
                 }
-            }
-            else {
+            } else {
                 if let someBool = currentOpenedCards.first {
                     if someBool.isFaceUpAtLeastOnce {
                         score -= 1
@@ -74,7 +72,6 @@ struct MemorizeGame<CardContent: Equatable> {
                 }
             }
         }
-        
     }
     
     struct Card: Identifiable {

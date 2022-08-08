@@ -2,18 +2,18 @@ import SwiftUI
 
 class MemorizeGameDealer: ObservableObject {
     @Published private var memorizeGameManager = createEmojiMemoryGame()
-    private var theme = Theme.randomTheme
+    static private var theme = Theme.randomTheme
     var cards: [MemorizeGame<String>.Card] {
         return memorizeGameManager.cards
     }
     var currentTheme: Theme {
-        return theme
+        return Self.theme
     }
     var score: Int {
         return memorizeGameManager.score
     }
     var currentThemeName: String {
-        return theme.rawValue
+        return Self.theme.rawValue
     }
     var gameIsFinished: Bool {
         return memorizeGameManager.numberOfMatchedPairsOfCards == memorizeGameManager.cards.count / 2
@@ -37,24 +37,26 @@ class MemorizeGameDealer: ObservableObject {
         }
     }
     
-    private static func createEmojiMemoryGame(currentTheme: Theme = .randomTheme) -> MemorizeGame<String> {
-        var numberOfPairsOfCards = currentTheme.numberOfPairsOfCardsToShow
-        let emojis = currentTheme.emojis
-        
-        if currentTheme.numberOfPairsOfCardsToShow > emojis.count {
+    private static func createEmojiMemoryGame() -> MemorizeGame<String> {
+        Self.theme = .randomTheme
+        var numberOfPairsOfCards = Self.theme.numberOfPairsOfCardsToShow
+        let emojis = Self.theme.emojis
+        if Self.theme.numberOfPairsOfCardsToShow > emojis.count {
             numberOfPairsOfCards = emojis.count
         }
+        print(Self.theme)
+        print(emojis[0])
         return MemorizeGame<String>(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in
             emojis[pairIndex]
         }
     }
     
     func newGame() {
-        theme = Theme.randomTheme
-        var numberOfPairsOfCards = theme.numberOfPairsOfCardsToShow
-        let emojis = theme.emojis
+        Self.theme = Theme.randomTheme
+        var numberOfPairsOfCards = Self.theme.numberOfPairsOfCardsToShow
+        let emojis = Self.theme.emojis
         
-        if theme.numberOfPairsOfCardsToShow > emojis.count {
+        if Self.theme.numberOfPairsOfCardsToShow > emojis.count {
             numberOfPairsOfCards = emojis.count
         }
         memorizeGameManager.newGame(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in
