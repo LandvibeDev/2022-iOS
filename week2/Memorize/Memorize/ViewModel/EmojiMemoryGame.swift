@@ -9,10 +9,8 @@ import Foundation
 
 class EmojiMemoryGame: ObservableObject {
   
-  private static let emojis = ["🚗", "🚕", "🚙", "🚌", "🚜", "🚚", "🚛", "🛻", "🚎", "🚐", "🚒", "🚑", "🚓", "🏎", "🚞", "🚆", "🚁", "🚀"]
-  
   private static func createEmojiMemoryGame() -> MemoryGame<String> {
-    MemoryGame<String>(numberOfCardPairs: 5) { pairIndex in emojis[pairIndex] }
+    MemoryGame<String>(numberOfCardPairs: 5) { pairIndex in EmojiTheme.vehicles.content[pairIndex] }
   }
   
   @Published private var memoryGameModel = createEmojiMemoryGame()

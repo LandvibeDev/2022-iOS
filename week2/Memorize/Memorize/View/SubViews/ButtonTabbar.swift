@@ -22,6 +22,7 @@ struct ButtonTabbar: View {
 }
 
 struct ButtonTabbar_Previews: PreviewProvider {
+  
   static var previews: some View {
     ButtonTabbar(memoryGameManager: EmojiMemoryGame())
   }
