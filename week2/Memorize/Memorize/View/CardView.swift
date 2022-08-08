@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CardView: View {
     @EnvironmentObject var memorizeGame: MemorizeGameDealer
-    @ObservedObject var card: MemorizeGame<String>.Card
+    var card: MemorizeGame<String>.Card
     
     var body: some View {
         ZStack {

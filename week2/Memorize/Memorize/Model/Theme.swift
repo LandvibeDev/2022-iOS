@@ -1,32 +1,34 @@
 enum Theme: String, CaseIterable {
-    case animal = "animal"
-    case emotion = "emotion"
-    case fruit = "fruit"
-    case activity = "activity"
-    case vehicle = "vehicle"
-    case nation = "nation"
-    case food = "food"
+    case animal
+    case emotion
+    case fruit
+    case activity
+    case vehicle
+    case nation
+    case food
     
     static var randomTheme: Theme {
         return Theme.allCases.randomElement() ?? .emotion
     }
     var emojis: [String] {
+        let emoji: [String]
         switch self {
         case .animal:
-            return ["🐶", "🐱","🐭", "🐰", "🐻", "🐼", "🐨", "🦁", "🐮", "🐷", "🐥", "🦊", "🐵", "🦄", "🦓"].shuffled()
+            emoji = ["🐶", "🐱","🐭", "🐰", "🐻", "🐼", "🐨", "🦁", "🐮", "🐷", "🐥", "🦊", "🐵", "🦄", "🦓"]
         case .emotion:
-            return ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥", "😝", "🤑", "😎"].shuffled()
+            emoji = ["🥺", "🥸", "🤩", "😜", "🧐", "😤", "😛", "🥳", "🥶", "😓", "🫡", "🫥", "😝", "🤑", "😎"]
         case .fruit:
-            return ["🍏", "🍎", "🍐", "🍊", "🍋"].shuffled()
+            emoji = ["🍏", "🍎", "🍐", "🍊", "🍋"]
         case .activity:
-            return ["🥎", "🎱", "⚾", "⚽", "🏀", "🏈", "🎾", "🏐", "🏉"].shuffled()
+            emoji = ["🥎", "🎱", "⚾", "⚽", "🏀", "🏈", "🎾", "🏐", "🏉"]
         case .vehicle:
-            return ["🚗", "🚙", "🚕", "🛺", "🚌", "🚎", "🚓", "🏎", "🚑", "🚒", "🚐", "🛻", "🚚", "🏍", "🛵", "🚜"].shuffled()
+            emoji = ["🚗", "🚙", "🚕", "🛺", "🚌", "🚎", "🚓", "🏎", "🚑", "🚒", "🚐", "🛻", "🚚", "🏍", "🛵", "🚜"]
         case .nation:
-            return ["🇰🇷", "🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇫🇷", "🇲🇱", "🇧🇷", "🇨🇦", "🇦🇺", "🇬🇹", "🇺🇾", "🇺🇸", "🇺🇬", "🇺🇦"].shuffled()
+            emoji = ["🇰🇷", "🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇫🇷", "🇲🇱", "🇧🇷", "🇨🇦", "🇦🇺", "🇬🇹", "🇺🇾", "🇺🇸", "🇺🇬", "🇺🇦"]
         case .food:
-            return ["🥓", "🍔", "🍟", "🌭", "🍕", "🍝", "🥪", "🌮", "🌯", "🫔", "🥙", "🧆", "🍜", "🥘", "🍲", "🫕", "🥫", "🍩", "🍿", "🍫", "🍭", "🍮", "🍘", "🍙"].shuffled()
+            emoji = ["🥓", "🍔", "🍟", "🌭", "🍕", "🍝", "🥪", "🌮", "🌯", "🫔", "🥙", "🧆", "🍜", "🥘", "🍲", "🫕", "🥫", "🍩", "🍿", "🍫", "🍭", "🍮", "🍘", "🍙"]
         }
+        return emoji.shuffled()
     }
     var cardColor: CardColor {
         switch self {
@@ -57,5 +59,17 @@ enum Theme: String, CaseIterable {
         default:
             return self.emojis.count
         }
+    }
+}
+
+extension Theme {
+    enum CardColor {
+        case red
+        case orange
+        case yellow
+        case green
+        case blue
+        case indigo
+        case purple
     }
 }

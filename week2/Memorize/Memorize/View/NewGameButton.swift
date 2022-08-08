@@ -5,7 +5,7 @@ struct NewGameButton: View {
     
     var body: some View {
         Button("New Game") {
-            memorizeGame.changeTheme(nextTheme: Theme.randomTheme)
+            memorizeGame.newGame()
         }
     }
 }

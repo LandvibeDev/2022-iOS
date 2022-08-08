@@ -2,11 +2,11 @@ import SwiftUI
 
 @main
 struct MemorizeApp: App {
-    var memorizeGame = MemorizeGameDealer()
+    private var memorizeGame = MemorizeGameDealer()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MemorizeGameView()
                 .environmentObject(memorizeGame)
         }
     }

@@ -1,21 +1,22 @@
 import Foundation
 
 struct MemorizeGame<CardContent: Equatable> {
-    private(set) var cards: [Card]
+    private(set) var cards: [Card] = []
     private(set) var theme: Theme
-    private(set) var currentOpenedCards: [Card] = []
     private(set) var score = 0
-    private(set) var numberOfMatchedPairsOfCards = 0
+    var currentOpenedCards: [Card] = []
+    var numberOfMatchedPairsOfCards: Int {
+        cards.filter({ $0.isMatched }).count / 2
+    }
     
     init(numberOfPairsOfCards: Int, theme: Theme, createContent: (Int) -> CardContent) {
-        cards = [Card]()
+        self.theme = theme
         for pairIndex in 0 ..< numberOfPairsOfCards {
             let content = createContent(pairIndex)
             cards.append(Card(content: content, id: 2 * pairIndex))
             cards.append(Card(content: content, id: 2 * pairIndex + 1))
         }
         cards = cards.shuffled()
-        self.theme = theme
     }
     
     mutating func choose(card: Card) {
@@ -23,38 +24,53 @@ struct MemorizeGame<CardContent: Equatable> {
             if currentOpenedCards.count == 1 && currentOpenedCards[0].id == card.id {
                 return
             }
-            cards[chosenIndex].isFaceUp.toggle()
+            cards[chosenIndex].isFaceUp = true
             currentOpenedCards.append(card)
-            if currentOpenedCards.count == 3 {
-                for index in 0 ... 1 {
-                    currentOpenedCards[index].isFaceUp.toggle()
+        }
+        if currentOpenedCards.count == 3 {
+            for _ in 0 ... 1 {
+                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
+                    cards[someIndex].isFaceUp = false
                 }
-                currentOpenedCards.removeSubrange(0 ... 1)
+                currentOpenedCards.remove(at: 0)
             }
-            if currentOpenedCards.count == 2 {
-                if currentOpenedCards[0].content == currentOpenedCards[1].content && abs(currentOpenedCards[0].id - currentOpenedCards[1].id) == 1 {
-                    score += 2
-                    for index in 0 ... 1 {
-                        currentOpenedCards[index].isMatched = true
-                        numberOfMatchedPairsOfCards += 1
+        }
+        if currentOpenedCards.count == 2 {
+            if currentOpenedCards.first?.content == currentOpenedCards.reversed().first?.content {
+                score += 2
+                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
+                    cards[someIndex].isMatched = true
+                }
+                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
+                    cards[someIndex].isMatched = true
+                }
+            }
+            else {
+                if let someBool = currentOpenedCards.first {
+                    if someBool.isFaceUpAtLeastOnce {
+                        score -= 1
                     }
                 }
-                else {
-                    for index in 0 ... 1 {
-                        if currentOpenedCards[index].isOpend {
-                            score -= 1
-                        }
-                        currentOpenedCards[index].isOpend = true
+                if let someBool = currentOpenedCards.reversed().first {
+                    if someBool.isFaceUpAtLeastOnce {
+                        score -= 1
                     }
+                }
+                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
+                    cards[someIndex].isFaceUpAtLeastOnce = true
+                }
+                if let someIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.reversed().first?.id }) {
+                    cards[someIndex].isFaceUpAtLeastOnce = true
                 }
             }
         }
+        
     }
-    mutating func changeTheme(numberOfPairsOfCards: Int, nextTheme: Theme, createContent: (Int) -> CardContent) {
+    
+    mutating func newGame(numberOfPairsOfCards: Int, nextTheme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
         score = 0
         currentOpenedCards = []
-        numberOfMatchedPairsOfCards = 0
         theme = nextTheme
         for pairIndex in 0 ..< numberOfPairsOfCards {
             let content = createContent(pairIndex)
@@ -64,16 +80,11 @@ struct MemorizeGame<CardContent: Equatable> {
         cards = cards.shuffled()
     }
     
-    class Card: Identifiable, ObservableObject {
-        @Published var isFaceUp = false
+    struct Card: Identifiable {
+        var isFaceUp = false
         var isMatched = false
-        var isOpend = false
+        var isFaceUpAtLeastOnce = false
         let content: CardContent
-        let id: Int
-        
-        init(content: CardContent, id: Int) {
-            self.content = content
-            self.id = id
-        }
+        var id: Int
     }
 }
