@@ -83,7 +83,6 @@ extension MemorizeGame {
                 if currentOpenedCards.reversed().first?.isFaceUpAtLeastOnce == true {
                     score -= 1
                 }
-                
                 if let chosenIndex = cards.firstIndex(where: { $0.id == currentOpenedCards.first?.id }) {
                     cards[chosenIndex].isFaceUpAtLeastOnce = true
                 }
