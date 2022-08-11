@@ -9,31 +9,42 @@ import SwiftUI
 
 class ThemeMemoryGame: ObservableObject {
     
-    @Published var themeGame = createMemoryGame(createNewTheme())
+    @Published var memoryGame = createMemoryGame()
+    static var theme = Theme.createNewTheme()
+    
+    static let emojis = theme.Emojis
+    var numberOfCardPair = theme.numberOfCardPair
+//
+//    var color: Color {
+//        switch theme.color {
+//        case .orange:
+//            return .orange
+//        case .red:
+//            return .red
+//        }
+//    }
+    
+   
     var cards: [MemoryGame<String>.Card] {
-        return themeGame.cards
+        return memoryGame.cards
     }
     
-    static let emojis = createNewTheme().Emojis
+
     
-    
-    
-    
-    static func createMemoryGame(_ theme: Theme) -> MemoryGame<String> {
+        
+    static func createMemoryGame() -> MemoryGame<String> {
         MemoryGame<String>(theme: theme) { pairIndex in emojis[pairIndex] }
     }
     
-    static func createNewTheme() -> Theme {
-        let newTheme = Theme.allCases.randomElement()!
-        //        var numberOfCardPair = newTheme.randomNumberOfCardPair
-        //        if numberOfCardPair > newTheme.Emojis.count {
-        //            numberOfCardPair = newTheme.Emojis.count
-        //        }
-        return newTheme
-    }
+    
+//    static func createTheme() -> Theme {
+//
+//    }
+    
+    
     
     func choose(_ card: MemoryGame<String>.Card) {
-        themeGame.choose(card)
+        memoryGame.choose(card)
     }
     
 }

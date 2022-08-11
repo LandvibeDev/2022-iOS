@@ -27,6 +27,25 @@ enum Theme: String, CaseIterable {
         case black
     }
     
+    var color: Color {
+        switch self {
+        case .halloween:
+            return .orange
+        case .sports:
+            return .blue
+        case .nature:
+            return .green
+        case .animal:
+            return .yellow
+        case .vehicle:
+            return .red
+        case .face:
+            return .purple
+        case .flag:
+            return .cyan
+        }
+    }
+    
     var Emojis: [String] {
         switch self {
         case .halloween:
@@ -46,7 +65,7 @@ enum Theme: String, CaseIterable {
         }
     }
 
-    var randomNumberOfCardPair: Int {
+    var numberOfCardPair: Int {
         let randomNumber = 2 * Int.random(in: 1...5)
         
         let test1 = print("randomNumber : \(randomNumber)")
@@ -57,6 +76,14 @@ enum Theme: String, CaseIterable {
         } else {
             return randomNumber
         }
+    }
+    
+    func createEmojis(_ numberOfCardPair: Int) -> [String] {
+        return [String](self.Emojis.shuffled()[..<numberOfCardPair])
+    }
+    
+    static func createNewTheme() -> Theme {
+        return Theme.allCases.randomElement()!
     }
 }
 

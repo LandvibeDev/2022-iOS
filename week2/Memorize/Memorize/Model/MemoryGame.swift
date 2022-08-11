@@ -7,41 +7,40 @@
 
 import Foundation
 
-struct MemoryGame<CardContent> {
+struct MemoryGame<CardContent: Equatable> {
     
     struct Card: Identifiable {
-        var isFaceUp = true
+        var isFaceUp = false
         var isMatched = false
         var isFaceUpBefore = false
-        var content: String
+        var content: CardContent
         var id: Int
     }
-    let theme: Theme
     var cards: [Card]
+    var selectedCardsIndex: [Int]
     var point: Int
     var countOfCurrentOpenedCard: Int
-    var indexOfAlreadySelectedCard: Int
+    var alreadySelectedIndex: Int
     let numberOfCardPair: Int
     
     //NewMemoryGame 생성
     init(theme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
-        self.theme = theme;
         self.point = 0
         self.cards = cards.shuffled()
         countOfCurrentOpenedCard = 0
-        indexOfAlreadySelectedCard = 0
+        alreadySelectedIndex = 0
+        selectedCardsIndex = []
         
-        numberOfCardPair = self.theme.randomNumberOfCardPair
-        
+        self.numberOfCardPair = theme.numberOfCardPair
         
         let _ = print(theme.Emojis)
         
         for pairIndex in 0 ..< numberOfCardPair {
             
-            let testLog = print("testLog :  \(numberOfCardPair)")
+            //            let testLog = print("testLog :  \(numberOfCardPair)")
             
-            let content = self.theme.Emojis[pairIndex]
+            let content = createContent(pairIndex)
             cards.append(Card(content: content, id: 2 * pairIndex))
             cards.append(Card(content: content, id: 2 * pairIndex + 1))
         }
@@ -51,44 +50,51 @@ struct MemoryGame<CardContent> {
     //나중에 filtter 사용해서 구현해보기
     mutating func choose(_ card: Card) {
         if let chosenIndex = cards.firstIndex(where: {$0.id == card.id }) {
+            
+            //이미 매치되어 뒤집혀진 카드를 골랐을 경우 무시
             if cards[chosenIndex].isMatched {
                 return
             }
+            
+            //카드를 2장 고르기 전 이미 골라져있는 카드를 다시 고르면 무시
+            if selectedCardsIndex.contains(chosenIndex) {
+                return
+            }
+            
+            cards[chosenIndex].isFaceUp = true
+            selectedCardsIndex.append(chosenIndex)
+            
+            //현재 고른 카드가 전에 골랐던 카드라면 -1점
             if cards[chosenIndex].isFaceUpBefore {
-                print("cards[chosenIndex].isFaceUpBefore : \(cards[chosenIndex].isFaceUpBefore)")
-                print("point #before# : \(self.point)")
                 self.point -= 1
-                print("point #after# : \(self.point)")
             }
             cards[chosenIndex].isFaceUpBefore = true
-            //보드에서 처음 카드를 선택하는 경우
-            if countOfCurrentOpenedCard == 0 {
-                cards[chosenIndex].isFaceUp.toggle()
-                indexOfAlreadySelectedCard = chosenIndex
-                countOfCurrentOpenedCard += 1
-            }
-            //보드에서 두 번째 카드를 선택하는 경우(이미 한 장의 카드가 선택된 경우)
-            else if countOfCurrentOpenedCard == 1 {
-                cards[chosenIndex].isFaceUp.toggle()
-                countOfCurrentOpenedCard = 0
-                //첫 번째 선택한 카드와 두 번째 선택한 카드가 같은 경우
-                if cards[chosenIndex].content == cards[indexOfAlreadySelectedCard].content && chosenIndex != indexOfAlreadySelectedCard {
-                    let testLog123 = print("1 : \(cards[chosenIndex].content)")
-                    let testLog1234 = print("2 : \(cards[indexOfAlreadySelectedCard].content)")
+            
+            if selectedCardsIndex.count > 2 {
+                cards[selectedCardsIndex[0]].isFaceUp = false
+                cards[selectedCardsIndex[1]].isFaceUp = false
+                if cards[selectedCardsIndex[0]].content == cards[selectedCardsIndex[1]].content {
                     self.point += 2
-                    cards[chosenIndex].isMatched = true
-                    cards[indexOfAlreadySelectedCard].isMatched = true
+                    cards[selectedCardsIndex[0]].isMatched = true
+                    cards[selectedCardsIndex[1]].isMatched = true
                 }
-                //첫 번째 선택한 카드와 두 번째 선택한 카드가 다른 경우
-                else {
-                    cards[chosenIndex].isFaceUp.toggle()
-                    cards[indexOfAlreadySelectedCard].isFaceUp.toggle()
-                }
+                selectedCardsIndex.removeAll()
+                selectedCardsIndex.append(chosenIndex)
+            }
+            print("point : \(self.point)")
+        }
+    }
+    
+    func gameOver() -> Bool {
+        print (cards)
+        for index in 0..<cards.count {
+            if !cards[index].isMatched {
+                return false
             }
         }
-        print("point : \(self.point)")
+        return true
     }
-
+    
     
     
 }

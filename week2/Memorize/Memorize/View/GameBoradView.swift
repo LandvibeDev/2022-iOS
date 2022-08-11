@@ -23,8 +23,11 @@ struct GameBoardView: View {
             }
             .frame(height: 10)
             .padding(EdgeInsets(top:20, leading: 0, bottom: 10, trailing: 0))
-            
-            CardListView(viewModel: viewModel)
+            if viewModel.memoryGame.gameOver() {
+                GameOverView()
+            } else {
+                CardListView(viewModel: viewModel)
+            }
             FooterView()
         }
     }
