@@ -13,7 +13,9 @@ struct CardView: View {
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
-            if card.isFaceUp {
+            if card.isMatched {
+                shape.fill().foregroundColor(.white)
+            } else if card.isFaceUp {
                 shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 5)
                 Text(card.content).font(.largeTitle)
@@ -26,6 +28,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: MemoryGame<String>.Card(content: "test", id: 1))
+        CardView(card: MemoryGame<String>.Card(content: "😀", id: 1))
     }
 }

@@ -7,26 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3843913289963F500AA93AB /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3843912289963F500AA93AB /* MemorizeApp.swift */; };
-		F3843915289963F500AA93AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3843914289963F500AA93AB /* ContentView.swift */; };
-		F3843917289963F600AA93AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3843916289963F600AA93AB /* Assets.xcassets */; };
-		F384391A289963F600AA93AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3843919289963F600AA93AB /* Preview Assets.xcassets */; };
-		F38439212899651800AA93AB /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38439202899651800AA93AB /* EmojiMemoryGame.swift */; };
-		F384392328996A4C00AA93AB /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384392228996A4C00AA93AB /* MemoryGame.swift */; };
+		F3776EF7289F82B4000605DE /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776EF6289F82B4000605DE /* MemorizeApp.swift */; };
+		F3776EFB289F82B5000605DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3776EFA289F82B5000605DE /* Assets.xcassets */; };
+		F3776EFE289F82B5000605DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3776EFD289F82B5000605DE /* Preview Assets.xcassets */; };
+		F3776F06289F82FC000605DE /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F05289F82FC000605DE /* MemoryGame.swift */; };
+		F3776F09289F833D000605DE /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F08289F833D000605DE /* CardListView.swift */; };
+		F3776F0B289F834A000605DE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0A289F834A000605DE /* CardView.swift */; };
+		F3776F0D289F835C000605DE /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0C289F835C000605DE /* FooterView.swift */; };
+		F3776F0F289F8375000605DE /* GameBoradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0E289F8375000605DE /* GameBoradView.swift */; };
+		F3776F11289F838D000605DE /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F10289F838D000605DE /* GameOverView.swift */; };
+		F3776F13289F83A9000605DE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F12289F83A9000605DE /* HeaderView.swift */; };
+		F3776F15289F83D0000605DE /* PointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F14289F83D0000605DE /* PointView.swift */; };
+		F3776F18289F841F000605DE /* ThemeMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F17289F841F000605DE /* ThemeMemoryGame.swift */; };
+		F3776F1C289F8755000605DE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F1B289F8755000605DE /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F384390F289963F500AA93AB /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3843912289963F500AA93AB /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
-		F3843914289963F500AA93AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F3843916289963F600AA93AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3843919289963F600AA93AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F38439202899651800AA93AB /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
-		F384392228996A4C00AA93AB /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		F3776EF3289F82B4000605DE /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3776EF6289F82B4000605DE /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
+		F3776EFA289F82B5000605DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3776EFD289F82B5000605DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3776F05289F82FC000605DE /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		F3776F08289F833D000605DE /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		F3776F0A289F834A000605DE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F3776F0C289F835C000605DE /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F3776F0E289F8375000605DE /* GameBoradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoradView.swift; sourceTree = "<group>"; };
+		F3776F10289F838D000605DE /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		F3776F12289F83A9000605DE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F3776F14289F83D0000605DE /* PointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointView.swift; sourceTree = "<group>"; };
+		F3776F17289F841F000605DE /* ThemeMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMemoryGame.swift; sourceTree = "<group>"; };
+		F3776F1B289F8755000605DE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F384390C289963F500AA93AB /* Frameworks */ = {
+		F3776EF0289F82B4000605DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,53 +50,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F3843906289963F500AA93AB = {
+		F3776EEA289F82B4000605DE = {
 			isa = PBXGroup;
 			children = (
-				F3843911289963F500AA93AB /* Memorize */,
-				F3843910289963F500AA93AB /* Products */,
+				F3776EF5289F82B4000605DE /* Memorize */,
+				F3776EF4289F82B4000605DE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F3843910289963F500AA93AB /* Products */ = {
+		F3776EF4289F82B4000605DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F384390F289963F500AA93AB /* Memorize.app */,
+				F3776EF3289F82B4000605DE /* Memorize.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F3843911289963F500AA93AB /* Memorize */ = {
+		F3776EF5289F82B4000605DE /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
-				F384392228996A4C00AA93AB /* MemoryGame.swift */,
-				F38439202899651800AA93AB /* EmojiMemoryGame.swift */,
-				F3843912289963F500AA93AB /* MemorizeApp.swift */,
-				F3843914289963F500AA93AB /* ContentView.swift */,
-				F3843916289963F600AA93AB /* Assets.xcassets */,
-				F3843918289963F600AA93AB /* Preview Content */,
+				F3776F16289F840D000605DE /* ViewModel */,
+				F3776F07289F8325000605DE /* View */,
+				F3776F04289F82E8000605DE /* Model */,
+				F3776EF6289F82B4000605DE /* MemorizeApp.swift */,
+				F3776EFA289F82B5000605DE /* Assets.xcassets */,
+				F3776EFC289F82B5000605DE /* Preview Content */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
 		};
-		F3843918289963F600AA93AB /* Preview Content */ = {
+		F3776EFC289F82B5000605DE /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				F3843919289963F600AA93AB /* Preview Assets.xcassets */,
+				F3776EFD289F82B5000605DE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F3776F04289F82E8000605DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3776F05289F82FC000605DE /* MemoryGame.swift */,
+				F3776F1B289F8755000605DE /* Theme.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F3776F07289F8325000605DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3776F08289F833D000605DE /* CardListView.swift */,
+				F3776F0A289F834A000605DE /* CardView.swift */,
+				F3776F0C289F835C000605DE /* FooterView.swift */,
+				F3776F0E289F8375000605DE /* GameBoradView.swift */,
+				F3776F10289F838D000605DE /* GameOverView.swift */,
+				F3776F12289F83A9000605DE /* HeaderView.swift */,
+				F3776F14289F83D0000605DE /* PointView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3776F16289F840D000605DE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3776F17289F841F000605DE /* ThemeMemoryGame.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F384390E289963F500AA93AB /* Memorize */ = {
+		F3776EF2289F82B4000605DE /* Memorize */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F384391D289963F600AA93AB /* Build configuration list for PBXNativeTarget "Memorize" */;
+			buildConfigurationList = F3776F01289F82B5000605DE /* Build configuration list for PBXNativeTarget "Memorize" */;
 			buildPhases = (
-				F384390B289963F500AA93AB /* Sources */,
-				F384390C289963F500AA93AB /* Frameworks */,
-				F384390D289963F500AA93AB /* Resources */,
+				F3776EEF289F82B4000605DE /* Sources */,
+				F3776EF0289F82B4000605DE /* Frameworks */,
+				F3776EF1289F82B4000605DE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -90,25 +135,25 @@
 			);
 			name = Memorize;
 			productName = Memorize;
-			productReference = F384390F289963F500AA93AB /* Memorize.app */;
+			productReference = F3776EF3289F82B4000605DE /* Memorize.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F3843907289963F500AA93AB /* Project object */ = {
+		F3776EEB289F82B4000605DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					F384390E289963F500AA93AB = {
+					F3776EF2289F82B4000605DE = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = F384390A289963F500AA93AB /* Build configuration list for PBXProject "Memorize" */;
+			buildConfigurationList = F3776EEE289F82B4000605DE /* Build configuration list for PBXProject "Memorize" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,44 +161,51 @@
 				en,
 				Base,
 			);
-			mainGroup = F3843906289963F500AA93AB;
-			productRefGroup = F3843910289963F500AA93AB /* Products */;
+			mainGroup = F3776EEA289F82B4000605DE;
+			productRefGroup = F3776EF4289F82B4000605DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F384390E289963F500AA93AB /* Memorize */,
+				F3776EF2289F82B4000605DE /* Memorize */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F384390D289963F500AA93AB /* Resources */ = {
+		F3776EF1289F82B4000605DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F384391A289963F600AA93AB /* Preview Assets.xcassets in Resources */,
-				F3843917289963F600AA93AB /* Assets.xcassets in Resources */,
+				F3776EFE289F82B5000605DE /* Preview Assets.xcassets in Resources */,
+				F3776EFB289F82B5000605DE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F384390B289963F500AA93AB /* Sources */ = {
+		F3776EEF289F82B4000605DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3843915289963F500AA93AB /* ContentView.swift in Sources */,
-				F3843913289963F500AA93AB /* MemorizeApp.swift in Sources */,
-				F384392328996A4C00AA93AB /* MemoryGame.swift in Sources */,
-				F38439212899651800AA93AB /* EmojiMemoryGame.swift in Sources */,
+				F3776F13289F83A9000605DE /* HeaderView.swift in Sources */,
+				F3776F06289F82FC000605DE /* MemoryGame.swift in Sources */,
+				F3776F09289F833D000605DE /* CardListView.swift in Sources */,
+				F3776F0D289F835C000605DE /* FooterView.swift in Sources */,
+				F3776F1C289F8755000605DE /* Theme.swift in Sources */,
+				F3776F18289F841F000605DE /* ThemeMemoryGame.swift in Sources */,
+				F3776F15289F83D0000605DE /* PointView.swift in Sources */,
+				F3776EF7289F82B4000605DE /* MemorizeApp.swift in Sources */,
+				F3776F0B289F834A000605DE /* CardView.swift in Sources */,
+				F3776F11289F838D000605DE /* GameOverView.swift in Sources */,
+				F3776F0F289F8375000605DE /* GameBoradView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F384391B289963F600AA93AB /* Debug */ = {
+		F3776EFF289F82B5000605DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -213,7 +265,7 @@
 			};
 			name = Debug;
 		};
-		F384391C289963F600AA93AB /* Release */ = {
+		F3776F00289F82B5000605DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,7 +319,7 @@
 			};
 			name = Release;
 		};
-		F384391E289963F600AA93AB /* Debug */ = {
+		F3776F02289F82B5000605DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -296,7 +348,7 @@
 			};
 			name = Debug;
 		};
-		F384391F289963F600AA93AB /* Release */ = {
+		F3776F03289F82B5000605DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -328,25 +380,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F384390A289963F500AA93AB /* Build configuration list for PBXProject "Memorize" */ = {
+		F3776EEE289F82B4000605DE /* Build configuration list for PBXProject "Memorize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F384391B289963F600AA93AB /* Debug */,
-				F384391C289963F600AA93AB /* Release */,
+				F3776EFF289F82B5000605DE /* Debug */,
+				F3776F00289F82B5000605DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F384391D289963F600AA93AB /* Build configuration list for PBXNativeTarget "Memorize" */ = {
+		F3776F01289F82B5000605DE /* Build configuration list for PBXNativeTarget "Memorize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F384391E289963F600AA93AB /* Debug */,
-				F384391F289963F600AA93AB /* Release */,
+				F3776F02289F82B5000605DE /* Debug */,
+				F3776F03289F82B5000605DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F3843907289963F500AA93AB /* Project object */;
+	rootObject = F3776EEB289F82B4000605DE /* Project object */;
 }

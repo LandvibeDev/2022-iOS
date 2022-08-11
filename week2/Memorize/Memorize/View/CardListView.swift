@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardListView: View {
     @ObservedObject var viewModel: ThemeMemoryGame
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {

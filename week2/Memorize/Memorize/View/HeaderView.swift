@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @EnvironmentObject var memoryGame: ThemeMemoryGame
+    @EnvironmentObject var viewModel: ThemeMemoryGame
     
     var body: some View {
         Text("Halloween")
