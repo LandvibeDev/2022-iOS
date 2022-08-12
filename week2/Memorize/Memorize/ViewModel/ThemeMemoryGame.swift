@@ -46,8 +46,8 @@ class ThemeMemoryGame: ObservableObject {
         return memoryGame.cards
     }
     
-    var GameOver: Bool {
-        return memoryGame.GameOver()
+    var gameOver: Bool {
+        return memoryGame.gameOver()
     }
     
     static func createTheme() {

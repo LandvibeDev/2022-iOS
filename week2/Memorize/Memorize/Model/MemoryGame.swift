@@ -25,9 +25,8 @@ struct MemoryGame<CardContent: Equatable> {
     var selectedCardsIndex: [Int]
     var point: Int
     var countOfCurrentOpenedCard: Int
-    var alreadySelectedIndex: Int
     let numberOfCardPair: Int
-    var numberOfmatchedPair: Int
+    var numberOfMatchedPair: Int
     var theme: Theme
     
     init(theme: Theme, createContent: (Int) -> CardContent) {
@@ -36,9 +35,8 @@ struct MemoryGame<CardContent: Equatable> {
         self.cards = cards.shuffled()
         self.theme = theme
         self.numberOfCardPair = theme.numberOfCardPair
-        numberOfmatchedPair = 0
+        numberOfMatchedPair = 0
         countOfCurrentOpenedCard = 0
-        alreadySelectedIndex = 0
         selectedCardsIndex = []
         
         for pairIndex in 0 ..< numberOfCardPair {
@@ -49,8 +47,8 @@ struct MemoryGame<CardContent: Equatable> {
         cards.shuffle()
     }
     
-    func GameOver() -> Bool {
-        if numberOfmatchedPair == self.numberOfCardPair {
+    func gameOver() -> Bool {
+        if numberOfMatchedPair == self.numberOfCardPair {
             return true
         }
         return false
@@ -81,7 +79,7 @@ struct MemoryGame<CardContent: Equatable> {
                     self.point += 2
                     cards[selectedCardsIndex[0]].isMatched = true
                     cards[selectedCardsIndex[1]].isMatched = true
-                    numberOfmatchedPair += 1
+                    numberOfMatchedPair += 1
                 }
                 selectedCardsIndex.removeAll()
                 selectedCardsIndex.append(chosenIndex)
