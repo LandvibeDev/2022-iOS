@@ -24,7 +24,7 @@ struct GameBoardView: View {
             .frame(height: 10)
             .padding(EdgeInsets(top:20, leading: 0, bottom: 10, trailing: 0))
             if viewModel.memoryGame.isGameOver {
-                GameOverView()
+                GameOverView(point: viewModel.point)
             } else {
                 CardListView(viewModel: viewModel)
             }

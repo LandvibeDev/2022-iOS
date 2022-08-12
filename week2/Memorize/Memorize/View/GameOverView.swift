@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct GameOverView: View {
+    var point: Int
     var body: some View {
         VStack{
             VStack {
                 Text("Well Done !!")
-                Text("You got ~ Points !!")
+                Text("You got \(point) Points !!")
             }
             .foregroundColor(.red)
             .font(.title)
@@ -22,6 +23,6 @@ struct GameOverView: View {
 
 struct GameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        GameOverView()
+        GameOverView(point: 100)
     }
 }
