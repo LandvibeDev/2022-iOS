@@ -5,6 +5,12 @@
 //  Created by Kyungsoo Lee on 2022/08/02.
 //
 
+
+
+/*
+ Point 계산 부분 구현 다시해보기
+ */
+
 import Foundation
 
 struct MemoryGame<CardContent: Equatable> {
@@ -22,15 +28,29 @@ struct MemoryGame<CardContent: Equatable> {
     var countOfCurrentOpenedCard: Int
     var alreadySelectedIndex: Int
     let numberOfCardPair: Int
+    var theme: Theme
+    
+    var isGameOver: Bool {
+            print(cards)
+            for index in 0..<cards.count {
+                if !cards[index].isMatched {
+                    return false
+                }
+            }
+            print("TESTTESTSET\(cards)")
+            return true
+        }
     
     //NewMemoryGame 생성
     init(theme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
         self.point = 0
         self.cards = cards.shuffled()
+        self.theme = theme
         countOfCurrentOpenedCard = 0
         alreadySelectedIndex = 0
         selectedCardsIndex = []
+        
         
         self.numberOfCardPair = theme.numberOfCardPair
         
@@ -38,7 +58,7 @@ struct MemoryGame<CardContent: Equatable> {
         
         for pairIndex in 0 ..< numberOfCardPair {
             
-            //            let testLog = print("testLog :  \(numberOfCardPair)")
+            //let testLog = print("testLog :  \(numberOfCardPair)")
             
             let content = createContent(pairIndex)
             cards.append(Card(content: content, id: 2 * pairIndex))
@@ -81,19 +101,19 @@ struct MemoryGame<CardContent: Equatable> {
                 selectedCardsIndex.removeAll()
                 selectedCardsIndex.append(chosenIndex)
             }
-            print("point : \(self.point)")
         }
     }
     
-    func gameOver() -> Bool {
-        print (cards)
-        for index in 0..<cards.count {
-            if !cards[index].isMatched {
-                return false
-            }
-        }
-        return true
-    }
+//    func gameOver() -> Bool {
+//        print(cards)
+//        for index in 0..<cards.count {
+//            if !cards[index].isMatched {
+//                return false
+//            }
+//        }
+//        print("TESTTESTSET\(cards)")
+//        return true
+//    }
     
     
     

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @EnvironmentObject var viewModel: ThemeMemoryGame
+    var title: String
     
     var body: some View {
-        Text("Halloween")
+        Text("\(title)")
             .foregroundColor(.red)
             .font(.largeTitle)
     }
@@ -19,6 +19,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        HeaderView(title: "Sports")
     }
 }

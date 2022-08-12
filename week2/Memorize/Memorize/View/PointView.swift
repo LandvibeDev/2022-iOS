@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct PointView: View {
+    var point: Int
     var body: some View {
-        Text("Points: ~")
+        Text("Points: \(point)")
             .foregroundColor(.red)
     }
 }
 
 struct PointView_Previews: PreviewProvider {
     static var previews: some View {
-        PointView()
+        PointView(point: 30)
     }
 }

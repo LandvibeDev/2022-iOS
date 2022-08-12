@@ -16,9 +16,6 @@ struct GameOverView: View {
             }
             .foregroundColor(.red)
             .font(.title)
-            .padding(EdgeInsets(top: 295, leading: 0, bottom: 0, trailing: 0))
-            FooterView()
-                .padding(EdgeInsets(top: 295, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }

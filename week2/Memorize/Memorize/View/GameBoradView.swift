@@ -16,14 +16,14 @@ struct GameBoardView: View {
             HStack {
                 Spacer()
                     .frame(width: 90)
-                HeaderView()
+                HeaderView(title: viewModel.title.rawValue)
                     .frame(alignment: .center)
-                PointView()
+                PointView(point: viewModel.point)
                     .frame(width: 90,alignment: .center)
             }
             .frame(height: 10)
             .padding(EdgeInsets(top:20, leading: 0, bottom: 10, trailing: 0))
-            if viewModel.memoryGame.gameOver() {
+            if viewModel.memoryGame.isGameOver {
                 GameOverView()
             } else {
                 CardListView(viewModel: viewModel)
