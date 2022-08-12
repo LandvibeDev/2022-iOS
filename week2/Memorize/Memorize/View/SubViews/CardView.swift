@@ -14,16 +14,15 @@ struct CardView: View {
   var body: some View {
     ZStack{
       let shape = RoundedRectangle(cornerRadius: 15)
-      if card.isMatched {
-        shape.fill().opacity(0)
-      } else if card.isFaceUp {
+      if card.isFaceUp {
         shape.strokeBorder(lineWidth: 5)
         Text(card.content).font(.system(size: 40))
+      } else if card.isMatched {
+        shape.fill().opacity(0)
       } else {
         shape.fill()
       }
     }
-    .foregroundColor(Color.red)
     .aspectRatio(2 / 3, contentMode: .fit)
   }
 }

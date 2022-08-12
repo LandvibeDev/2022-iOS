@@ -13,30 +13,16 @@ struct ContentView: View {
   
   var body: some View {
     VStack {
-      switch memoryGameManager.state {
-      case .playing:
-        Text("Memorize!")
-        Text("point : \(memoryGameManager.point)").font(.body)
-        ScrollView(showsIndicators: false) {
-          LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
-            ForEach(memoryGameManager.cards) { card in
-              CardView(card: card)
-                .onTapGesture{
-                  memoryGameManager.choose(card)
-                  print(card)
-                }
-            }
-          }
-        }
-      case .done:
-        Text("Well Done!")
-        Text("You got \(memoryGameManager.point) Points!!")
+      if memoryGameManager.isGameDone {
+        WellDoneView(point: memoryGameManager.point)
+      } else {
+        TopInfoView(title: memoryGameManager.title, point: memoryGameManager.point)
+        CardSetView(memoryGameManager: memoryGameManager)
       }
-      ButtonTabbar(memoryGameManager: EmojiMemoryGame())
-        .padding()
+      ButtonTabbar(memoryGameManager: memoryGameManager)
     }
     .font(.largeTitle)
-    .accentColor(.pink)
+    .foregroundColor(memoryGameManager.themecolor)
     .padding()
   }
 }
@@ -44,6 +30,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ContentView(memoryGameManager: EmojiMemoryGame())
+    let memoryGameManager = EmojiMemoryGame()
+    ContentView(memoryGameManager: memoryGameManager)
   }
 }

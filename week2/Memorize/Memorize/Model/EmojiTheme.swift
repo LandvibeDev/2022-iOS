@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftUI
 
-enum EmojiTheme {
+enum EmojiTheme: String, CaseIterable  {
   case vehicles
   case faces
   case sports
@@ -23,7 +22,7 @@ enum EmojiTheme {
     case .faces:
       return ["😓", "🫡", "🫥", "😡", "😈", "💀", "👹" ,"💩", "👻", "🤖", "🎃"]
     case .sports:
-      return  ["⚽️", "⚾️", "🏈", "🏀", "🥎", "🎾", "🏐", "🏉", "🥏", "🎱", "🪀", "🏓", "🏸", "🏒", "🏑", "🥍"]
+      return  ["⚽️", "⚾️", "🏈", "🏀", "🏓"]
     case .hearts:
       return ["❤️", "🧡", "💛", "💔", "❤️‍🔥", "❤️‍🩹", "💚", "💙", "💝", "💖", "💜", "🤍", "🖤"]
     case .flags:
@@ -33,20 +32,37 @@ enum EmojiTheme {
     }
   }
   
-  var color: Color {
+  var color: String {
     switch self {
     case .vehicles:
-      return .pink
+      return "pink"
     case .faces:
-      return .yellow
+      return "yellow"
     case .sports:
-      return .orange
+      return "orange"
     case .hearts:
-      return .green
+      return "green"
     case .flags:
-      return .black
+      return "black"
     case .foods:
-      return .blue
+      return "blue"
+    }
+  }
+  
+  var numberOfCardPairsToShow: Int {
+    switch self {
+    case .vehicles:
+      return 5
+    case .faces:
+      return 6
+    case .sports:
+      return 6
+    case .hearts:
+      return 4
+    case .flags:
+      return 6
+    case .foods:
+      return 5
     }
   }
 }

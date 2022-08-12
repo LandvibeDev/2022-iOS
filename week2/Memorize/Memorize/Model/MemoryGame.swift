@@ -10,13 +10,14 @@ import Foundation
 struct MemoryGame<CardContent> where CardContent: Equatable {
   
   private(set) var cards: [Card]
-  private(set) var gameState: GameState = .playing
   private(set) var point = 0
-  private var prevChosenCardIndex: Int?
   private var numberOfMatchedCard = 0
-  
-  enum GameState {
-    case playing, done
+  private var prevChosenCardIndex: Int? {
+    get { cards.indices.filter({cards[$0].isFaceUp}).oneAndOnly }
+    set { cards.indices.forEach{cards[$0].isFaceUp = ($0 == newValue)} }
+  }
+  var isGameDone: Bool {
+    numberOfMatchedCard == cards.count
   }
   
   init(numberOfCardPairs: Int, createContent: (Int) -> CardContent) {
@@ -31,30 +32,24 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
   
   mutating func choose(_ card: Card) {
     if let currentChosenCardIndex = cards.firstIndex(where: { $0.id == card.id }) {
-      if cards[currentChosenCardIndex].isAlreadyOpened == true {
+      if cards[currentChosenCardIndex].isFaceUpAtLeastOne == true {
         point -= 1
       }
       if let alreadyChosenCardIndex = prevChosenCardIndex {
-        if cards[currentChosenCardIndex].id != cards[alreadyChosenCardIndex].id {
-          if cards[currentChosenCardIndex].content == cards[alreadyChosenCardIndex].content {
-            cards[currentChosenCardIndex].isMatched = true
-            cards[alreadyChosenCardIndex].isMatched = true
-            numberOfMatchedCard += 2
-            point += 3
-          }
-          prevChosenCardIndex = nil
+        if cards[currentChosenCardIndex].id != cards[alreadyChosenCardIndex].id,
+           cards[currentChosenCardIndex].content == cards[alreadyChosenCardIndex].content {
+          cards[currentChosenCardIndex].isMatched = true
+          cards[alreadyChosenCardIndex].isMatched = true
+          numberOfMatchedCard += 2
+          point += 3
         }
       } else {
         for index in 0..<cards.count {
           cards[index].isFaceUp = false
         }
-        prevChosenCardIndex = currentChosenCardIndex
       }
       cards[currentChosenCardIndex].isFaceUp.toggle()
-      cards[currentChosenCardIndex].isAlreadyOpened = true
-      if numberOfMatchedCard == cards.count {
-        gameState = .done
-      }
+      cards[currentChosenCardIndex].isFaceUpAtLeastOne = true
     }
   }
   
@@ -62,8 +57,15 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     var isFaceUp = false
     var isMatched = false
-    var isAlreadyOpened = false
-    var content: CardContent
-    var id: Int
+    var isFaceUpAtLeastOne = false
+    let content: CardContent
+    let id: Int
+  }
+}
+
+extension Array{
+  
+  var oneAndOnly: Element?{
+    return self.count == 1 ? self.first : nil
   }
 }
