@@ -12,7 +12,6 @@ struct GameBoardView: View {
     
     var body: some View {
         VStack {
-            
             if viewModel.GameOver {
                 GameOverView(point: viewModel.point)
             } else {
