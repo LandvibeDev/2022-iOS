@@ -64,12 +64,9 @@ enum Theme: String, CaseIterable {
             return ["🇰🇷", "🇺🇸", "🇯🇵", "🇨🇳", "🇨🇦", "🇧🇪", "🇬🇪", "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "🇬🇧", "🇧🇷"]
         }
     }
-
+    
     var numberOfCardPair: Int {
         let randomNumber = 2 * Int.random(in: 1...5)
-        
-        let test1 = print("randomNumber : \(randomNumber)")
-        let test2 = print("self.Emojis.count : \(self.Emojis.count)")
         
         if randomNumber > self.Emojis.count {
             return self.Emojis.count

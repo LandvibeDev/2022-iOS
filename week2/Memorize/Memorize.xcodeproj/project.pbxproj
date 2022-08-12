@@ -13,10 +13,10 @@
 		F3776F06289F82FC000605DE /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F05289F82FC000605DE /* MemoryGame.swift */; };
 		F3776F09289F833D000605DE /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F08289F833D000605DE /* CardListView.swift */; };
 		F3776F0B289F834A000605DE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0A289F834A000605DE /* CardView.swift */; };
-		F3776F0D289F835C000605DE /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0C289F835C000605DE /* FooterView.swift */; };
+		F3776F0D289F835C000605DE /* NewGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0C289F835C000605DE /* NewGameView.swift */; };
 		F3776F0F289F8375000605DE /* GameBoradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F0E289F8375000605DE /* GameBoradView.swift */; };
 		F3776F11289F838D000605DE /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F10289F838D000605DE /* GameOverView.swift */; };
-		F3776F13289F83A9000605DE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F12289F83A9000605DE /* HeaderView.swift */; };
+		F3776F13289F83A9000605DE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F12289F83A9000605DE /* TitleView.swift */; };
 		F3776F15289F83D0000605DE /* PointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F14289F83D0000605DE /* PointView.swift */; };
 		F3776F18289F841F000605DE /* ThemeMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F17289F841F000605DE /* ThemeMemoryGame.swift */; };
 		F3776F1C289F8755000605DE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776F1B289F8755000605DE /* Theme.swift */; };
@@ -30,10 +30,10 @@
 		F3776F05289F82FC000605DE /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		F3776F08289F833D000605DE /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		F3776F0A289F834A000605DE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		F3776F0C289F835C000605DE /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F3776F0C289F835C000605DE /* NewGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameView.swift; sourceTree = "<group>"; };
 		F3776F0E289F8375000605DE /* GameBoradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoradView.swift; sourceTree = "<group>"; };
 		F3776F10289F838D000605DE /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
-		F3776F12289F83A9000605DE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F3776F12289F83A9000605DE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		F3776F14289F83D0000605DE /* PointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointView.swift; sourceTree = "<group>"; };
 		F3776F17289F841F000605DE /* ThemeMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMemoryGame.swift; sourceTree = "<group>"; };
 		F3776F1B289F8755000605DE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -101,10 +101,10 @@
 			children = (
 				F3776F08289F833D000605DE /* CardListView.swift */,
 				F3776F0A289F834A000605DE /* CardView.swift */,
-				F3776F0C289F835C000605DE /* FooterView.swift */,
+				F3776F0C289F835C000605DE /* NewGameView.swift */,
 				F3776F0E289F8375000605DE /* GameBoradView.swift */,
 				F3776F10289F838D000605DE /* GameOverView.swift */,
-				F3776F12289F83A9000605DE /* HeaderView.swift */,
+				F3776F12289F83A9000605DE /* TitleView.swift */,
 				F3776F14289F83D0000605DE /* PointView.swift */,
 			);
 			path = View;
@@ -188,10 +188,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3776F13289F83A9000605DE /* HeaderView.swift in Sources */,
+				F3776F13289F83A9000605DE /* TitleView.swift in Sources */,
 				F3776F06289F82FC000605DE /* MemoryGame.swift in Sources */,
 				F3776F09289F833D000605DE /* CardListView.swift in Sources */,
-				F3776F0D289F835C000605DE /* FooterView.swift in Sources */,
+				F3776F0D289F835C000605DE /* NewGameView.swift in Sources */,
 				F3776F1C289F8755000605DE /* Theme.swift in Sources */,
 				F3776F18289F841F000605DE /* ThemeMemoryGame.swift in Sources */,
 				F3776F15289F83D0000605DE /* PointView.swift in Sources */,

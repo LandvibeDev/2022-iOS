@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeaderView: View {
+struct TitleView: View {
     var title: String
     
     var body: some View {
@@ -18,6 +18,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title: "Sports")
+        TitleView(title: "Sports")
     }
 }

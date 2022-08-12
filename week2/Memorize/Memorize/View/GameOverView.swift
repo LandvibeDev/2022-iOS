@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameOverView: View {
     var point: Int
+    
     var body: some View {
         VStack{
             VStack {

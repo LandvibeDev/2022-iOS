@@ -1,5 +1,5 @@
 //
-//  FooterView.swift
+//  NewGameView.swift
 //  Memorize
 //
 //  Created by Kyungsoo Lee on 2022/08/05.
@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct FooterView: View {
+struct NewGameView: View {
+    @ObservedObject var viewModel: ThemeMemoryGame
+    
     var body: some View {
         Button {
-            
+            viewModel.memoryGame = ThemeMemoryGame.createMemoryGame()
         } label: {
             Text("New Game")
         }
@@ -19,6 +21,7 @@ struct FooterView: View {
 
 struct FooterView_Previeaws: PreviewProvider {
     static var previews: some View {
-        FooterView()
+        let viewModel = ThemeMemoryGame()
+        NewGameView(viewModel: viewModel)
     }
 }

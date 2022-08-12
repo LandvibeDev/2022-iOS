@@ -8,27 +8,27 @@
 import SwiftUI
 
 struct GameBoardView: View {
-    
     @ObservedObject var viewModel: ThemeMemoryGame
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                    .frame(width: 90)
-                HeaderView(title: viewModel.title.rawValue)
-                    .frame(alignment: .center)
-                PointView(point: viewModel.point)
-                    .frame(width: 90,alignment: .center)
-            }
-            .frame(height: 10)
-            .padding(EdgeInsets(top:20, leading: 0, bottom: 10, trailing: 0))
-            if viewModel.memoryGame.isGameOver {
+            
+            if viewModel.GameOver {
                 GameOverView(point: viewModel.point)
             } else {
+                HStack {
+                    Spacer()
+                        .frame(width: 90)
+                    TitleView(title: viewModel.title)
+                        .frame(alignment: .center)
+                    PointView(point: viewModel.point)
+                        .frame(width: 90,alignment: .center)
+                }
+                .frame(height: 10)
+                .padding(EdgeInsets(top:20, leading: 0, bottom: 10, trailing: 0))
                 CardListView(viewModel: viewModel)
             }
-            FooterView()
+            NewGameView(viewModel: viewModel)
         }
         .foregroundColor(viewModel.color)
     }

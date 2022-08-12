@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PointView: View {
     var point: Int
+    
     var body: some View {
         Text("Points: \(point)")
     }

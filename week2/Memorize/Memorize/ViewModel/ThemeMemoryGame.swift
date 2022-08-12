@@ -11,11 +11,9 @@ class ThemeMemoryGame: ObservableObject {
     
     @Published var memoryGame = createMemoryGame()
     static var theme = Theme.createNewTheme()
+    static var emojis = theme.Emojis
+//    static var numberOfCardPair = theme.numberOfCardPair
     
-    static let emojis = theme.Emojis
-    var numberOfCardPair = theme.numberOfCardPair
-
-
     var color: Color {
         switch ThemeMemoryGame.theme.color {
         case .orange:
@@ -41,28 +39,30 @@ class ThemeMemoryGame: ObservableObject {
         return memoryGame.point
     }
     
-    var title: Theme {
-        return memoryGame.theme
+    var title: String {
+        return memoryGame.theme.rawValue
     }
     
-   
     var cards: [MemoryGame<String>.Card] {
         return memoryGame.cards
     }
     
-//    func newGame() -> MemoryGame<String> {
-//        theme = Theme.createNewTheme()
-//        memoryGame = memoryGame<String>(theme: theme) {pairIndex in emojis[pairIndex]}
-//    }
-        
-    static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(theme: theme) { pairIndex in emojis[pairIndex] }
+    var GameOver: Bool {
+        return memoryGame.GameOver()
     }
     
-
+    static func createTheme() {
+        self.theme = Theme.createNewTheme()
+        self.emojis = theme.Emojis
+    }
+        
+    static func createMemoryGame() -> MemoryGame<String> {
+        createTheme()
+        return MemoryGame<String>(theme: theme) { pairIndex in emojis[pairIndex] }
+    }
     
     
-    
+            
     func choose(_ card: MemoryGame<String>.Card) {
         memoryGame.choose(card)
     }
