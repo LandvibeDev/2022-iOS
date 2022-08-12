@@ -12,7 +12,6 @@ struct HeaderView: View {
     
     var body: some View {
         Text("\(title)")
-            .foregroundColor(.red)
             .font(.largeTitle)
     }
 }

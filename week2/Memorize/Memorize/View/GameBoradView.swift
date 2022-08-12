@@ -30,6 +30,7 @@ struct GameBoardView: View {
             }
             FooterView()
         }
+        .foregroundColor(viewModel.color)
     }
     
     struct ContentView_Previews: PreviewProvider {

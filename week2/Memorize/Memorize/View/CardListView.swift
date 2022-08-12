@@ -20,7 +20,6 @@ struct CardListView: View {
                         }
                 }
             }
-            .foregroundColor(.red)
             .padding()
         }
     }

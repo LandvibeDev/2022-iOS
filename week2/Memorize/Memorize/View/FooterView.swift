@@ -13,7 +13,6 @@ struct FooterView: View {
             
         } label: {
             Text("New Game")
-                .foregroundColor(.red)
         }
     }
 }

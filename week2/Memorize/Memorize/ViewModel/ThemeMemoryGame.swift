@@ -15,14 +15,27 @@ class ThemeMemoryGame: ObservableObject {
     static let emojis = theme.Emojis
     var numberOfCardPair = theme.numberOfCardPair
 
-//    var color: Color {
-//        switch Theme.Color {
-//        case .orange:
-//            return .orange
-//        case .red:
-//            return .red
-//        }
-//    }
+
+    var color: Color {
+        switch ThemeMemoryGame.theme.color {
+        case .orange:
+            return .orange
+        case .blue:
+            return .blue
+        case .green:
+            return .green
+        case .yellow:
+            return .yellow
+        case .red:
+            return .red
+        case .purple:
+            return .purple
+        case .cyan:
+            return .cyan
+        case .black:
+            return .black
+        }
+    }
     
     var point: Int {
         return memoryGame.point
