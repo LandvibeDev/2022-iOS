@@ -2,15 +2,14 @@
 import SwiftUI
 
 struct CardListView: View {
-    @EnvironmentObject var gameManager: MemorizeGameManger
+    @EnvironmentObject private var manager: MemorizeGameManger
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
-                ForEach(gameManager.gameManage.cards, id: \.hashValue){ element in
-                    CardView(content: element)
+                ForEach(manager.gameModel.cards, id: \.id){ card in
+                    CardView(card: card)
                         .aspectRatio(2 / 3, contentMode: .fit)
-                        .foregroundColor(gameManager.themeModel.current.color)
                 }
             }
         }

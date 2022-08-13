@@ -1,5 +1,13 @@
+//
+//  ConstantEmoji.swift
+//  2022-iOS-2week
+//
+//  Created by changgyo seo on 2022/08/13.
+//
 
-struct ConstantImojiContent {
+import Foundation
+
+struct Emoji {
     static let face = ["😀","😍","🤪","🤑","😔","😰","🤯","🤕","🤐","🤩","🤡","🤠","😶","👿","😶‍🌫️","🥶"]
     static let animal = ["🐶","🐭","🐻","🐯","🐨","🐸","🦧","🦊","🦍","🐷","🦁","🦥","🦒"]
     static let sports = ["🏉","🏈","⚽","🏀","⚾","🥎","🎾","🏐","🎱","🥏","🏓","🥅","🪃","🏒","🥍","🥊"]
@@ -7,7 +15,7 @@ struct ConstantImojiContent {
     static let vehicle = ["🚗","🚑","🚙","🚓","🚒","🚕","🛺","🚐","🚌","🛻","🚎","🚚","🏎","🚛","🏍","🛵","🚁"]
     static let outfit = ["👚","🥼","🦺","🧥","👙","🩱","👞","🥿","🥾","🧢","👡","👠","🧦","👘","👗","🧤","🧣","👓"]
     
-    static func emitImoji(willChangeTheme theme: Theme.KindOf) -> [String] {
+    static func emit(willChangeTheme theme: Theme.Kind) -> [String] {
         switch theme {
         case .face:
             return face

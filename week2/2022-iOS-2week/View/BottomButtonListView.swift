@@ -2,12 +2,12 @@
 import SwiftUI
 
 struct BottomButtonList: View {
-    @EnvironmentObject var gameManager: MemorizeGameManger
+    @EnvironmentObject private var manager: MemorizeGameManger
     
     var body: some View {
         Button(action: {
-            gameManager.tappedNewGame()
-        }){
+            manager.tapStartNewGame()
+        }) {
           Text("Next Game")
         }
     }

@@ -2,13 +2,13 @@
 import SwiftUI
 
 struct TitleView: View {
-    @EnvironmentObject var gameManager: MemorizeGameManger
+    @EnvironmentObject private var manager: MemorizeGameManger
     
     var body: some View {
         ZStack() {
-            Text(gameManager.themeModel.current.name)
+            Text(manager.themeModel.current.name)
                 .font(.system(size: 45))
-            Text("point: " + "\(gameManager.gameManage.point)")
+            Text("point: " + "\(manager.gameModel.point)")
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }

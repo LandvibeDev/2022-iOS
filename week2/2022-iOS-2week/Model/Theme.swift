@@ -2,20 +2,21 @@
 import SwiftUI
 
 struct Theme {
-    private(set) var current: KindOf = .face
-    private(set) var content = [String]()
-    private(set) var displayCardCount = Int()
+    private(set) var current: Kind
+    private(set) var content: [String]
+    private(set) var displayCardCount: Int
         
-    mutating func changeTheme() {
-        current = KindOf.allCases.randomElement() ?? .face
-        content = ConstantImojiContent.emitImoji(willChangeTheme: current)
+    init() {
+        current = Kind.allCases.randomElement() ?? .face
+        content = Emoji.emit(willChangeTheme: current)
         displayCardCount = Int.random(in: 1...1000) % content.count
     }
 }
 
 // MARK: - extension Nested Struct
+
 extension Theme {
-    enum KindOf: CaseIterable {
+    enum Kind: CaseIterable {
         case face 
         case animal
         case sports

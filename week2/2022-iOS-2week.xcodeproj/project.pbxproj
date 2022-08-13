@@ -13,13 +13,12 @@
 		D4265FCA289C0EED007B9AD9 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4265FC1289C0EED007B9AD9 /* CardListView.swift */; };
 		D4265FCB289C0EED007B9AD9 /* BottomButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4265FC2289C0EED007B9AD9 /* BottomButtonListView.swift */; };
 		D4265FCD289C0EED007B9AD9 /* MainGameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4265FC4289C0EED007B9AD9 /* MainGameBoardView.swift */; };
-		D4E4D29D289805D400432365 /* LifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D29C289805D400432365 /* LifeCycle.swift */; };
+		D4AFE63A28A7A58600814689 /* ConstantEmojiContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AFE63928A7A58600814689 /* ConstantEmojiContent.swift */; };
+		D4E4D29D289805D400432365 /* ChanggyoAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D29C289805D400432365 /* ChanggyoAssignment.swift */; };
 		D4E4D2A1289805D500432365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E4D2A0289805D500432365 /* Assets.xcassets */; };
 		D4E4D2A4289805D500432365 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E4D2A3289805D500432365 /* Preview Assets.xcassets */; };
-		D4E4D2AD2898068C00432365 /* CommonEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D2AC2898068C00432365 /* CommonEnum.swift */; };
 		D4E4D2AF2898072F00432365 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D2AE2898072F00432365 /* Theme.swift */; };
-		D4E4D2B128980A9000432365 /* ConstantCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D2B028980A9000432365 /* ConstantCardContent.swift */; };
-		D4E4D2B32898270800432365 /* ImojiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D2B22898270800432365 /* ImojiGame.swift */; };
+		D4E4D2B32898270800432365 /* EmojiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4D2B22898270800432365 /* EmojiGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,14 +28,13 @@
 		D4265FC1289C0EED007B9AD9 /* CardListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		D4265FC2289C0EED007B9AD9 /* BottomButtonListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomButtonListView.swift; sourceTree = "<group>"; };
 		D4265FC4289C0EED007B9AD9 /* MainGameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameBoardView.swift; sourceTree = "<group>"; };
+		D4AFE63928A7A58600814689 /* ConstantEmojiContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantEmojiContent.swift; sourceTree = "<group>"; };
 		D4E4D299289805D400432365 /* 2022-iOS-2week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2022-iOS-2week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4E4D29C289805D400432365 /* LifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycle.swift; sourceTree = "<group>"; };
+		D4E4D29C289805D400432365 /* ChanggyoAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanggyoAssignment.swift; sourceTree = "<group>"; };
 		D4E4D2A0289805D500432365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4E4D2A3289805D500432365 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D4E4D2AC2898068C00432365 /* CommonEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnum.swift; sourceTree = "<group>"; };
 		D4E4D2AE2898072F00432365 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		D4E4D2B028980A9000432365 /* ConstantCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantCardContent.swift; sourceTree = "<group>"; };
-		D4E4D2B22898270800432365 /* ImojiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImojiGame.swift; sourceTree = "<group>"; };
+		D4E4D2B22898270800432365 /* EmojiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,30 +59,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D4265FCE289C1120007B9AD9 /* model */ = {
+		D4265FCE289C1120007B9AD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				D4E4D2AE2898072F00432365 /* Theme.swift */,
-				D4E4D2B22898270800432365 /* ImojiGame.swift */,
+				D4E4D2B22898270800432365 /* EmojiGame.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		D4265FCF289C112E007B9AD9 /* Constant&Common */ = {
-			isa = PBXGroup;
-			children = (
-				D4E4D2AC2898068C00432365 /* CommonEnum.swift */,
-				D4E4D2B028980A9000432365 /* ConstantCardContent.swift */,
-			);
-			path = "Constant&Common";
-			sourceTree = "<group>";
-		};
-		D4265FD0289C1136007B9AD9 /* viewmodel */ = {
+		D4265FD0289C1136007B9AD9 /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
 				D4265FAF289BEB22007B9AD9 /* MemorizeGameManger.swift */,
 			);
-			path = viewmodel;
+			path = Viewmodel;
 			sourceTree = "<group>";
 		};
 		D4E4D290289805D400432365 = {
@@ -108,11 +97,11 @@
 			children = (
 				D4E4D2A2289805D500432365 /* Preview Content */,
 				D4E4D2A0289805D500432365 /* Assets.xcassets */,
-				D4E4D29C289805D400432365 /* LifeCycle.swift */,
+				D4E4D29C289805D400432365 /* ChanggyoAssignment.swift */,
 				D4265FC4289C0EED007B9AD9 /* MainGameBoardView.swift */,
-				D4265FCF289C112E007B9AD9 /* Constant&Common */,
-				D4265FCE289C1120007B9AD9 /* model */,
-				D4265FD0289C1136007B9AD9 /* viewmodel */,
+				D4AFE63928A7A58600814689 /* ConstantEmojiContent.swift */,
+				D4265FCE289C1120007B9AD9 /* Model */,
+				D4265FD0289C1136007B9AD9 /* Viewmodel */,
 				D4265FBF289C0EED007B9AD9 /* View */,
 			);
 			path = "2022-iOS-2week";
@@ -196,14 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AFE63A28A7A58600814689 /* ConstantEmojiContent.swift in Sources */,
 				D4265FCD289C0EED007B9AD9 /* MainGameBoardView.swift in Sources */,
 				D4265FCB289C0EED007B9AD9 /* BottomButtonListView.swift in Sources */,
 				D4265FC5289C0EED007B9AD9 /* CardView.swift in Sources */,
-				D4E4D2AD2898068C00432365 /* CommonEnum.swift in Sources */,
-				D4E4D29D289805D400432365 /* LifeCycle.swift in Sources */,
-				D4E4D2B32898270800432365 /* ImojiGame.swift in Sources */,
+				D4E4D29D289805D400432365 /* ChanggyoAssignment.swift in Sources */,
+				D4E4D2B32898270800432365 /* EmojiGame.swift in Sources */,
 				D4E4D2AF2898072F00432365 /* Theme.swift in Sources */,
-				D4E4D2B128980A9000432365 /* ConstantCardContent.swift in Sources */,
 				D4265FC9289C0EED007B9AD9 /* TitleView.swift in Sources */,
 				D4265FB0289BEB22007B9AD9 /* MemorizeGameManger.swift in Sources */,
 				D4265FCA289C0EED007B9AD9 /* CardListView.swift in Sources */,

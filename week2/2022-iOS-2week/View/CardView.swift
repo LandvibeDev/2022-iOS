@@ -2,22 +2,23 @@
 import SwiftUI
 
 struct CardView: View {
-    @EnvironmentObject var gameManager: MemorizeGameManger
+    @EnvironmentObject private var manager: MemorizeGameManger
    
-    let content: ImojiGame.Card
+    let card: EmojiGame<String>.Card
     
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
-            switch content.isFaceUp {
-            case .isFaceUp:
+            
+            switch card.state {
+            case .isFaceUp, .waitForMatched:
                 shape
                     .fill()
                     .foregroundColor(.white)
                 shape
                     .strokeBorder(lineWidth: 5)
                 VStack {
-                    Text(content.imoji)
+                    Text(card.Emoji)
                         .font(.largeTitle)
                 }
             case .isFaceDown:
@@ -30,9 +31,7 @@ struct CardView: View {
             }
         }
         .onTapGesture {
-            if content.isFaceUp != .isMatched {
-                gameManager.tappedCard(content.id)
-            }
+            manager.tappedCard(cardId: card.id)
         }
     }
 }
