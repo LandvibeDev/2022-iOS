@@ -6,7 +6,7 @@ struct CardListView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                ForEach(memorizeGameDealer.cards, id: \.id) { card in
+                ForEach(memorizeGameDealer.cards) { card in
                     CardView(card: card).aspectRatio(2 / 3, contentMode: .fit)
                 }
             }

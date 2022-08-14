@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CardView: View {
     @EnvironmentObject var memorizeGameDealer: MemorizeGameDealer
-    var card: MemorizeGame<String>.Card
+    let card: MemorizeGame<String>.Card
     
     var body: some View {
         ZStack {
@@ -21,7 +21,6 @@ struct CardView: View {
             if !card.isMatched {
                 memorizeGameDealer.choose(card: card)
             }
-            
         }
     }
 }

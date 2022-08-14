@@ -2,7 +2,7 @@ import SwiftUI
 
 class MemorizeGameDealer: ObservableObject {
     @Published private var memorizeGameManager = createEmojiMemoryGame()
-    static private var theme = Theme.randomTheme
+    private static var theme = Theme.randomTheme
     var cards: [MemorizeGame<String>.Card] {
         return memorizeGameManager.cards
     }
@@ -16,7 +16,7 @@ class MemorizeGameDealer: ObservableObject {
         return Self.theme.rawValue
     }
     var isFinished: Bool {
-        return memorizeGameManager.numberOfMatchedPairsOfCards == memorizeGameManager.cards.count / 2
+        return memorizeGameManager.isFinished
     }
     var themeColor: Color {
         switch currentTheme.themeColor {
