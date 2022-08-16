@@ -136,5 +136,16 @@ static func createEmojiMemoryGame() => MemoryGame<String> {
 private var model = createEmojiMemoryGame()
 
 ---------------------------------------------------------------------------
+<FeedBack>
+접근제어 의무화
+internal private(set) var : 외부에서 읽기만 가능하고, 내부에서는 쓰기가 가능하도록 하는 간결한 코드(getter, setter)
+internal은 생략해도 무방. 읽기는 internal, 쓰기는 private로 접근 제한이 정의된 프로퍼티 id
 
 
+
+
+
+----------------------------------------------------------------------------
+<미구현>
+MemoryGame(Model)
+- point 연산 부분 다시 구현하기.

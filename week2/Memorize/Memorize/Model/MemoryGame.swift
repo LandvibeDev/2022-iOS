@@ -7,24 +7,20 @@
 
 import Foundation
 
-/*
- Point 계산 부분 구현 다시해보기
- */
-
 struct MemoryGame<CardContent: Equatable> {
     
     struct Card: Identifiable {
         var isFaceUp = false
         var isMatched = false
         var isFaceUpBefore = false
-        var content: CardContent
-        var id: Int
+        let content: CardContent
+        let id: Int
     }
     
     var cards: [Card]
     var selectedCardsIndex: [Int]
     var point: Int
-    var countOfCurrentOpenedCard: Int
+    var countOfCurrentFaceUpCard: Int
     let numberOfCardPair: Int
     var numberOfMatchedPair: Int
     var theme: Theme
@@ -32,11 +28,10 @@ struct MemoryGame<CardContent: Equatable> {
     init(theme: Theme, createContent: (Int) -> CardContent) {
         cards = [Card]()
         self.point = 0
-        self.cards = cards.shuffled()
         self.theme = theme
         self.numberOfCardPair = theme.numberOfCardPair
         numberOfMatchedPair = 0
-        countOfCurrentOpenedCard = 0
+        countOfCurrentFaceUpCard = 0
         selectedCardsIndex = []
         
         for pairIndex in 0 ..< numberOfCardPair {
