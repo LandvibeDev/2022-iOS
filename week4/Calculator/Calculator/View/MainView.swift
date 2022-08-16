@@ -12,13 +12,21 @@ struct MainView: View {
     var body: some View {
         VStack {
             Spacer()
+                .frame(height: 100)
             result
-//            Padview(symbols: calculator.symbol)
+            Padview(symbols: calculator.symbols)
         }
     }
     
     var result: some View {
-        Text("0").font(.largeTitle)
+        VStack {
+            HStack {
+                Spacer()
+                Text("0")
+                    .font(.largeTitle)
+            }
+        }
+       
     }
     
 //    var numberBoard: some View {
@@ -29,6 +37,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         let calculator = CalculatorViewModel()
-        MainView(calculator: calculator)
+        MainView(calculator: calculator).preferredColorScheme(.dark)
     }
 }

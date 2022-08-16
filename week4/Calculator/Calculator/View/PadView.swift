@@ -14,34 +14,34 @@ struct Padview: View {
         //이거 for문으로 바꿔서 구현하기.(그러려고 symbols로 변수 받아온 것)
         VStack {
             HStack {
-                ButtonView(symbols: .allClear)
-                ButtonView(symbols: .toggleSign)
-                ButtonView(symbols: .remainder)
-                ButtonView(symbols: .divide)
+                ButtonView(text: .allClear)
+                ButtonView(text: .toggleSign)
+                ButtonView(text: .remainder)
+                ButtonView(text: .divide)
             }
             HStack {
-                ButtonView(symbols: .seven)
-                ButtonView(symbols: .eight)
-                ButtonView(symbols: .nine)
-                ButtonView(symbols: .mutiply)
+                ButtonView(text: .seven)
+                ButtonView(text: .eight)
+                ButtonView(text: .nine)
+                ButtonView(text: .mutiply)
             }
             HStack {
-                ButtonView(symbols: .four)
-                ButtonView(symbols: .five)
-                ButtonView(symbols: .six)
-                ButtonView(symbols: .substract)
+                ButtonView(text: .four)
+                ButtonView(text: .five)
+                ButtonView(text: .six)
+                ButtonView(text: .substract)
             }
             HStack {
-                ButtonView(symbols: .one)
-                ButtonView(symbols: .two)
-                ButtonView(symbols: .three)
-                ButtonView(symbols: .addition)
+                ButtonView(text: .one)
+                ButtonView(text: .two)
+                ButtonView(text: .three)
+                ButtonView(text: .addition)
             }
             HStack {
-                ButtonView(symbols: .zero)
-                ButtonView(symbols: .zero)
-                ButtonView(symbols: .point)
-                ButtonView(symbols: .equal)
+                ButtonView(text: .zero).frame(height: 100)
+                ButtonView(text: .zero).frame(height: 100)
+                ButtonView(text: .point)
+                ButtonView(text: .equal)
             }
             
         }
