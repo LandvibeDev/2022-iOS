@@ -19,29 +19,14 @@ class MemorizeGameDealer: ObservableObject {
         return memorizeGameManager.isFinished
     }
     var themeColor: Color {
-        switch currentTheme.themeColor {
-        case .red:
-            return .red
-        case .orange:
-            return .orange
-        case .yellow:
-            return .yellow
-        case .green:
-            return .green
-        case .blue:
-            return .blue
-        case .indigo:
-            return .indigo
-        case .purple:
-            return .purple
-        }
+        return currentTheme.color
     }
     
     private static func createEmojiMemoryGame() -> MemorizeGame<String> {
-        Self.theme = .randomTheme
-        var numberOfPairsOfCards = Self.theme.numberOfPairsOfCardsToShow
-        let emojis = Self.theme.emojis
-        if Self.theme.numberOfPairsOfCardsToShow > emojis.count {
+        theme = .randomTheme
+        var numberOfPairsOfCards = theme.numberOfPairsOfCardsToShow
+        let emojis = theme.emojis
+        if theme.numberOfPairsOfCardsToShow > emojis.count {
             numberOfPairsOfCards = emojis.count
         }
         return MemorizeGame<String>(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in
@@ -50,7 +35,7 @@ class MemorizeGameDealer: ObservableObject {
     }
     
     func newGame() {
-        Self.theme = Theme.randomTheme
+        Self.theme = .randomTheme
         var numberOfPairsOfCards = Self.theme.numberOfPairsOfCardsToShow
         let emojis = Self.theme.emojis
         

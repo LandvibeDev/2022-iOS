@@ -1,3 +1,4 @@
+import SwiftUI
 enum Theme: String, CaseIterable {
     case animal
     case emotion
@@ -30,7 +31,7 @@ enum Theme: String, CaseIterable {
         }
         return emoji.shuffled()
     }
-    var themeColor: ThemeColor {
+    var color: Color {
         switch self {
         case .animal:
             return .red
@@ -59,17 +60,5 @@ enum Theme: String, CaseIterable {
         default:
             return self.emojis.count
         }
-    }
-}
-
-extension Theme {
-    enum ThemeColor {
-        case red
-        case orange
-        case yellow
-        case green
-        case blue
-        case indigo
-        case purple
     }
 }
