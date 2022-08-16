@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject var calculator: CalculatorViewModel
     var body: some View {
         VStack {
             Spacer()
             result
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//            Padview(symbols: calculator.symbol)
         }
     }
     
@@ -29,6 +28,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        let calculator = CalculatorViewModel()
+        MainView(calculator: calculator)
     }
 }

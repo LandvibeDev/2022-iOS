@@ -1,5 +1,5 @@
 //
-//  NumberView.swift
+//  ButtonView.swift
 //  Calculator
 //
 //  Created by Kyungsoo Lee on 2022/08/15.
@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct NumberView: View {
+struct ButtonView: View {
     
-    let number: Int
+    let symbols: Symbol.Text
     var body: some View {
         let shape = Circle()
             .fill(Color.darkGray)
         Button {
-            
+            //여기서 Calculator의 operator와 연결(그래서 symbol을 통째로 가져온것임.)
         } label: {
             GeometryReader { geometry in
                 ZStack {
                     shape
-                    Text("\(number)")
+                    Text("\(symbols.rawValue)")
                         .font(font(in: geometry.size))
                         .foregroundColor(.white)
                 }
@@ -32,7 +32,7 @@ struct NumberView: View {
 }
 
 
-extension NumberView {
+extension ButtonView {
     private enum DrawConstants {
         
         static let fontScale: CGFloat = 0.5
@@ -40,8 +40,8 @@ extension NumberView {
     }
 }
 
-struct NumberView_Previews: PreviewProvider {
+struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberView(number: 5).preferredColorScheme(.dark)
+        ButtonView(symbols: Symbol.Text.addition).preferredColorScheme(.dark)
     }
 }

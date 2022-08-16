@@ -7,6 +7,21 @@
 
 import SwiftUI
 
-class CalculatorViewModel {
+class CalculatorViewModel: ObservableObject {
+    let symbols: [[Symbol.Text]]
     
+    
+    init() {
+//        expression = ""
+        symbols = [[.addition, .toggleSign, .remainder, .divide] ,
+                  [.seven, .eight, .nine, .mutiply],
+                  [.four, .five, .six, .substract],
+                  [.one, .two, .three, .addition],
+                  [.zero, .point, .equal]]
+    }
+    
+    func click(symbol: String) -> Void {
+        
+    }
 }
+

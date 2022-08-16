@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3952A5328AA374D00AA33A6 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5228AA374D00AA33A6 /* NumberView.swift */; };
-		F3952A5528AA387A00AA33A6 /* NumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5428AA387A00AA33A6 /* NumberListView.swift */; };
-		F3952A5728AA38F900AA33A6 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5628AA38F900AA33A6 /* OperationView.swift */; };
+		F3952A5328AA374D00AA33A6 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5228AA374D00AA33A6 /* ButtonView.swift */; };
+		F3952A5528AA387A00AA33A6 /* PadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5428AA387A00AA33A6 /* PadView.swift */; };
 		F3952A5B28AA391900AA33A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5A28AA391900AA33A6 /* MainView.swift */; };
 		F3952A5D28AA486600AA33A6 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A5C28AA486600AA33A6 /* AspectVGrid.swift */; };
 		F3952A6028AAC34D00AA33A6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3952A5F28AAC34D00AA33A6 /* Colors.xcassets */; };
 		F3952A6328AAC4F100AA33A6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A6228AAC4F100AA33A6 /* Color+Extension.swift */; };
-		F3952A6528AACAC300AA33A6 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A6428AACAC300AA33A6 /* Operator.swift */; };
+		F3952A6528AACAC300AA33A6 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A6428AACAC300AA33A6 /* Symbol.swift */; };
 		F3952A6728ABAD8500AA33A6 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A6628ABAD8500AA33A6 /* CalculatorViewModel.swift */; };
+		F3952A6928AC09AD00AA33A6 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952A6828AC09AD00AA33A6 /* Calculator.swift */; };
 		F3E0C7F528AA356F00B4F1FE /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0C7F428AA356F00B4F1FE /* CalculatorApp.swift */; };
 		F3E0C7F728AA356F00B4F1FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0C7F628AA356F00B4F1FE /* ContentView.swift */; };
 		F3E0C7F928AA356F00B4F1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E0C7F828AA356F00B4F1FE /* Assets.xcassets */; };
@@ -23,15 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F3952A5228AA374D00AA33A6 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
-		F3952A5428AA387A00AA33A6 /* NumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberListView.swift; sourceTree = "<group>"; };
-		F3952A5628AA38F900AA33A6 /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
+		F3952A5228AA374D00AA33A6 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		F3952A5428AA387A00AA33A6 /* PadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadView.swift; sourceTree = "<group>"; };
 		F3952A5A28AA391900AA33A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F3952A5C28AA486600AA33A6 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		F3952A5F28AAC34D00AA33A6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F3952A6228AAC4F100AA33A6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		F3952A6428AACAC300AA33A6 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		F3952A6428AACAC300AA33A6 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		F3952A6628ABAD8500AA33A6 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		F3952A6828AC09AD00AA33A6 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		F3E0C7F128AA356F00B4F1FE /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E0C7F428AA356F00B4F1FE /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
 		F3E0C7F628AA356F00B4F1FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,10 +54,9 @@
 			isa = PBXGroup;
 			children = (
 				F3E0C7F628AA356F00B4F1FE /* ContentView.swift */,
-				F3952A5228AA374D00AA33A6 /* NumberView.swift */,
+				F3952A5228AA374D00AA33A6 /* ButtonView.swift */,
 				F3952A5A28AA391900AA33A6 /* MainView.swift */,
-				F3952A5428AA387A00AA33A6 /* NumberListView.swift */,
-				F3952A5628AA38F900AA33A6 /* OperationView.swift */,
+				F3952A5428AA387A00AA33A6 /* PadView.swift */,
 				F3952A5C28AA486600AA33A6 /* AspectVGrid.swift */,
 			);
 			path = View;
@@ -66,7 +65,8 @@
 		F3952A5028AA371A00AA33A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F3952A6428AACAC300AA33A6 /* Operator.swift */,
+				F3952A6428AACAC300AA33A6 /* Symbol.swift */,
+				F3952A6828AC09AD00AA33A6 /* Calculator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,13 +199,13 @@
 			files = (
 				F3E0C7F728AA356F00B4F1FE /* ContentView.swift in Sources */,
 				F3952A5B28AA391900AA33A6 /* MainView.swift in Sources */,
-				F3952A6528AACAC300AA33A6 /* Operator.swift in Sources */,
+				F3952A6528AACAC300AA33A6 /* Symbol.swift in Sources */,
+				F3952A6928AC09AD00AA33A6 /* Calculator.swift in Sources */,
 				F3952A5D28AA486600AA33A6 /* AspectVGrid.swift in Sources */,
 				F3952A6728ABAD8500AA33A6 /* CalculatorViewModel.swift in Sources */,
 				F3E0C7F528AA356F00B4F1FE /* CalculatorApp.swift in Sources */,
-				F3952A5728AA38F900AA33A6 /* OperationView.swift in Sources */,
-				F3952A5328AA374D00AA33A6 /* NumberView.swift in Sources */,
-				F3952A5528AA387A00AA33A6 /* NumberListView.swift in Sources */,
+				F3952A5328AA374D00AA33A6 /* ButtonView.swift in Sources */,
+				F3952A5528AA387A00AA33A6 /* PadView.swift in Sources */,
 				F3952A6328AAC4F100AA33A6 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
