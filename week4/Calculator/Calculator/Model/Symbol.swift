@@ -33,6 +33,11 @@ struct Symbol {
         case nine = "9"
         case zero = "0"
     }
+    
+    enum TextType: String {
+        case numbers
+        case operators
+    }
 }
 
 

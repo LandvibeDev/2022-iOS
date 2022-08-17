@@ -14,24 +14,23 @@ struct ButtonView: View {
         
         
         Button {
+            //Test Log
+            print(1.0 + 2.0)
             //여기서 Calculator의 operator와 연결(그래서 symbol을 통째로 가져온것임.)
         } label: {
             GeometryReader { geometry in
                 ZStack {
                     if text == .zero {
-                        RoundedRectangle(cornerRadius: 15)
+                        RoundedRectangle(cornerRadius: 100)
                             .fill(Color.darkGray)
                         
                     } else {
                         Circle()
                             .fill(Color.darkGray)
                     }
-                        
-                    
-                    
-                    Text("\(text.rawValue)")
-                        .font(font(in: geometry.size))
-                        .foregroundColor(.white)
+                        Text("\(text.rawValue)")
+                            .font(font(in: geometry.size))
+                            .foregroundColor(.white)
                 }
             }
         }

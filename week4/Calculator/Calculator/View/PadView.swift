@@ -38,12 +38,10 @@ struct Padview: View {
                 ButtonView(text: .addition)
             }
             HStack {
-                ButtonView(text: .zero).frame(height: 100)
-                ButtonView(text: .zero).frame(height: 100)
+                ButtonView(text: .zero).frame(width: 180, height: 100)
                 ButtonView(text: .point)
                 ButtonView(text: .equal)
             }
-            
         }
     }
     init(symbols: [[Symbol.Text]]) {

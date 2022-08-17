@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Calculator<TypeOfNumber: FloatingPoint> {
+/*
+ 해야할 것
+ */
+
+struct Calculator {
     //    private(set) var symbol: String
     //    private(set) var firstNumber: TypeOfNumber
     //    private(set) var secondNumber: TypeOfNumber
@@ -17,36 +21,42 @@ struct Calculator<TypeOfNumber: FloatingPoint> {
     //        self.firstNumber = firstNumber
     //        self.secondNumber = secondNumber
     //    }
-        
-        static func addtion(firstNumber: TypeOfNumber, secondNumber: TypeOfNumber) -> TypeOfNumber {
-            return firstNumber + secondNumber
+    
+    private(set) var result: Int
+    
+    init() {
+        result = 0
+    }
+    
+    static func addtion(firstNumber: Double, secondNumber: Double) -> Double {
+        return firstNumber + secondNumber
+    }
+    
+    static func substract(firstNumber: Double, secondNumber: Double) -> Double {
+        return firstNumber - secondNumber
+    }
+    
+    static func multiply(firstNumber: Double, secondNumber: Double) -> Double {
+        return firstNumber * secondNumber
+    }
+    
+    static func divide(firstNumber: Double, secondNumber: Double) -> Double? {
+        if secondNumber != 0 {
+            return firstNumber / secondNumber
+        } else {
+            return nil
         }
-        
-        static func substract(firstNumber: TypeOfNumber, secondNumber: TypeOfNumber) -> TypeOfNumber {
-            return firstNumber - secondNumber
-        }
-        
-        static func multiply(firstNumber: TypeOfNumber, secondNumber: TypeOfNumber) -> TypeOfNumber {
-            return firstNumber * secondNumber
-        }
-        
-        static func divide(firstNumber: TypeOfNumber, secondNumber: TypeOfNumber) -> TypeOfNumber? {
-            if secondNumber != 0 {
-                return firstNumber / secondNumber
-            } else {
-                return nil
-            }
-        }
-        
-        static func toggleSign(targetNumber: TypeOfNumber) -> TypeOfNumber {
-            return (-1) * targetNumber
-        }
-        
-        static func allCancel() -> [String] {
-            return []
-        }
-        
-        
-
-        
+    }
+    
+    static func toggleSign(targetNumber: Double) -> Double {
+        return (-1) * targetNumber
+    }
+    
+    static func allCancel() -> [String] {
+        return []
+    }
+    
+    
+    
+    
 }
