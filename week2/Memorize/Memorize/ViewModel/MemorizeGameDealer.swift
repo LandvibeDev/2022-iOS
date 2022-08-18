@@ -19,7 +19,22 @@ class MemorizeGameDealer: ObservableObject {
         return memorizeGameManager.isFinished
     }
     var themeColor: Color {
-        return currentTheme.color
+        switch currentTheme.themeColor {
+        case .red:
+            return .red
+        case .orange:
+            return .orange
+        case .yellow:
+            return .yellow
+        case .green:
+            return .green
+        case .blue:
+            return .blue
+        case .indigo:
+            return .indigo
+        case .purple:
+            return .purple
+        }
     }
     
     private static func createEmojiMemoryGame() -> MemorizeGame<String> {
