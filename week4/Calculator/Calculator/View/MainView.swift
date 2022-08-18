@@ -14,24 +14,18 @@ struct MainView: View {
             Spacer()
                 .frame(height: 100)
             result
-            Padview(symbols: calculator.symbols)
+            Padview(calculator: calculator)
         }
     }
-    
     var result: some View {
         VStack {
             HStack {
                 Spacer()
-                Text("0")
+                Text("\(calculator.result)")
                     .font(.largeTitle)
             }
         }
-       
     }
-    
-//    var numberBoard: some View {
-//
-//    }
 }
 
 struct MainView_Previews: PreviewProvider {

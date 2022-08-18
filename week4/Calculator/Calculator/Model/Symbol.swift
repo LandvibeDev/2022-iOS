@@ -15,9 +15,9 @@ struct Symbol {
         case allClear = "AC"
         case clear = "C"
         case toggleSign = "+/-"
-        case remainder = "%"
+        case percent = "%"
         case divide = "÷"
-        case mutiply = "×"
+        case multiply = "×"
         case substract = "-"
         case addition = "+"
         case point = "."
@@ -33,18 +33,13 @@ struct Symbol {
         case nine = "9"
         case zero = "0"
     }
-    
-    enum TextType: String {
-        case numbers
-        case operators
-    }
 }
-
 
 extension Symbol {
     
+    // MARK: - Color
+    
     enum Color {
-        
         case lightGray
         case darkGray
         case lightOrange

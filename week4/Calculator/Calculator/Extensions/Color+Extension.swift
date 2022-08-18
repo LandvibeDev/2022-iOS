@@ -12,15 +12,3 @@ extension Color {
     static let lightGray = Color("lightGray")
     static let lightOrange = Color("lightOrange")
 }
-
-//struct Color_Extension: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
-//
-//struct Color_Extension_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Color_Extension()
-//    }
-//}

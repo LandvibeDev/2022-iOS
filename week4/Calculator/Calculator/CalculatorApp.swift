@@ -14,7 +14,7 @@ struct CalculatorApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView(calculator: calculator)
+            MainView(calculator: calculator).preferredColorScheme(.dark)
         }
     }
 }
