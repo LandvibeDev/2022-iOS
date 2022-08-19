@@ -10,12 +10,12 @@ struct CalculateButtonStyle: ButtonStyle {
     var backgroundColor: Color
     var foregroundColor: Color
     var isZero: Bool
-    @ViewBuilder
+
     func makeBody(configuration: Self.Configuration) -> some View {
         if isZero {
             configuration.label
                 .frame(maxWidth:UIScreen.main.bounds.size.width / 2, maxHeight: UIScreen.main.bounds.size.height / 12, alignment: .leading)
-                .font(.title2)
+                .font(.title)
                 .padding()
                 .background(backgroundColor)
                 .foregroundColor(foregroundColor)
@@ -27,8 +27,8 @@ struct CalculateButtonStyle: ButtonStyle {
                 .clipShape(Capsule())
         } else {
             configuration.label
-                .frame(maxWidth:UIScreen.main.bounds.size.width / 6, maxHeight: UIScreen.main.bounds.size.height / 12, alignment: .center)
-                .font(.title2)
+                .frame(maxWidth:UIScreen.main.bounds.size.width / 6.5, maxHeight: UIScreen.main.bounds.size.height / 12, alignment: .center)
+                .font(.title)
                 .padding()
                 .background(backgroundColor)
                 .foregroundColor(foregroundColor)

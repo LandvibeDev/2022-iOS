@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 class CalculatorManager: ObservableObject {
-    @Published var calculator = Calculator()
+    @Published private var calculator = Calculator()
     var displayValue: String {
         return calculator.displayValue
     }

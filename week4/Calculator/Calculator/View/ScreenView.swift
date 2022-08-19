@@ -15,8 +15,8 @@ struct ScreenView: View {
             Text(calculatorManager.displayValue)
                 .lineLimit(1)
                 .foregroundColor(.white)
-                .frame(height: 100, alignment: .bottomTrailing)
-                .font(.title)
+                .frame(maxHeight: UIScreen.main.bounds.size.height / 5, alignment: .bottomTrailing)
+                .font(.system(size: 50))
                 .padding()
         }
     }

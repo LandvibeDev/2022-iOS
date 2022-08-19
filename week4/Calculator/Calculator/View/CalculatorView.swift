@@ -17,6 +17,7 @@ struct CalculatorView: View {
                 .border(.blue)
         }
         .background(Color.black)
+        .border(Color.red)
     }
 }
 
