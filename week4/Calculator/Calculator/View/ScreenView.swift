@@ -10,9 +10,15 @@ import SwiftUI
 struct ScreenView: View {
     @EnvironmentObject var calculatorManager: CalculatorManager
     var body: some View {
-        Text(calculatorManager.displayValue)
-            .frame(width: 300, height: 200, alignment: .trailing)
-            .font(.title)
+        HStack {
+            Spacer()
+            Text(calculatorManager.displayValue)
+                .lineLimit(1)
+                .foregroundColor(.white)
+                .frame(height: 100, alignment: .bottomTrailing)
+                .font(.title)
+                .padding()
+        }
     }
 }
 

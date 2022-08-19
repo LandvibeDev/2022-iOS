@@ -10,31 +10,34 @@ struct CalculateButtonStyle: ButtonStyle {
     var backgroundColor: Color
     var foregroundColor: Color
     var isZero: Bool
+    @ViewBuilder
     func makeBody(configuration: Self.Configuration) -> some View {
         if isZero {
-            return configuration.label
-                .frame(width: 100, height: 30, alignment: .leading)
+            configuration.label
+                .frame(maxWidth:UIScreen.main.bounds.size.width / 2, maxHeight: UIScreen.main.bounds.size.height / 12, alignment: .leading)
+                .font(.title2)
                 .padding()
                 .background(backgroundColor)
                 .foregroundColor(foregroundColor)
                 .overlay {
                     if configuration.isPressed {
-                        Color(white:  1.0, opacity: 0.2)
+                        Color(white:  1.0, opacity: 0.3)
                     }
                 }
                 .clipShape(Capsule())
         } else {
-            return configuration.label
-                .frame(width: 30, height: 30, alignment: .center)
+            configuration.label
+                .frame(maxWidth:UIScreen.main.bounds.size.width / 6, maxHeight: UIScreen.main.bounds.size.height / 12, alignment: .center)
+                .font(.title2)
                 .padding()
                 .background(backgroundColor)
                 .foregroundColor(foregroundColor)
                 .overlay {
                     if configuration.isPressed {
-                        Color(white:  1.0, opacity: 0.2)
+                        Color(white:  1.0, opacity: 0.3)
                     }
                 }
-                .clipShape(Capsule())
+                .clipShape(Circle())
         }
     }
 }

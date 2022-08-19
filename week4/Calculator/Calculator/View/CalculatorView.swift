@@ -9,9 +9,14 @@ import SwiftUI
 
 struct CalculatorView: View {
     var body: some View {
-        Spacer()
-        ScreenView()
-        PadView()
+        VStack {
+            Spacer()
+            ScreenView()
+                .border(.white)
+            PadView()
+                .border(.blue)
+        }
+        .background(Color.black)
     }
 }
 
