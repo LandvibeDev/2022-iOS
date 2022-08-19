@@ -16,7 +16,7 @@ class CalculatorManager: ObservableObject {
         return calculator.buttonLayout
     }
     
-    func stringtoColor(color: String) -> Color {
+    func buttonColor(color: String) -> Color {
         switch(color) {
         case "orange":
             return Color.orange
