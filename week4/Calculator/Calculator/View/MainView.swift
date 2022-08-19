@@ -21,7 +21,7 @@ struct MainView: View {
         VStack {
             HStack {
                 Spacer()
-                Text("\(calculator.result)")
+                Text("\(calculator.displayText)")
                     .font(.largeTitle)
             }
         }

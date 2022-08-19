@@ -12,11 +12,13 @@ struct Calculator {
     private(set) var displayText: String!
     private(set) var result: Double
     private(set) var stack: [String]
+    private(set) var inputNumber: String!
     
     init() {
         result = 0
         displayText = "0"
-        stack = ["0"]
+        stack = []
+        inputNumber = ""
     }
     
     static func percent(number: Double) -> Double {
@@ -42,7 +44,7 @@ struct Calculator {
                 result = firstNumber + secondNumber
             case "-":
                 result = firstNumber - secondNumber
-            case "*":
+            case "×":
                 result = firstNumber * secondNumber
             case "÷":
                 if secondNumber != 0 {
@@ -54,25 +56,53 @@ struct Calculator {
             default:
                 result = 0.0
             }
-            stack.append(String(result))
+            //test log
+            print("in equl###########################")
+            print(stack)
+            stack.removeAll()
+            inputNumber.removeAll()
+            inputNumber = String(result)
+            displayText = inputNumber
+            //test log
+            print(self)
         }
         result = 0.0
     }
     
     mutating func click(inputText: String) -> Void {
+        print(self)
         if inputText == "AC" {
             result = 0
             displayText = "0"
-            stack = ["0"]
+            stack.removeAll()
+            inputNumber = ""
+            print(self)
+            return
         }
-        if isNumber(symbol: stack.last!) && isNumber(symbol: inputText) {
-            displayText += inputText
-            result = Double(displayText)!
-        } else if isNumber(symbol: stack.last!) && !isNumber(symbol: inputText) {
-            stack.append(displayText)
-            stack.append(inputText)
-        } else if isNumber(symbol: stack.last!) && inputText == "=" {
+        if inputText == "=" {
+            stack.append(inputNumber)
+            //test log
+            print(self)
+            
             equl()
+            //test log
+            print(stack)
+            return
+        } else {
+            if isNumber(symbol: inputText) {
+                inputNumber += inputText
+                displayText = inputNumber
+            } else if !isNumber(symbol: inputText) {
+                if !isNumber(symbol: stack.last ?? "0") {
+                    stack.removeLast()
+                } else {
+                    stack.append(inputNumber)
+                }
+                stack.append(inputText)
+                inputNumber.removeAll()
+            } else if !isNumber(symbol: stack.last ?? "0") && isNumber(symbol: inputText) {
+                inputNumber += inputText
+            }
         }
     }
     
