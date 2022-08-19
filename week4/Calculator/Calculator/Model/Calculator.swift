@@ -17,7 +17,7 @@ struct Calculator {
     init() {
         result = 0
         displayText = "0"
-        stack = []
+        stack = ["0"]
         inputNumber = ""
     }
     
@@ -52,57 +52,57 @@ struct Calculator {
                 } else {
                     displayText = "Error"
                     result = 0.0
+                    return
                 }
             default:
                 result = 0.0
             }
-            //test log
-            print("in equl###########################")
-            print(stack)
             stack.removeAll()
-            inputNumber.removeAll()
             inputNumber = String(result)
             displayText = inputNumber
-            //test log
-            print(self)
         }
-        result = 0.0
+        else {
+            result = 0.0
+        }
     }
     
     mutating func click(inputText: String) -> Void {
-        print(self)
         if inputText == "AC" {
             result = 0
             displayText = "0"
             stack.removeAll()
+            stack.append("0")
             inputNumber = ""
-            print(self)
+            return
+        } else if inputText == "=" {
+            stack.append(inputNumber)
+            equl()
+            stack.append(String(result))
+            return
+        } else if inputText == "+/-" {
+            stack.append(String(Double(stack.popLast() ?? "0")! * (-1)))
             return
         }
-        if inputText == "=" {
-            stack.append(inputNumber)
-            //test log
-            print(self)
+        if isNumber(symbol: inputText) {
             
-            equl()
-            //test log
-            print(stack)
-            return
-        } else {
-            if isNumber(symbol: inputText) {
-                inputNumber += inputText
-                displayText = inputNumber
-            } else if !isNumber(symbol: inputText) {
-                if !isNumber(symbol: stack.last ?? "0") {
+            inputNumber += inputText
+            displayText = inputNumber
+        } else if !isNumber(symbol: inputText) {
+            if !isNumber(symbol: stack.last ?? "0") {
+                stack.removeLast()
+            } else {
+                if stack.count == 1 && stack.last == "0" {
                     stack.removeLast()
-                } else {
                     stack.append(inputNumber)
                 }
-                stack.append(inputText)
-                inputNumber.removeAll()
-            } else if !isNumber(symbol: stack.last ?? "0") && isNumber(symbol: inputText) {
-                inputNumber += inputText
             }
+            stack.append(inputText)
+            inputNumber.removeAll()
+            if stack.count >= 3 {
+                equl()
+            }
+        } else if !isNumber(symbol: stack.last ?? "0") && isNumber(symbol: inputText) {
+            inputNumber += inputText
         }
     }
     
