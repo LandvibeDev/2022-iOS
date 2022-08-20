@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct CardView: View {
-
+  
   let card: MemoryGame<String>.Card
+  
+  init(_ card: MemoryGame<String>.Card) {
+    self.card = card
+  }
   
   var body: some View {
     ZStack{
@@ -31,6 +35,6 @@ struct CardView_Previews: PreviewProvider {
   
   static var previews: some View {
     let card = MemoryGame<String>.Card(isFaceUp: true, isMatched: false, content: "🫡", id: 0)
-    CardView(card: card)
+    CardView(card)
   }
 }

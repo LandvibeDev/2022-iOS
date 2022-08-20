@@ -10,14 +10,14 @@ import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
   
-  private static func createEmojiMemoryGame() -> MemoryGame<String> {
+  private static func create() -> MemoryGame<String> {
     let numberOfCardPairs =  theme.numberOfCardPairsToShow > theme.content.count
       ? theme.content.count
       : theme.numberOfCardPairsToShow
     return MemoryGame<String>(numberOfCardPairs: numberOfCardPairs) { pairIndex in theme.content[pairIndex] }
   }
   
-  @Published private var memoryGameModel = createEmojiMemoryGame()
+  @Published private var memoryGameModel = create()
   static var theme = EmojiTheme.allCases.randomElement() ?? .vehicles
   
   var cards: [MemoryGame<String>.Card] {
@@ -61,7 +61,7 @@ class EmojiMemoryGame: ObservableObject {
   }
   
   func newGame() {
-    EmojiMemoryGame.theme = EmojiTheme.allCases.randomElement()!
-    memoryGameModel = EmojiMemoryGame.createEmojiMemoryGame()
+    EmojiMemoryGame.theme = EmojiTheme.allCases.randomElement() ?? .vehicles
+    memoryGameModel = EmojiMemoryGame.create()
   }
 }
