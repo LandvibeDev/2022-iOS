@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EmojiTheme: String, CaseIterable  {
+enum EmojiTheme: String, CaseIterable {
   case vehicles
   case faces
   case sports
@@ -32,20 +32,29 @@ enum EmojiTheme: String, CaseIterable  {
     }
   }
   
-  var color: String {
+  enum themColor {
+    case pink
+    case yellow
+    case orange
+    case green
+    case black
+    case blue
+  }
+  
+  var color: themColor {
     switch self {
     case .vehicles:
-      return "pink"
+      return .pink
     case .faces:
-      return "yellow"
+      return .yellow
     case .sports:
-      return "orange"
+      return .orange
     case .hearts:
-      return "green"
+      return .green
     case .flags:
-      return "black"
+      return .black
     case .foods:
-      return "blue"
+      return .blue
     }
   }
   

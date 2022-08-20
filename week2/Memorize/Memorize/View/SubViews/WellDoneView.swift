@@ -12,7 +12,7 @@ struct WellDoneView: View {
   let point: Int
   
   var body: some View {
-    VStack{
+    VStack {
       Text("Well Done!")
       Text("You got \(point) Points!!")
     }

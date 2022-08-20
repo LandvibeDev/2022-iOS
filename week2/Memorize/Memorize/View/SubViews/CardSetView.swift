@@ -16,7 +16,7 @@ struct CardSetView: View {
       LazyVGrid(columns: [GridItem(.adaptive(minimum: 80, maximum: 100))],  spacing: 10) {
         ForEach(memoryGameManager.cards) { card in
           CardView(card: card)
-            .onTapGesture{
+            .onTapGesture {
               memoryGameManager.choose(card)
             }
         }

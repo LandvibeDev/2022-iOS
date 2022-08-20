@@ -12,7 +12,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
   private(set) var cards: [Card]
   private(set) var point = 0
   private var numberOfMatchedCard = 0
-  private var prevChosenCardIndex: Int? {
+  private var previousChosenCardIndex: Int? {
     get { cards.indices.filter({cards[$0].isFaceUp}).oneAndOnly }
     set { cards.indices.forEach{cards[$0].isFaceUp = ($0 == newValue)} }
   }
@@ -32,10 +32,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
   
   mutating func choose(_ card: Card) {
     if let currentChosenCardIndex = cards.firstIndex(where: { $0.id == card.id }) {
-      if cards[currentChosenCardIndex].isFaceUpAtLeastOne == true {
+      if cards[currentChosenCardIndex].isFaceUpAtLeastOne {
         point -= 1
       }
-      if let alreadyChosenCardIndex = prevChosenCardIndex {
+      if let alreadyChosenCardIndex = previousChosenCardIndex {
         if cards[currentChosenCardIndex].id != cards[alreadyChosenCardIndex].id,
            cards[currentChosenCardIndex].content == cards[alreadyChosenCardIndex].content {
           cards[currentChosenCardIndex].isMatched = true
@@ -63,9 +63,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
   }
 }
 
-extension Array{
+extension Array {
   
-  var oneAndOnly: Element?{
+  var oneAndOnly: Element? {
     return self.count == 1 ? self.first : nil
   }
 }

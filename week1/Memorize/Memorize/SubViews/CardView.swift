@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
+  
   @State var isFaceUp = true
   var content = ""
   
@@ -30,6 +31,7 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
+  
   static var previews: some View {
     CardView()
   }

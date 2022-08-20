@@ -13,7 +13,7 @@ struct TopInfoView: View {
   let point: Int
   
   var body: some View {
-    VStack{
+    VStack {
       Text(title)
       Text("point : \(point)").font(.body)
     }
