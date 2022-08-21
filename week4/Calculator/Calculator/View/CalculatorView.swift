@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalculatorView: View {
+    @EnvironmentObject var calculatorManager: CalculatorManager
+
     var body: some View {
         VStack {
             Spacer()
