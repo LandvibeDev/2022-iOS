@@ -10,14 +10,6 @@ import SwiftUI
 class CalculatorViewModel: ObservableObject {
     @Published private var calculator: Calculator
     let symbols: [[Symbol.Text]]
-//    var lastSymbol: String {
-//        if result.isEmpty {
-//            return "0"
-//        } else {
-//            return (String)(result.last!)
-//        }
-//    }
-
     var displayText: String {
         return calculator.displayText
     }

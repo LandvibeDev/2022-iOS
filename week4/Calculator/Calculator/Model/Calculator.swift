@@ -18,15 +18,16 @@ struct Calculator {
         result = 0
         displayText = "0"
         stack = ["0"]
-        inputNumber = ""
+        inputNumber = "0"
     }
     
     static func percent(number: Double) -> Double {
         return number/100
     }
     
-    static func toggleSign(targetNumber: Double) -> Double {
-        return (-1) * targetNumber
+    mutating func toggleSign(targetNumber: Double) -> Void {
+        result = (-1) * targetNumber
+        displayText = String(targetNumber)
     }
     
     static func allClear() -> Calculator{
@@ -60,8 +61,7 @@ struct Calculator {
             stack.removeAll()
             inputNumber = String(result)
             displayText = inputNumber
-        }
-        else {
+        } else {
             result = 0.0
         }
     }
@@ -72,7 +72,7 @@ struct Calculator {
             displayText = "0"
             stack.removeAll()
             stack.append("0")
-            inputNumber = ""
+            inputNumber = "0"
             return
         } else if inputText == "=" {
             stack.append(inputNumber)
@@ -80,11 +80,29 @@ struct Calculator {
             stack.append(String(result))
             return
         } else if inputText == "+/-" {
+            if stack.count == 1 && Double(stack.last!) == 0 {
+                stack.removeLast()
+                stack.append(inputNumber)
+            }
             stack.append(String(Double(stack.popLast() ?? "0")! * (-1)))
+            displayText = stack.last
+            result = Double(displayText)!
+            return
+        } else if inputText == "%" {
+            print(self)
+            if stack.count == 1 && (stack.last == "0" || stack.last == "0.0") {
+                stack.removeLast()
+                stack.append(String(Double(inputNumber)! / 100))
+            } else {
+//                stack.append(String(Double(stack.popLast()!)! / 100))
+            }
+            displayText = stack.last
             return
         }
         if isNumber(symbol: inputText) {
-            
+            if inputNumber == "0" {
+                inputNumber.removeAll()
+            }
             inputNumber += inputText
             displayText = inputNumber
         } else if !isNumber(symbol: inputText) {
