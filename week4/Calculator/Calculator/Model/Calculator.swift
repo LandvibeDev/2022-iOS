@@ -20,7 +20,7 @@ struct Calculator {
         if self.newValue == nil || isCalculationResultIsNil { //새로 입력하는 경우 ex) 1
             displayValue = String(describing: newValue.rawValue)
             self.newValue = Decimal(string: displayValue)
-            isAllClear = false
+            isAllClear = false //어떤 값을 넣든 Clear보여주도록
         } else { // 이어붙이는 경우 ex) 123
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
             self.newValue = Decimal(string: displayValue)
@@ -28,23 +28,23 @@ struct Calculator {
     }
     
     mutating func setOperation(_ newOperation: BinaryOperator) {
-        guard let operation = operation, let newValue = newValue else {
-            self.operation = newOperation
+        guard let operation = operation, let newValue = newValue else { //세팅 되어 있지않으면
+            self.operation = newOperation //세팅만
             return
         }
-        calculationResult = calculate(operation: operation, newValue: newValue)
-        guard let calculationResult = calculationResult else {
+        calculationResult = calculate(operation: operation, newValue: newValue) //계산
+        guard let calculationResult = calculationResult else { //오류일 경우
             displayValue = "오류"
             return
         }
         displayValue = String(describing: calculationResult)
-        self.newValue = nil
+        self.newValue = nil //new Value에 nil 넣어줘서 다른 연산 눌러도 연산 안되도록 해줌
         self.operation = newOperation
     }
     
     mutating func equal() {
-        guard let operation = operation, let newValue = newValue else { return }
-        if operation == BinaryOperator.divide, newValue == 0 {
+        guard let operation = operation, let newValue = newValue else { return } //세팅 안되어있는경우
+        if operation == BinaryOperator.divide, newValue == 0 { //divide by zero exception
             calculationResult = nil
             displayValue = "오류"
             self.newValue = nil
@@ -60,7 +60,7 @@ struct Calculator {
     }
     
     mutating func dot() {
-        if displayValue.contains(".") || isCalculationResultIsNil { return }
+        if displayValue.contains(".") || isCalculationResultIsNil { return } //이미 소수
         displayValue = displayValue.appending(".")
         isAllClear = false
         newValue = Decimal(string: displayValue)
@@ -70,12 +70,12 @@ struct Calculator {
         guard let calculationResult = calculationResult else {
             return
         }
-        guard let newValue = newValue else {
+        guard let newValue = newValue else { //새 입력값에 percent
             displayValue = String(describing: calculationResult * 0.01)
             self.calculationResult = Decimal(string: displayValue)
             return
         }
-        displayValue = String(describing: newValue * 0.01)
+        displayValue = String(describing: newValue * 0.01) // calculationResult값에
         self.newValue = Decimal(string: displayValue)
     }
     
@@ -83,12 +83,12 @@ struct Calculator {
         guard let calculationResult = calculationResult else {
             return
         }
-        guard let newValue = newValue else {
+        guard let newValue = newValue else { //새 입력값에 toggle
             displayValue = String(describing: -calculationResult)
             self.calculationResult = Decimal(string: displayValue)
             return
         }
-        displayValue = String(describing: newValue)
+        displayValue = String(describing: newValue) //result 값에 toggle
         self.newValue = Decimal(string: displayValue)
     }
     

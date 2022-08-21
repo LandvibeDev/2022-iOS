@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScreenView: View {
     @EnvironmentObject var calculatorManager: CalculatorManager
+    
     var body: some View {
         HStack {
             Spacer()
