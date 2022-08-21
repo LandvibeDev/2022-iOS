@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct CalculatorView: View {
+    @EnvironmentObject var calculatorManager: CalculatorManager
+
     var body: some View {
         VStack {
             Spacer()
             ScreenView()
-                .border(.white)
             PadView()
-                .border(.blue)
         }
+        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
+            .onEnded({ _ in
+                calculatorManager.backWhenSwiped()
+            }))
         .background(Color.black)
-        .border(Color.red)
     }
 }
 

@@ -7,26 +7,26 @@
 
 import Foundation
 struct Calculator {
-    private(set) var displayValue = "0"
-    private var calculationResult: Decimal? = 0
-    private var newValue: Decimal? = nil
-    private var operation: BinaryOperator? = .add
-    private var isAllClear = true
-    var isCalculationResultIsNil: Bool {
+    private(set) var displayValue = "0"           //Screen에 보여주기 위함
+    private var calculationResult: Decimal? = 0  //연산 결과를 가지고 있는 변수
+    private var newValue: Decimal? = nil         // 새 입력 변수
+    private var operation: BinaryOperator? = .add // 현재 연산
+    private var isAllClear = true //AC or C
+    var isCalculationResultIsNil: Bool { //divide by zero excetion
         calculationResult == nil
     }
     
     mutating func setDigit(_ newValue: Digit) {
-        if self.newValue == nil || isCalculationResultIsNil {
+        if self.newValue == nil || isCalculationResultIsNil { //새로 입력하는 경우 ex) 1
             displayValue = String(describing: newValue.rawValue)
             self.newValue = Decimal(string: displayValue)
             isAllClear = false
-        } else {
+        } else { // 이어붙이는 경우 ex) 123
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
             self.newValue = Decimal(string: displayValue)
         }
     }
-
+    
     mutating func setOperation(_ newOperation: BinaryOperator) {
         guard let operation = operation, let newValue = newValue else {
             self.operation = newOperation
@@ -57,7 +57,6 @@ struct Calculator {
             return
         }
         displayValue = String(describing: calculationResult)
-        self.newValue = nil
     }
     
     mutating func dot() {
@@ -124,6 +123,12 @@ struct Calculator {
             return calculationResult * newValue
         }
     }
+    
+    mutating func backWhenSwiped() {
+        if displayValue.count > 1 {
+            displayValue.removeLast()
+        }
+    }
 }
 
 extension Calculator {
@@ -180,7 +185,7 @@ extension Calculator {
         var backgroundColor: String {
             switch (self) {
             case .digit, .dot:
-                return "secondary"
+                return "darkGray"
             case .binaryOperator, .equal:
                 return "orange"
             default:

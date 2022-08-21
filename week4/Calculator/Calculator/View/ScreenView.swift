@@ -15,15 +15,16 @@ struct ScreenView: View {
             Text(calculatorManager.displayValue)
                 .lineLimit(1)
                 .foregroundColor(.white)
-                .frame(maxHeight: UIScreen.main.bounds.size.height / 5, alignment: .bottomTrailing)
+                .frame(alignment: .bottomTrailing)
                 .font(.system(size: 50))
+                .minimumScaleFactor(0.3)
                 .padding()
         }
     }
 }
-
 struct ScreenView_Previews: PreviewProvider {
     static var previews: some View {
         ScreenView()
     }
 }
+

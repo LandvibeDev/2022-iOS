@@ -26,11 +26,15 @@ class CalculatorManager: ObservableObject {
             return Color.black
         case "gray":
             return Color.gray
-        case "secondary":
-            return Color.secondary
+        case "darkGray":
+            return Color(UIColor.darkGray)
         default:
             return Color.black
         }
+    }
+    
+    func backWhenSwiped() {
+        calculator.backWhenSwiped()
     }
   
     func touchButton(_ button: Calculator.Button) {
