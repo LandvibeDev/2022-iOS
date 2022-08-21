@@ -17,6 +17,7 @@
 		6F1A922F28B215AB009FBF28 /* FunctionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A922E28B215AA009FBF28 /* FunctionButtons.swift */; };
 		6F1A923128B215B8009FBF28 /* ArithmeticOperationButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923028B215B8009FBF28 /* ArithmeticOperationButtons.swift */; };
 		6F1A923328B215C2009FBF28 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923228B215C2009FBF28 /* NumberPadView.swift */; };
+		6F1A923628B21E70009FBF28 /* Ex+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923528B21E70009FBF28 /* Ex+Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		6F1A922E28B215AA009FBF28 /* FunctionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtons.swift; sourceTree = "<group>"; };
 		6F1A923028B215B8009FBF28 /* ArithmeticOperationButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperationButtons.swift; sourceTree = "<group>"; };
 		6F1A923228B215C2009FBF28 /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
+		6F1A923528B21E70009FBF28 /* Ex+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				6F1A921728B13A71009FBF28 /* CalculatorApp.swift */,
+				6F1A923428B21E45009FBF28 /* Extensions */,
 				6F1A922528B13A93009FBF28 /* Model */,
 				6F1A922628B13A9B009FBF28 /* ViewModel */,
 				6F1A922728B13AA3009FBF28 /* View */,
@@ -107,6 +110,14 @@
 				6F1A923228B215C2009FBF28 /* NumberPadView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6F1A923428B21E45009FBF28 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6F1A923528B21E70009FBF28 /* Ex+Double.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1A923628B21E70009FBF28 /* Ex+Double.swift in Sources */,
 				6F1A922928B13AE8009FBF28 /* CalculatorModel.swift in Sources */,
 				6F1A921A28B13A71009FBF28 /* ContentView.swift in Sources */,
 				6F1A922D28B2159B009FBF28 /* ResultView.swift in Sources */,

@@ -9,23 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
   
+  @ObservedObject var calculatorManager: CalculatorManager
+  
   var body: some View {
-    VStack {
-      ResultView()
-      HStack {
-        VStack {
-          FunctionButtons()
-          NumberPadView()
+    ZStack{
+      Color.black.ignoresSafeArea()
+      VStack {
+        ResultView(showingText: calculatorManager.showingText)
+        HStack {
+          VStack {
+            FunctionButtons()
+            NumberPadView()
+          }
+          ArithmeticOperationButtons()
         }
-        ArithmeticOperationButtons()
       }
-    }
+    }.foregroundColor(.white)
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ContentView()
+    let caculatorManager = CalculatorManager()
+    ContentView(calculatorManager: caculatorManager)
   }
 }

@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ResultView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  
+  let showingText: Double
+  
+  var body: some View {
+    HStack {
+      Spacer()
+      Text(showingText.clean)
+        .font(.system(size: 60))
     }
+  }
 }
 
 struct ResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultView()
-    }
+  static var previews: some View {
+    let showingText = 10.0
+    ResultView(showingText: showingText)
+  }
 }

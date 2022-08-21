@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CalculatorApp: App {
+  
+  let caculatorManager = CalculatorManager()
+  
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          ContentView(calculatorManager: caculatorManager)
         }
     }
 }
