@@ -26,10 +26,11 @@ struct NumberPadView: View {
   var positiveNumberButtons: some View {
     LazyVGrid(columns: [GridItem(.adaptive(minimum: 60, maximum: 200))], spacing: 10) {
       ForEach(positiveNumbers, id: \.self) { number in
-        CircleButton(content: number.clean, color: .gray)
-          .onTapGesture {
-            calculatorManager.clickNumber(number)
-          }
+        Button {
+          calculatorManager.clickNumber(number)
+        } label: {
+          CircleButton(content: number.clean, color: .gray)
+        }
       }
     }
   }
