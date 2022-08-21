@@ -8,15 +8,20 @@
 import Foundation
 
 struct Caculator {
-
-  var operation: arithmeticOperation?
-  var state: inputState = .newPreviousNumber
-  private(set) var showingText: Double 
+  
+  var operation: ArithmeticOperation?
+  var state: InputState = .newPreviousNumber
+  private(set) var showingText: Double
   private(set) var previousNumber: Double? { didSet { showingText = previousNumber ?? 0 } }
   private(set) var nextNumber: Double? { didSet { showingText = nextNumber ?? 0 } }
-  private(set) var result: Double { didSet { showingText = result } }
+  private(set) var result: Double {
+    didSet {
+      showingText = result
+      previousNumber = result
+    }
+  }
   
-  mutating func enterNumber(_ number: Double) {
+  mutating func clickNumber(_ number: Double) {
     switch state {
     case .newPreviousNumber:
       previousNumber = number
@@ -30,35 +35,37 @@ struct Caculator {
   }
   
   mutating func caculate() {
-    guard let priorNum = previousNumber else { return }
-    guard let laterNum = nextNumber else { return }
+    guard let priorNumber = previousNumber else { return }
+    guard let laterNumber = nextNumber else { return }
     guard let operation = operation else { return }
-    
     switch operation {
     case .multiply:
-      result = priorNum * laterNum
+      result = priorNumber * laterNumber
     case .divide:
-      result = priorNum / laterNum
+      result = priorNumber / laterNumber
     case .minus:
-      result = priorNum - laterNum
+      result = priorNumber - laterNumber
     case .plus:
-      result = priorNum + laterNum
+      result = priorNumber + laterNumber
     }
   }
   
   mutating func joinNumbers(nextElement: Double) {
-    if let previousElement = previousNumber {
-      if let previousElement = nextNumber {
-        let joinedNumber = String(previousElement) + String(nextElement)
-        nextNumber = Double(joinedNumber)
-      }
-      let joinedNumber = String(previousElement) + String(nextElement)
+    if state == .ongoingPreviousNumber {
+      guard let previousElement = previousNumber else { return }
+      let joinedNumber = String(previousElement.clean) + String(nextElement.clean)
       previousNumber = Double(joinedNumber)
+    } else if state == .ongoingNextNumber {
+      guard let previousElement = nextNumber else { return }
+      let joinedNumber = String(previousElement.clean) + String(nextElement.clean)
+      nextNumber = Double(joinedNumber)
     }
   }
   
   mutating func changeSign() {
-    showingText = -showingText
+    if let priorNumber = previousNumber {
+      previousNumber = -priorNumber
+    }
   }
   
   mutating func percent() {
@@ -66,15 +73,4 @@ struct Caculator {
   }
   
   func addPoint() { }
-}
-
-enum arithmeticOperation {
-  case multiply, divide, minus, plus
-}
-
-enum inputState {
-  case newPreviousNumber
-  case newNextNumber
-  case ongoingPreviousNumber
-  case ongoingNextNumber
 }

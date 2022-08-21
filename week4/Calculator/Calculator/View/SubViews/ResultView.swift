@@ -16,13 +16,7 @@ struct ResultView: View {
       Spacer()
       Text(showingText.clean)
         .font(.system(size: 60))
+        .padding(.trailing, 50)
     }
-  }
-}
-
-struct ResultView_Previews: PreviewProvider {
-  static var previews: some View {
-    let showingText = 10.0
-    ResultView(showingText: showingText)
   }
 }

@@ -18,10 +18,10 @@ struct ContentView: View {
         ResultView(showingText: calculatorManager.showingText)
         HStack {
           VStack {
-            FunctionButtons()
-            NumberPadView()
+            FunctionButtons(calculatorManager: calculatorManager)
+            NumberPadView(calculatorManager: calculatorManager)
           }
-          ArithmeticOperationButtons()
+          ArithmeticOperationButtons(calculatorManager: calculatorManager)
         }
       }
     }.foregroundColor(.white)

@@ -16,29 +16,17 @@ class CalculatorManager: ObservableObject {
   
   @Published private var calculateModel = create()
   
-  var text: Double {
+  var showingText: Double {
     calculateModel.showingText
-  }
-  
-  var priorNum: Double? {
-    calculateModel.previousNumber
-  }
-  
-  var laterNum: Double? {
-    calculateModel.nextNumber
-  }
-  
-  var result: Double {
-    calculateModel.result
   }
   
   // MARK: - Intentions
   
-  func enterNumber(_ number: Double) {
-    calculateModel.enterNumber(number)
+  func clickNumber(_ number: Double) {
+    calculateModel.clickNumber(number)
   }
   
-  func clickOperation(_ operation: arithmeticOperation) {
+  func clickOperation(_ operation: ArithmeticOperation) {
     calculateModel.operation = operation
     calculateModel.state = .newNextNumber
   }
