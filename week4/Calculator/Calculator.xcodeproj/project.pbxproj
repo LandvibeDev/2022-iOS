@@ -19,8 +19,6 @@
 		6F1A923328B215C2009FBF28 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923228B215C2009FBF28 /* NumberPadView.swift */; };
 		6F1A923628B21E70009FBF28 /* Ex+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923528B21E70009FBF28 /* Ex+Double.swift */; };
 		6F1A923B28B22610009FBF28 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923A28B22610009FBF28 /* CircleButton.swift */; };
-		6F1A923D28B23326009FBF28 /* ArithmeticOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923C28B23326009FBF28 /* ArithmeticOperation.swift */; };
-		6F1A923F28B23330009FBF28 /* InputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A923E28B23330009FBF28 /* InputState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +35,6 @@
 		6F1A923228B215C2009FBF28 /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
 		6F1A923528B21E70009FBF28 /* Ex+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+Double.swift"; sourceTree = "<group>"; };
 		6F1A923A28B22610009FBF28 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
-		6F1A923C28B23326009FBF28 /* ArithmeticOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperation.swift; sourceTree = "<group>"; };
-		6F1A923E28B23330009FBF28 /* InputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				6F1A922828B13AE8009FBF28 /* CalculatorModel.swift */,
-				6F1A923C28B23326009FBF28 /* ArithmeticOperation.swift */,
-				6F1A923E28B23330009FBF28 /* InputState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,14 +205,12 @@
 				6F1A922928B13AE8009FBF28 /* CalculatorModel.swift in Sources */,
 				6F1A921A28B13A71009FBF28 /* ContentView.swift in Sources */,
 				6F1A922D28B2159B009FBF28 /* ResultView.swift in Sources */,
-				6F1A923F28B23330009FBF28 /* InputState.swift in Sources */,
 				6F1A922B28B13B04009FBF28 /* CaculatorManager.swift in Sources */,
 				6F1A923B28B22610009FBF28 /* CircleButton.swift in Sources */,
 				6F1A921828B13A71009FBF28 /* CalculatorApp.swift in Sources */,
 				6F1A923128B215B8009FBF28 /* ArithmeticOperationButtons.swift in Sources */,
 				6F1A922F28B215AB009FBF28 /* FunctionButtons.swift in Sources */,
 				6F1A923328B215C2009FBF28 /* NumberPadView.swift in Sources */,
-				6F1A923D28B23326009FBF28 /* ArithmeticOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

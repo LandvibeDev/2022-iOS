@@ -12,13 +12,37 @@ struct Caculator {
   var operation: ArithmeticOperation?
   var state: InputState = .newPreviousNumber
   private(set) var showingText: Double
-  private(set) var previousNumber: Double? { didSet { showingText = previousNumber ?? 0 } }
-  private(set) var nextNumber: Double? { didSet { showingText = nextNumber ?? 0 } }
+  private(set) var previousNumber: Double? {
+    didSet {
+      guard let previousNumber = previousNumber else { return }
+      showingText = previousNumber
+    }
+  }
+  private(set) var nextNumber: Double? {
+    didSet {
+      guard let nextNumber = nextNumber else { return }
+      showingText = nextNumber
+    }
+  }
   private(set) var result: Double {
     didSet {
       showingText = result
       previousNumber = result
     }
+  }
+  
+  enum ArithmeticOperation {
+    case multiply
+    case divide
+    case minus
+    case plus
+  }
+  
+  enum InputState {
+    case newPreviousNumber
+    case newNextNumber
+    case ongoingPreviousNumber
+    case ongoingNextNumber
   }
   
   mutating func clickNumber(_ number: Double) {
@@ -34,7 +58,7 @@ struct Caculator {
     }
   }
   
-  mutating func caculate() {
+  mutating func calculate() {
     guard let priorNumber = previousNumber else { return }
     guard let laterNumber = nextNumber else { return }
     guard let operation = operation else { return }

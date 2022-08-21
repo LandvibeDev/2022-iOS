@@ -26,13 +26,13 @@ class CalculatorManager: ObservableObject {
     calculateModel.clickNumber(number)
   }
   
-  func clickOperation(_ operation: ArithmeticOperation) {
+  func clickOperation(_ operation: Caculator.ArithmeticOperation?) {
     calculateModel.operation = operation
     calculateModel.state = .newNextNumber
   }
   
   func calculate() {
-    calculateModel.caculate()
+    calculateModel.calculate()
   }
   
   func clear() {
