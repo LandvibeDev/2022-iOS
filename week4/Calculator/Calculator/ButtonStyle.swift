@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct CalculateButtonStyle: ButtonStyle {
-    var buttonColor: (Color, Color)
-    var isZero: Bool
+    let buttonColor: (Color, Color)
+    let isZero: Bool
 
     func makeBody(configuration: Self.Configuration) -> some View {
         if isZero {
@@ -33,7 +33,7 @@ struct CalculateButtonStyle: ButtonStyle {
                 .foregroundColor(buttonColor.1)
                 .overlay {
                     if configuration.isPressed {
-                        Color(white:  1.0, opacity: 0.3)
+                        Color(white: 1.0, opacity: 0.3)
                     }
                 }
                 .clipShape(Circle())

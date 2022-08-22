@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EachButton: View {
     @EnvironmentObject var calculatorManager: CalculatorManager
-    var button: CalculatorManager.Button
+    let button: CalculatorManager.Button
     
     var body: some View {
         ZStack {

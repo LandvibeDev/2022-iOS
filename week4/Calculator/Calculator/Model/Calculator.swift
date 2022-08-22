@@ -7,16 +7,26 @@
 
 import Foundation
 struct Calculator {
+    
+    // MARK: Alias(es)
+    
+    typealias BinaryOperator = CalculatorManager.BinaryOperator
+    typealias Digit = CalculatorManager.Digit
+    
+    // MARK: Propery(ies)
+    
     private(set) var displayValue = "0"
     private var calculationResult: Decimal? = 0
     private var newValue: Decimal? = nil
-    private var operation: CalculatorManager.BinaryOperator? = .add
+    private var operation: BinaryOperator? = .add
     private(set) var isAllClear = true
-    var isCalculationResultIsNil: Bool {
+    private var isCalculationResultIsNil: Bool {
         calculationResult == nil
     }
     
-    mutating func setDigit(_ newValue: CalculatorManager.Digit) {
+    // MARK: Method(s)
+    
+    mutating func setDigit(_ newValue: Digit) {
         if self.newValue == nil || isCalculationResultIsNil {
             displayValue = String(describing: newValue.rawValue)
             self.newValue = Decimal(string: displayValue)
@@ -27,12 +37,12 @@ struct Calculator {
         }
     }
     
-    mutating func setOperation(_ newOperation: CalculatorManager.BinaryOperator) {
+    mutating func setOperation(_ newOperation: BinaryOperator) {
         guard let operation = operation, let newValue = newValue else {
             self.operation = newOperation
             return
         }
-        calculationResult = calculate(operation: operation, newValue: newValue)
+        calculationResult = calculate(operation, newValue)
         guard let calculationResult = calculationResult else {
             displayValue = "오류"
             return
@@ -44,13 +54,13 @@ struct Calculator {
     
     mutating func equal() {
         guard let operation = operation, let newValue = newValue else { return }
-        if operation == CalculatorManager.BinaryOperator.divide, newValue == 0 {
+        if operation == BinaryOperator.divide, newValue == 0 {
             calculationResult = nil
             displayValue = "오류"
             self.newValue = nil
             return
         }
-        calculationResult = calculate(operation: operation, newValue: newValue)
+        calculationResult = calculate(operation, newValue)
         guard let calculationResult = calculationResult else {
             displayValue = "오류"
             self.newValue = nil
@@ -107,7 +117,7 @@ struct Calculator {
         isAllClear = true
     }
     
-    private func calculate(operation: CalculatorManager.BinaryOperator, newValue: Decimal) -> Decimal? {
+    private func calculate(_ operation: BinaryOperator, _ newValue: Decimal) -> Decimal? {
         guard let calculationResult = calculationResult else {
             return nil
         }

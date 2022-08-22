@@ -8,38 +8,12 @@
 import Foundation
 import SwiftUI
 class CalculatorManager: ObservableObject {
+    
+    // MARK: Property(ies)
+    
     @Published private var calculator = Calculator()
     var displayValue: String {
         return calculator.displayValue
-    }
-    
-    func buttonColor(_ button: Button) -> (Color, Color) {
-        return (button.backgroundColor, button.foregorundColor)
-    }
-    
-    func backWhenSwiped() {
-        calculator.backWhenDragged()
-    }
-  
-    func touchButton(_ button: Button) {
-        switch (button) {
-        case .digit(let digit):
-            calculator.setDigit(digit)
-        case .binaryOperator(let binaryOperator):
-            calculator.setOperation(binaryOperator)
-        case .equal:
-            calculator.equal()
-        case .dot:
-            calculator.dot()
-        case .percent:
-            calculator.percent()
-        case .toggle:
-            calculator.toggle()
-        case .allClear:
-            calculator.allClear()
-        case .clear:
-            calculator.clear()
-        }
     }
     var buttonLayout: [[Button]] {
         if calculator.isAllClear {
@@ -60,7 +34,41 @@ class CalculatorManager: ObservableObject {
              ]
         }
     }
+    
+    // MARK: Method(s)
+    
+    func buttonColor(_ button: Button) -> (Color, Color) {
+        return (button.backgroundColor, button.foregorundColor)
+    }
+    
+    func backWhenSwiped() {
+        calculator.backWhenDragged()
+    }
+  
+    func touchButton(_ button: Button) {
+        switch button {
+        case .digit(let digit):
+            calculator.setDigit(digit)
+        case .binaryOperator(let binaryOperator):
+            calculator.setOperation(binaryOperator)
+        case .equal:
+            calculator.equal()
+        case .dot:
+            calculator.dot()
+        case .percent:
+            calculator.percent()
+        case .toggle:
+            calculator.toggle()
+        case .allClear:
+            calculator.allClear()
+        case .clear:
+            calculator.clear()
+        }
+    }
 }
+
+// MARK: Button
+
 extension CalculatorManager {
     enum Button: Hashable {
         case digit(_ digit: Digit)
@@ -73,7 +81,7 @@ extension CalculatorManager {
         case clear
         
         var appearance: String {
-            switch (self) {
+            switch self {
             case .digit(let digit):
                 return digit.appearance
             case .binaryOperator(let binaryOperator):
@@ -93,7 +101,7 @@ extension CalculatorManager {
             }
         }
         var backgroundColor: Color {
-            switch (self) {
+            switch self {
             case .digit, .dot:
                 return Color(UIColor.darkGray)
             case .binaryOperator, .equal:
@@ -103,7 +111,7 @@ extension CalculatorManager {
             }
         }
         var foregorundColor: Color {
-            switch (self) {
+            switch self {
             case .digit, .dot, .binaryOperator, .equal:
                 return .white
             default:
@@ -119,7 +127,7 @@ extension CalculatorManager {
         case multiply
         
         var appearance: String {
-            switch (self) {
+            switch self {
             case .add:
                 return "+"
             case .substarct:
