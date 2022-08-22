@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct EachButton: View {
-    @EnvironmentObject var calculatorManager: CalculatorManager //권한 최소화
-    var button: Calculator.Button
+    @EnvironmentObject var calculatorManager: CalculatorManager
+    var button: CalculatorManager.Button
     
     var body: some View {
         ZStack {

@@ -18,5 +18,3 @@ struct CalculatorApp: App {
         }
     }
 }
-// Buttom ViewModel로 빼기
-// 반점 넣기

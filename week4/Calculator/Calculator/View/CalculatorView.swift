@@ -12,6 +12,7 @@ struct CalculatorView: View {
 
     var body: some View {
         VStack {
+            Spacer()
             ScreenView()
                 .contentShape(Rectangle())
                 .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
@@ -20,7 +21,7 @@ struct CalculatorView: View {
                     }))
             PadView()
         }
-        .background(Color.black)
+        .background(.black)
     }
 }
 

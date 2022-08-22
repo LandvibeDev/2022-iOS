@@ -10,13 +10,13 @@ struct Calculator {
     private(set) var displayValue = "0"
     private var calculationResult: Decimal? = 0
     private var newValue: Decimal? = nil
-    private var operation: BinaryOperator? = .add
-    private var isAllClear = true
+    private var operation: CalculatorManager.BinaryOperator? = .add
+    private(set) var isAllClear = true
     var isCalculationResultIsNil: Bool {
         calculationResult == nil
     }
     
-    mutating func setDigit(_ newValue: Digit) {
+    mutating func setDigit(_ newValue: CalculatorManager.Digit) {
         if self.newValue == nil || isCalculationResultIsNil {
             displayValue = String(describing: newValue.rawValue)
             self.newValue = Decimal(string: displayValue)
@@ -27,7 +27,7 @@ struct Calculator {
         }
     }
     
-    mutating func setOperation(_ newOperation: BinaryOperator) {
+    mutating func setOperation(_ newOperation: CalculatorManager.BinaryOperator) {
         guard let operation = operation, let newValue = newValue else {
             self.operation = newOperation
             return
@@ -44,7 +44,7 @@ struct Calculator {
     
     mutating func equal() {
         guard let operation = operation, let newValue = newValue else { return }
-        if operation == BinaryOperator.divide, newValue == 0 {
+        if operation == CalculatorManager.BinaryOperator.divide, newValue == 0 {
             calculationResult = nil
             displayValue = "오류"
             self.newValue = nil
@@ -57,6 +57,8 @@ struct Calculator {
             return
         }
         displayValue = String(describing: calculationResult)
+        self.newValue = nil
+        self.operation = nil
     }
     
     mutating func dot() {
@@ -105,7 +107,7 @@ struct Calculator {
         isAllClear = true
     }
     
-    private func calculate(operation: BinaryOperator, newValue: Decimal) -> Decimal? {
+    private func calculate(operation: CalculatorManager.BinaryOperator, newValue: Decimal) -> Decimal? {
         guard let calculationResult = calculationResult else {
             return nil
         }
@@ -124,118 +126,23 @@ struct Calculator {
         }
     }
     
-    mutating func backWhenSwiped() {
-        if displayValue.count > 1 {
-            displayValue.removeLast()
-        }
-    }
-}
-
-extension Calculator {
-    var buttonLayout: [[Button]] {
-        if isAllClear {
-            return       [
-                [.allClear, .toggle, .percent, .binaryOperator(.divide)],
-                [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
-                [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
-                [.digit(.one), .digit(.two), .digit(.three), .binaryOperator(.add)],
-                [.digit(.zero), .dot, .equal]
-            ]
+    mutating func backWhenDragged() {
+        if newValue != nil {
+            if displayValue.count > 1 {
+                displayValue.removeLast()
+                newValue = Decimal(string: displayValue)
+            } else if displayValue.count == 1 {
+                displayValue = "0"
+                newValue = Decimal(string: displayValue)
+            }
         } else {
-            return [
-                 [.clear, .toggle, .percent, .binaryOperator(.divide)],
-                 [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
-                 [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
-                 [.digit(.one), .digit(.two), .digit(.three), .binaryOperator(.add)],
-                 [.digit(.zero), .dot, .equal]
-             ]
-        }
-    }
-    
-    enum Button: Hashable {
-        case digit(_ digit: Digit)
-        case binaryOperator(_ binaryOperator: BinaryOperator)
-        case equal
-        case dot
-        case percent
-        case toggle
-        case allClear
-        case clear
-        
-        var appearance: String {
-            switch (self) {
-            case .digit(let digit):
-                return digit.appearance
-            case .binaryOperator(let binaryOperator):
-                return binaryOperator.appearance
-            case .equal:
-                return "="
-            case .dot:
-                return "."
-            case .percent:
-                return "%"
-            case .toggle:
-                return "+/-"
-            case .allClear:
-                return "AC"
-            case .clear:
-                return "C"
+            if displayValue.count > 1 {
+                displayValue.removeLast()
+                calculationResult = Decimal(string: displayValue)
+            } else if displayValue.count == 1 {
+                displayValue = "0"
+                calculationResult = Decimal(string: displayValue)
             }
-        }
-        var backgroundColor: String {
-            switch (self) {
-            case .digit, .dot:
-                return "darkGray"
-            case .binaryOperator, .equal:
-                return "orange"
-            default:
-                return "gray"
-            }
-        }
-        var foregorundColor: String {
-            switch (self) {
-            case .digit, .dot, .binaryOperator, .equal:
-                return "white"
-            default:
-                return "black"
-            }
-        }
-    }
-    
-    enum BinaryOperator {
-        case add
-        case substarct
-        case divide
-        case multiply
-        
-        var appearance: String {
-            switch (self) {
-            case .add:
-                return "+"
-            case .substarct:
-                return "-"
-            case .divide:
-                return "/"
-            case .multiply:
-                return "*"
-            }
-        }
-    }
-    
-    enum Digit: Int {
-        case zero
-        case one
-        case two
-        case three
-        case four
-        case five
-        case six
-        case seven
-        case eight
-        case nine
-        
-        var appearance: String {
-            return String(describing: self.rawValue)
         }
     }
 }
