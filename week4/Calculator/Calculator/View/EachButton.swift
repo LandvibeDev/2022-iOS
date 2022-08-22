@@ -15,7 +15,7 @@ struct EachButton: View {
         ZStack {
             Button(button.appearance) {
                 calculatorManager.touchButton(button)
-            } .buttonStyle(CalculateButtonStyle(backgroundColor: calculatorManager.buttonColor(color: button.backgroundColor), foregroundColor: calculatorManager.buttonColor(color: button.foregorundColor), isZero: button.appearance == "0"))
+            } .buttonStyle(CalculateButtonStyle(buttonColor: calculatorManager.buttonColor(button), isZero: button.appearance == "0"))
         }
     }
 }

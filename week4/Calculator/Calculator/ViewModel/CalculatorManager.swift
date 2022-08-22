@@ -13,25 +13,12 @@ class CalculatorManager: ObservableObject {
         return calculator.displayValue
     }
     
-    func buttonColor(color: String) -> Color {
-        switch(color) {
-        case "orange":
-            return Color.orange
-        case "white":
-            return Color.white
-        case "black":
-            return Color.black
-        case "gray":
-            return Color.gray
-        case "darkGray":
-            return Color(UIColor.darkGray)
-        default:
-            return Color.black
-        }
+    func buttonColor(_ button: Button) -> (Color, Color) {
+        return (button.backgroundColor, button.foregorundColor)
     }
     
     func backWhenSwiped() {
-        calculator.backWhenSwiped()
+        calculator.backWhenDragged()
     }
   
     func touchButton(_ button: Button) {
@@ -73,7 +60,8 @@ class CalculatorManager: ObservableObject {
              ]
         }
     }
-    
+}
+extension CalculatorManager {
     enum Button: Hashable {
         case digit(_ digit: Digit)
         case binaryOperator(_ binaryOperator: BinaryOperator)
@@ -104,22 +92,22 @@ class CalculatorManager: ObservableObject {
                 return "C"
             }
         }
-        var backgroundColor: String {
+        var backgroundColor: Color {
             switch (self) {
             case .digit, .dot:
-                return "darkGray"
+                return Color(UIColor.darkGray)
             case .binaryOperator, .equal:
-                return "orange"
+                return .orange
             default:
-                return "gray"
+                return Color(UIColor.lightGray)
             }
         }
-        var foregorundColor: String {
+        var foregorundColor: Color {
             switch (self) {
             case .digit, .dot, .binaryOperator, .equal:
-                return "white"
+                return .white
             default:
-                return "black"
+                return .black
             }
         }
     }
