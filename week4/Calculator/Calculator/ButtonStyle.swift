@@ -21,7 +21,7 @@ struct CalculateButtonStyle: ButtonStyle {
                 .foregroundColor(foregroundColor)
                 .overlay {
                     if configuration.isPressed {
-                        Color(white:  1.0, opacity: 0.3)
+                        Color(white: 1.0, opacity: 0.3)
                     }
                 }
                 .clipShape(Capsule())

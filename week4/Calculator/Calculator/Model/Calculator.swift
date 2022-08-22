@@ -7,44 +7,44 @@
 
 import Foundation
 struct Calculator {
-    private(set) var displayValue = "0"           //Screen에 보여주기 위함
-    private var calculationResult: Decimal? = 0  //연산 결과를 가지고 있는 변수
-    private var newValue: Decimal? = nil         // 새 입력 변수
-    private var operation: BinaryOperator? = .add // 현재 연산
-    private var isAllClear = true //AC or C
-    var isCalculationResultIsNil: Bool { //divide by zero excetion
+    private(set) var displayValue = "0"
+    private var calculationResult: Decimal? = 0
+    private var newValue: Decimal? = nil
+    private var operation: BinaryOperator? = .add
+    private var isAllClear = true
+    var isCalculationResultIsNil: Bool {
         calculationResult == nil
     }
     
     mutating func setDigit(_ newValue: Digit) {
-        if self.newValue == nil || isCalculationResultIsNil { //새로 입력하는 경우 ex) 1
+        if self.newValue == nil || isCalculationResultIsNil {
             displayValue = String(describing: newValue.rawValue)
             self.newValue = Decimal(string: displayValue)
-            isAllClear = false //어떤 값을 넣든 Clear보여주도록
-        } else { // 이어붙이는 경우 ex) 123
+            isAllClear = false
+        } else {
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
             self.newValue = Decimal(string: displayValue)
         }
     }
     
     mutating func setOperation(_ newOperation: BinaryOperator) {
-        guard let operation = operation, let newValue = newValue else { //세팅 되어 있지않으면
-            self.operation = newOperation //세팅만
+        guard let operation = operation, let newValue = newValue else {
+            self.operation = newOperation
             return
         }
-        calculationResult = calculate(operation: operation, newValue: newValue) //계산
-        guard let calculationResult = calculationResult else { //오류일 경우
+        calculationResult = calculate(operation: operation, newValue: newValue)
+        guard let calculationResult = calculationResult else {
             displayValue = "오류"
             return
         }
         displayValue = String(describing: calculationResult)
-        self.newValue = nil //new Value에 nil 넣어줘서 다른 연산 눌러도 연산 안되도록 해줌
+        self.newValue = nil
         self.operation = newOperation
     }
     
     mutating func equal() {
-        guard let operation = operation, let newValue = newValue else { return } //세팅 안되어있는경우
-        if operation == BinaryOperator.divide, newValue == 0 { //divide by zero exception
+        guard let operation = operation, let newValue = newValue else { return }
+        if operation == BinaryOperator.divide, newValue == 0 {
             calculationResult = nil
             displayValue = "오류"
             self.newValue = nil
@@ -60,7 +60,7 @@ struct Calculator {
     }
     
     mutating func dot() {
-        if displayValue.contains(".") || isCalculationResultIsNil { return } //이미 소수
+        if displayValue.contains(".") || isCalculationResultIsNil { return }
         displayValue = displayValue.appending(".")
         isAllClear = false
         newValue = Decimal(string: displayValue)
@@ -70,12 +70,12 @@ struct Calculator {
         guard let calculationResult = calculationResult else {
             return
         }
-        guard let newValue = newValue else { //새 입력값에 percent
+        guard let newValue = newValue else {
             displayValue = String(describing: calculationResult * 0.01)
             self.calculationResult = Decimal(string: displayValue)
             return
         }
-        displayValue = String(describing: newValue * 0.01) // calculationResult값에
+        displayValue = String(describing: newValue * 0.01)
         self.newValue = Decimal(string: displayValue)
     }
     
@@ -83,12 +83,12 @@ struct Calculator {
         guard let calculationResult = calculationResult else {
             return
         }
-        guard let newValue = newValue else { //새 입력값에 toggle
+        guard let newValue = newValue else {
             displayValue = String(describing: -calculationResult)
             self.calculationResult = Decimal(string: displayValue)
             return
         }
-        displayValue = String(describing: newValue) //result 값에 toggle
+        displayValue = String(describing: newValue)
         self.newValue = Decimal(string: displayValue)
     }
     
