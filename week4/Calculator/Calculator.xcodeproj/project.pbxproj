@@ -63,13 +63,13 @@
 		A67D5A1D28AB566600624B25 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				A67D5A5428B4BC3900624B25 /* Style */,
 				A67D5A1E28AB566600624B25 /* CalculatorApp.swift */,
 				A67D5A2C28AB56A700624B25 /* Model */,
 				A67D5A2D28AB56AF00624B25 /* View */,
 				A67D5A2E28AB56B800624B25 /* ViewModel */,
 				A67D5A2228AB566600624B25 /* Assets.xcassets */,
 				A67D5A2428AB566600624B25 /* Preview Content */,
-				A67D5A3D28ADD28D00624B25 /* ButtonStyle.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -107,6 +107,14 @@
 				A67D5A3128AB573F00624B25 /* CalculatorManager.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A67D5A5428B4BC3900624B25 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				A67D5A3D28ADD28D00624B25 /* ButtonStyle.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
