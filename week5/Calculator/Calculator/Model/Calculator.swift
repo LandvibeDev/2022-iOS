@@ -32,6 +32,9 @@ struct Calculator {
             self.newValue = Decimal(string: displayValue)
             isAllClear = false
         } else {
+            if String(describing: self.newValue!).count >= 9  {
+                return
+            }
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
             self.newValue = Decimal(string: displayValue)
         }
@@ -53,7 +56,9 @@ struct Calculator {
     }
     
     mutating func equal() {
-        guard let operation = operation, let newValue = newValue else { return }
+        guard let operation = operation, let newValue = newValue else {
+            return
+        }
         if operation == BinaryOperator.divide, newValue == 0 {
             calculationResult = nil
             displayValue = "오류"
@@ -72,7 +77,9 @@ struct Calculator {
     }
     
     mutating func dot() {
-        if displayValue.contains(".") || isCalculationResultIsNil { return }
+        if displayValue.contains(".") || isCalculationResultIsNil {
+            return
+        }
         displayValue = displayValue.appending(".")
         isAllClear = false
         newValue = Decimal(string: displayValue)
