@@ -19,7 +19,7 @@ struct CalculatorView: View {
         .contentShape(Rectangle())
         .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
             .onEnded({ _ in
-                calculatorManager.backWhenSwiped()
+                calculatorManager.undoWhenSwiped()
             }))
         .background(.black)
     }

@@ -22,8 +22,8 @@ class CalculatorManager: ObservableObject {
         }
         return String(calculator.displayValue.insertComma)
     }
-    var buttonLayout: [[Button]] {
-        var buttonLayoutTemp: [[Button]] = [
+    var pad: [[Button]] {
+        var buttonLayout: [[Button]] = [
             [.allClear, .toggle, .percent, .binaryOperator(.divide)],
             [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
             [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
@@ -31,9 +31,9 @@ class CalculatorManager: ObservableObject {
             [.digit(.zero), .dot, .equal]
         ]
         if !calculator.isAllClear {
-            buttonLayoutTemp[buttonLayoutTemp.startIndex][buttonLayoutTemp.startIndex] = .clear
+            buttonLayout[buttonLayout.startIndex][buttonLayout.startIndex] = .clear
         }
-        return buttonLayoutTemp
+        return buttonLayout
     }
     
     // MARK: Method(s)
@@ -42,8 +42,8 @@ class CalculatorManager: ObservableObject {
         return (button.backgroundColor, button.foregorundColor)
     }
     
-    func backWhenSwiped() {
-        calculator.backWhenDragged()
+    func undoWhenSwiped() {
+        calculator.undoWhenDragged()
     }
     
     func touchButton(_ button: Button) {

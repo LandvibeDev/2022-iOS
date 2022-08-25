@@ -143,7 +143,7 @@ struct Calculator {
         }
     }
     
-    mutating func backWhenDragged() {
+    mutating func undoWhenDragged() {
         if newValue != nil {
             if displayValue.count > 1 {
                 displayValue.removeLast()
