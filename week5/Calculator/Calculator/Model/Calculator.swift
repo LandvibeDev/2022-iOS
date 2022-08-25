@@ -32,7 +32,7 @@ struct Calculator {
             self.newValue = Decimal(string: displayValue)
             isAllClear = false
         } else {
-            if String(describing: self.newValue!).count >= 9  {
+            if String(describing: self.newValue ?? 0).count >= 9  {
                 return
             }
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
