@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct Calculator {
     private(set) var displayText: String!

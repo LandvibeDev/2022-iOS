@@ -22,13 +22,10 @@ class CalculatorManager: ObservableObject {
         //            return calculator.displayValue.insertComma
         //        }
         //        return calculator.displayValue.insertComma
-        return Double(calculator.displayValue.insertComma)!.exponentialNotation
+        return String(calculator.displayValue.insertComma)
         //------------------------------------------------------------
     }
     var buttonLayout: [[Button]] {
-        /*
-         -------------------- README 6번 --------------------
-         */
         var buttonLayoutTemp: [[Button]] = [
             [.allClear, .toggle, .percent, .binaryOperator(.divide)],
             [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
@@ -37,10 +34,9 @@ class CalculatorManager: ObservableObject {
             [.digit(.zero), .dot, .equal]
         ]
         if !calculator.isAllClear {
-            buttonLayoutTemp[0][0] = .clear
+            buttonLayoutTemp[buttonLayoutTemp.startIndex][buttonLayoutTemp.startIndex] = .clear
         }
         return buttonLayoutTemp
-        //------------------------------------------------------------
     }
     
     // MARK: Method(s)
@@ -56,14 +52,6 @@ class CalculatorManager: ObservableObject {
     func touchButton(_ button: Button) {
         switch button {
         case .digit(let digit):
-            /*
-             -------------------- README 4, 5번 --------------------
-             */
-            //            print(calculator.displayValue.count)
-            //            if calculator.displayValue.count >= 9 {
-            //                return
-            //            }
-            //------------------------------------------------------------
             calculator.setDigit(digit)
         case .binaryOperator(let binaryOperator):
             calculator.setOperation(binaryOperator)
@@ -82,69 +70,6 @@ class CalculatorManager: ObservableObject {
         }
     }
 }
-
-// MARK: insertComma
-
-/*
- -------------------- README 3번 --------------------
- */
-
-extension String {
-    var insertComma: String {
-        let numberFormatter = NumberFormatter();
-        numberFormatter.numberStyle = .decimal
-        if let _ = self.range(of: ".") {
-            let numberArray = self.components(separatedBy: ".")
-            if numberArray.count == 1 {
-                var numberString = numberArray[0]
-                if numberString.isEmpty {
-                    numberString = "0"
-                }
-                guard let doubleValue = Double(numberString) else {
-                    return self
-                }
-                return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? self
-            } else if numberArray.count == 2 {
-                var numberString = numberArray[0]
-                if numberString.isEmpty {
-                    numberString = "0"
-                }
-                guard let doubleValue = Double(numberString) else {
-                    return self
-                }
-                return (numberFormatter.string(from: NSNumber(value: doubleValue)) ?? numberString) + ".\(numberArray[1])"
-            }
-        } else {
-            guard let doubleValue = Double(self) else {
-                return self
-            }
-            return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? self
-        }
-        return self
-    }
-}
-//------------------------------------------------------------
-
-/*
-    -------------------- README 5번 --------------------
- */
-
-extension Formatter {
-    static let scientific: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .scientific
-        formatter.positiveFormat = "0.###E+0"
-        formatter.exponentSymbol = "e"
-        return formatter
-    }()
-}
-
-extension Numeric {
-    var exponentialNotation: String {
-        return Formatter.scientific.string(for: self) ?? ""
-    }
-}
-//------------------------------------------------------------
 
 // MARK: Button
 
