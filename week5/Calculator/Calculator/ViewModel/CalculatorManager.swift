@@ -12,18 +12,15 @@ class CalculatorManager: ObservableObject {
     // MARK: Property(ies)
     
     @Published private var calculator = Calculator()
+    let maxNumberDisplayNormalNotation: Decimal = 999999999
     var displayValue: String {
-        /*
-         -------------------- README 5번 --------------------
-         */
-        //        if calculator.displayValue.count > 9 {
-        //            return Double(calculator.displayValue.insertComma)!.exponentialNotation
-        //        } else {
-        //            return calculator.displayValue.insertComma
-        //        }
-        //        return calculator.displayValue.insertComma
+        guard let DecimalTypeDisplayValue = Decimal(string: calculator.displayValue) else {
+            return "오류"
+        }
+        if DecimalTypeDisplayValue > maxNumberDisplayNormalNotation {
+            return DecimalTypeDisplayValue.exponentialNotation
+        }
         return String(calculator.displayValue.insertComma)
-        //------------------------------------------------------------
     }
     var buttonLayout: [[Button]] {
         var buttonLayoutTemp: [[Button]] = [

@@ -8,7 +8,7 @@
 import Foundation
 
 extension Formatter {
-    static let scientific: NumberFormatter = {
+    static let exponentialNotation: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .scientific
         formatter.positiveFormat = "0.###E+0"
