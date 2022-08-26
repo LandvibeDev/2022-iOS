@@ -11,7 +11,7 @@ struct NumberPadView: View {
   
   @ObservedObject var calculatorManager: CalculatorManager
   
-  let positiveNumbers: [Double] = [1,2,3,4,5,6,7,8,9]
+  let positiveNumbers: [Decimal] = [1,2,3,4,5,6,7,8,9]
   
   var body: some View {
     VStack {
@@ -29,13 +29,16 @@ struct NumberPadView: View {
         Button {
           calculatorManager.clickNumber(number)
         } label: {
-          CircleButton(content: number.clean, color: .gray)
+          CircleButton(content: "\(number)", color: .gray)
         }
       }
     }
   }
   
   var zeroButton: some View {
+    Button {
+      calculatorManager.clickNumber(0)
+    } label: {
     RoundedRectangle(cornerRadius: 35)
       .frame(width: 140, height: 70)
       .foregroundColor(.gray)
@@ -43,14 +46,16 @@ struct NumberPadView: View {
         Text("0")
           .font(.system(size: 40))
           .padding(.trailing, 60)
-          .onTapGesture {
-            calculatorManager.clickNumber(0)
-          }
       }
+    }
   }
   
   var pointButton: some View {
-    CircleButton(content: ".", color: .gray)
+    Button {
+      calculatorManager.addPoint()
+    } label: {
+      CircleButton(content: ".", color: .gray)
+    }
   }
 }
 

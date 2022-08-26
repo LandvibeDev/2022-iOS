@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ResultView: View {
   
-  let showingText: Double
+  let showingText: String
   
   var body: some View {
     HStack {
       Spacer()
-      Text(showingText.clean)
+      Text(showingText)
         .font(.system(size: 60))
         .padding(.trailing, 50)
     }
