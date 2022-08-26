@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct ResultView: View {
-    
-    let showingText: String
-    
-    var body: some View {
-        HStack {
-            Spacer()
-            Text(showingText)
-                .lineLimit(1)
-                .foregroundColor(.white)
-                .font(.system(size: DrawConstans.fontSize))
-                .minimumScaleFactor(DrawConstans.fontMinimumSacleFactor)
-                .padding(.trailing, DrawConstans.textPadding)
-        }
+  
+  let showingText: String
+  
+  var body: some View {
+    HStack {
+      Spacer()
+      Text(showingText)
+        .lineLimit(1)
+        .foregroundColor(.white)
+        .font(.system(size: DrawConstans.fontSize))
+        .minimumScaleFactor(DrawConstans.fontMinimumSacleFactor)
+        .padding(.trailing, DrawConstans.textPadding)
     }
+    .contentShape(Rectangle())
+  }
 }
 
 extension ResultView {
-    private enum DrawConstans {
-        static let fontSize = 80.0
-        static let fontMinimumSacleFactor = 0.5
-        static let textPadding = 20.0
-    }
+  
+  private enum DrawConstans {
+    static let fontSize = 80.0
+    static let fontMinimumSacleFactor = 0.5
+    static let textPadding = 20.0
+  }
 }
