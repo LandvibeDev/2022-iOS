@@ -2,131 +2,159 @@
 //  Calculator.swift
 //  Calculator
 //
-//  Created by Kyungsoo Lee on 2022/08/17.
+//  Created by ohhyeongseok on 2022/08/16.
 //
 
 import Foundation
 
 struct Calculator {
-    private(set) var displayText: String!
-    private(set) var result: Double
-    private(set) var stack: [String]
-    private(set) var inputNumber: String!
     
-    init() {
-        result = 0
-        displayText = "0"
-        stack = ["0"]
-        inputNumber = "0"
+    // MARK: Alias(es)
+    
+    typealias BinaryOperator = CalculatorManager.BinaryOperator
+    typealias Digit = CalculatorManager.Digit
+    
+    // MARK: Propery(ies)
+    
+    private(set) var displayValue = "0"
+    private(set) var isAllClear = true
+    private var calculationResult: Decimal? = 0
+    private var newValue: Decimal? = nil
+    private var operation: BinaryOperator? = .add
+    private var isCalculationResultIsNil: Bool {
+        calculationResult == nil
     }
     
-    static func percent(number: Double) -> Double {
-        return number/100
-    }
+    // MARK: Method(s)
     
-    mutating func toggleSign(targetNumber: Double) -> Void {
-        result = (-1) * targetNumber
-        displayText = String(targetNumber)
-    }
-    
-    static func allClear() -> Calculator{
-        return Calculator.init()
-    }
-    
-    mutating func equl() -> Void {
-        if stack.count == 3 {
-            let secondNumber: Double! = (Double)(stack.popLast()!)
-            let operatorSymbol = stack.popLast()!
-            let firstNumber: Double! = (Double)(stack.popLast()!)!
-            
-            switch operatorSymbol {
-            case "+":
-                result = firstNumber + secondNumber
-            case "-":
-                result = firstNumber - secondNumber
-            case "×":
-                result = firstNumber * secondNumber
-            case "÷":
-                if secondNumber != 0 {
-                    result = firstNumber / secondNumber
-                } else {
-                    displayText = "Error"
-                    result = 0.0
-                    return
-                }
-            default:
-                result = 0.0
-            }
-            stack.removeAll()
-            inputNumber = String(result)
-            displayText = inputNumber
+    mutating func setDigit(_ newValue: Digit) {
+        if self.newValue == nil || isCalculationResultIsNil {
+            displayValue = String(describing: newValue.rawValue)
+            self.newValue = Decimal(string: displayValue)
+            isAllClear = false
         } else {
-            result = 0.0
+            if String(describing: self.newValue ?? 0).count >= 9  {
+                return
+            }
+            displayValue = displayValue.appending(String(describing: newValue.rawValue))
+            self.newValue = Decimal(string: displayValue)
         }
     }
     
-    mutating func click(inputText: String) -> Void {
-        if inputText == "AC" {
-            result = 0
-            displayText = "0"
-            stack.removeAll()
-            stack.append("0")
-            inputNumber = "0"
-            return
-        } else if inputText == "=" {
-            stack.append(inputNumber)
-            equl()
-            stack.append(String(result))
-            return
-        } else if inputText == "+/-" {
-            if stack.count == 1 && Double(stack.last!) == 0 {
-                stack.removeLast()
-                stack.append(inputNumber)
-            }
-            stack.append(String(Double(stack.popLast() ?? "0")! * (-1)))
-            displayText = stack.last
-            result = Double(displayText)!
-            return
-        } else if inputText == "%" {
-            print(self)
-            if stack.count == 1 && (stack.last == "0" || stack.last == "0.0") {
-                stack.removeLast()
-                stack.append(String(Double(inputNumber)! / 100))
-            } else {
-//                stack.append(String(Double(stack.popLast()!)! / 100))
-            }
-            displayText = stack.last
+    mutating func setOperation(_ newOperation: BinaryOperator) {
+        guard let operation = operation, let newValue = newValue else {
+            self.operation = newOperation
             return
         }
-        if isNumber(symbol: inputText) {
-            if inputNumber == "0" {
-                inputNumber.removeAll()
-            }
-            inputNumber += inputText
-            displayText = inputNumber
-        } else if !isNumber(symbol: inputText) {
-            if !isNumber(symbol: stack.last ?? "0") {
-                stack.removeLast()
-            } else {
-                if stack.count == 1 && stack.last == "0" {
-                    stack.removeLast()
-                    stack.append(inputNumber)
-                }
-            }
-            stack.append(inputText)
-            inputNumber.removeAll()
-            if stack.count >= 3 {
-                equl()
-            }
-        } else if !isNumber(symbol: stack.last ?? "0") && isNumber(symbol: inputText) {
-            inputNumber += inputText
+        calculationResult = calculate(operation, newValue)
+        guard let calculationResult = calculationResult else {
+            displayValue = "오류"
+            return
+        }
+        displayValue = String(describing: calculationResult)
+        self.newValue = nil
+        self.operation = newOperation
+    }
+    
+    mutating func equal() {
+        guard let operation = operation, let newValue = newValue else {
+            return
+        }
+        calculationResult = calculate(operation, newValue)
+        guard let calculationResult = calculationResult else {
+            displayValue = "오류"
+            self.newValue = nil
+            return
+        }
+        displayValue = String(describing: calculationResult)
+        self.newValue = nil
+        self.operation = nil
+    }
+    
+    mutating func dot() {
+        if displayValue.contains(".") || isCalculationResultIsNil {
+            return
+        }
+        displayValue = displayValue.appending(".")
+        isAllClear = false
+        newValue = Decimal(string: displayValue)
+    }
+    
+    mutating func percent() {
+        guard let calculationResult = calculationResult else {
+            return
+        }
+        if let newValue = newValue {
+            displayValue = String(describing: newValue * 0.01)
+            self.newValue = Decimal(string: displayValue)
+        } else {
+            displayValue = String(describing: calculationResult * 0.01)
+            self.calculationResult = Decimal(string: displayValue)
         }
     }
     
-    func isNumber(symbol: String) -> Bool {
-        if "0" <= symbol, symbol <= "9" {
-            return true
+    mutating func toggle() {
+        guard let calculationResult = calculationResult else {
+            return
         }
-        return false
+        if let newValue = newValue {
+            displayValue = String(describing: -newValue)
+            self.newValue = Decimal(string: displayValue)
+        } else {
+            displayValue = String(describing: -calculationResult)
+            self.calculationResult = Decimal(string: displayValue)
+        }
+    }
+    
+    mutating func allClear() {
+        displayValue = "0"
+        newValue = nil
+        calculationResult = 0
+        operation = .add
+    }
+    
+    mutating func clear() {
+        displayValue = "0"
+        newValue = nil
+        isAllClear = true
+    }
+    
+    mutating func undoWhenDragged() {
+        if newValue == nil {
+            if displayValue.count > 1 {
+                displayValue.removeLast()
+                calculationResult = Decimal(string: displayValue)
+            } else if displayValue.count == 1 {
+                displayValue = "0"
+                calculationResult = Decimal(string: displayValue)
+            }
+        } else {
+            if displayValue.count > 1 {
+                displayValue.removeLast()
+                newValue = Decimal(string: displayValue)
+            } else if displayValue.count == 1 {
+                displayValue = "0"
+                newValue = Decimal(string: displayValue)
+            }
+        }
+    }
+    
+    private func calculate(_ operation: BinaryOperator, _ newValue: Decimal) -> Decimal? {
+        guard let calculationResult = calculationResult else {
+            return nil
+        }
+        switch (operation) {
+        case .add:
+            return calculationResult + newValue
+        case .substarct:
+            return calculationResult - newValue
+        case .divide:
+            if newValue == 0 {
+               return nil
+            }
+            return calculationResult / newValue
+        case .multiply:
+            return calculationResult * newValue
+        }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+
 class CalculatorManager: ObservableObject {
     
     // MARK: Property(ies)
@@ -14,13 +15,13 @@ class CalculatorManager: ObservableObject {
     @Published private var calculator = Calculator()
     let maxNumberDisplayNormalNotation: Decimal = 999999999
     var displayValue: String {
-        guard let DecimalTypeDisplayValue = Decimal(string: calculator.displayValue) else {
+        guard let decimalTypeDisplayValue = Decimal(string: calculator.displayValue) else {
             return "오류"
         }
-        if DecimalTypeDisplayValue > maxNumberDisplayNormalNotation {
-            return DecimalTypeDisplayValue.exponentialNotation
+        if decimalTypeDisplayValue > maxNumberDisplayNormalNotation {
+            return decimalTypeDisplayValue.exponentialNotation
         }
-        return String(calculator.displayValue.insertComma)
+        return calculator.displayValue.insertComma
     }
     var pad: [[Button]] {
         var buttonLayout: [[Button]] = [
@@ -31,7 +32,7 @@ class CalculatorManager: ObservableObject {
             [.digit(.zero), .dot, .equal]
         ]
         if !calculator.isAllClear {
-            buttonLayout[buttonLayout.startIndex][buttonLayout.startIndex] = .clear
+            buttonLayout[buttonLayout.startIndex][buttonLayout[buttonLayout.startIndex].startIndex] = .clear
         }
         return buttonLayout
     }

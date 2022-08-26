@@ -2,19 +2,19 @@
 //  CalculatorApp.swift
 //  Calculator
 //
-//  Created by Kyungsoo Lee on 2022/08/15.
+//  Created by ohhyeongseok on 2022/08/16.
 //
 
 import SwiftUI
 
 @main
 struct CalculatorApp: App {
-    
-    private let calculator = CalculatorViewModel()
+    private let calculatorManager = CalculatorManager()
     
     var body: some Scene {
         WindowGroup {
-            MainView(calculator: calculator).preferredColorScheme(.dark)
+            CalculatorView()
+                .environmentObject(calculatorManager)
         }
     }
 }
