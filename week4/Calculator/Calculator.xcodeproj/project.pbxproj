@@ -17,6 +17,9 @@
 		A67D5A3A28ADC86000624B25 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D5A3928ADC86000624B25 /* ScreenView.swift */; };
 		A67D5A3C28ADCA6C00624B25 /* EachButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D5A3B28ADCA6C00624B25 /* EachButton.swift */; };
 		A67D5A3E28ADD28D00624B25 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D5A3D28ADD28D00624B25 /* ButtonStyle.swift */; };
+		A67D5A5628B7024800624B25 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D5A5528B7024800624B25 /* String+Extension.swift */; };
+		A67D5A5928B74B3200624B25 /* Numeric+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D5A5828B74B3200624B25 /* Numeric+Extension.swift */; };
+		A67D5A5B28B74B4700624B25 /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D5A5A28B74B4700624B25 /* Formatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		A67D5A3928ADC86000624B25 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		A67D5A3B28ADCA6C00624B25 /* EachButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachButton.swift; sourceTree = "<group>"; };
 		A67D5A3D28ADD28D00624B25 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		A67D5A5528B7024800624B25 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		A67D5A5828B74B3200624B25 /* Numeric+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Extension.swift"; sourceTree = "<group>"; };
+		A67D5A5A28B74B4700624B25 /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +69,9 @@
 		A67D5A1D28AB566600624B25 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				A67D5A5428B4BC3900624B25 /* Style */,
 				A67D5A1E28AB566600624B25 /* CalculatorApp.swift */,
+				A67D5A5728B7025B00624B25 /* Extensions */,
+				A67D5A5428B4BC3900624B25 /* Style */,
 				A67D5A2C28AB56A700624B25 /* Model */,
 				A67D5A2D28AB56AF00624B25 /* View */,
 				A67D5A2E28AB56B800624B25 /* ViewModel */,
@@ -115,6 +122,16 @@
 				A67D5A3D28ADD28D00624B25 /* ButtonStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		A67D5A5728B7025B00624B25 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A67D5A5528B7024800624B25 /* String+Extension.swift */,
+				A67D5A5828B74B3200624B25 /* Numeric+Extension.swift */,
+				A67D5A5A28B74B4700624B25 /* Formatter+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67D5A5628B7024800624B25 /* String+Extension.swift in Sources */,
+				A67D5A5928B74B3200624B25 /* Numeric+Extension.swift in Sources */,
 				A67D5A3C28ADCA6C00624B25 /* EachButton.swift in Sources */,
 				A67D5A3E28ADD28D00624B25 /* ButtonStyle.swift in Sources */,
 				A67D5A3428AB68B200624B25 /* PadView.swift in Sources */,
 				A67D5A2128AB566600624B25 /* CalculatorView.swift in Sources */,
 				A67D5A1F28AB566600624B25 /* CalculatorApp.swift in Sources */,
+				A67D5A5B28B74B4700624B25 /* Formatter+Extension.swift in Sources */,
 				A67D5A3028AB572300624B25 /* Calculator.swift in Sources */,
 				A67D5A3228AB573F00624B25 /* CalculatorManager.swift in Sources */,
 				A67D5A3A28ADC86000624B25 /* ScreenView.swift in Sources */,

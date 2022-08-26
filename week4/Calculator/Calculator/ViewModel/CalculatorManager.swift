@@ -7,32 +7,34 @@
 
 import Foundation
 import SwiftUI
+
 class CalculatorManager: ObservableObject {
     
     // MARK: Property(ies)
     
     @Published private var calculator = Calculator()
+    let maxNumberDisplayNormalNotation: Decimal = 999999999
     var displayValue: String {
-        return calculator.displayValue
-    }
-    var buttonLayout: [[Button]] {
-        if calculator.isAllClear {
-            return       [
-                [.allClear, .toggle, .percent, .binaryOperator(.divide)],
-                [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
-                [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
-                [.digit(.one), .digit(.two), .digit(.three), .binaryOperator(.add)],
-                [.digit(.zero), .dot, .equal]
-            ]
-        } else {
-            return [
-                 [.clear, .toggle, .percent, .binaryOperator(.divide)],
-                 [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
-                 [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
-                 [.digit(.one), .digit(.two), .digit(.three), .binaryOperator(.add)],
-                 [.digit(.zero), .dot, .equal]
-             ]
+        guard let decimalTypeDisplayValue = Decimal(string: calculator.displayValue) else {
+            return "오류"
         }
+        if decimalTypeDisplayValue > maxNumberDisplayNormalNotation {
+            return decimalTypeDisplayValue.exponentialNotation
+        }
+        return calculator.displayValue.insertComma
+    }
+    var pad: [[Button]] {
+        var buttonLayout: [[Button]] = [
+            [.allClear, .toggle, .percent, .binaryOperator(.divide)],
+            [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
+            [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
+            [.digit(.one), .digit(.two), .digit(.three), .binaryOperator(.add)],
+            [.digit(.zero), .dot, .equal]
+        ]
+        if !calculator.isAllClear {
+            buttonLayout[buttonLayout.startIndex][buttonLayout[buttonLayout.startIndex].startIndex] = .clear
+        }
+        return buttonLayout
     }
     
     // MARK: Method(s)
@@ -41,10 +43,10 @@ class CalculatorManager: ObservableObject {
         return (button.backgroundColor, button.foregorundColor)
     }
     
-    func backWhenSwiped() {
-        calculator.backWhenDragged()
+    func undoWhenSwiped() {
+        calculator.undoWhenDragged()
     }
-  
+    
     func touchButton(_ button: Button) {
         switch button {
         case .digit(let digit):

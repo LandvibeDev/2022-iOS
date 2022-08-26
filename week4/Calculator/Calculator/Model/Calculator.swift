@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Calculator {
     
     // MARK: Alias(es)
@@ -16,10 +17,10 @@ struct Calculator {
     // MARK: Propery(ies)
     
     private(set) var displayValue = "0"
+    private(set) var isAllClear = true
     private var calculationResult: Decimal? = 0
     private var newValue: Decimal? = nil
     private var operation: BinaryOperator? = .add
-    private(set) var isAllClear = true
     private var isCalculationResultIsNil: Bool {
         calculationResult == nil
     }
@@ -32,6 +33,9 @@ struct Calculator {
             self.newValue = Decimal(string: displayValue)
             isAllClear = false
         } else {
+            if String(describing: self.newValue ?? 0).count >= 9  {
+                return
+            }
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
             self.newValue = Decimal(string: displayValue)
         }
@@ -53,11 +57,7 @@ struct Calculator {
     }
     
     mutating func equal() {
-        guard let operation = operation, let newValue = newValue else { return }
-        if operation == BinaryOperator.divide, newValue == 0 {
-            calculationResult = nil
-            displayValue = "오류"
-            self.newValue = nil
+        guard let operation = operation, let newValue = newValue else {
             return
         }
         calculationResult = calculate(operation, newValue)
@@ -72,7 +72,9 @@ struct Calculator {
     }
     
     mutating func dot() {
-        if displayValue.contains(".") || isCalculationResultIsNil { return }
+        if displayValue.contains(".") || isCalculationResultIsNil {
+            return
+        }
         displayValue = displayValue.appending(".")
         isAllClear = false
         newValue = Decimal(string: displayValue)
@@ -82,39 +84,59 @@ struct Calculator {
         guard let calculationResult = calculationResult else {
             return
         }
-        guard let newValue = newValue else {
+        if let newValue = newValue {
+            displayValue = String(describing: newValue * 0.01)
+            self.newValue = Decimal(string: displayValue)
+        } else {
             displayValue = String(describing: calculationResult * 0.01)
             self.calculationResult = Decimal(string: displayValue)
-            return
         }
-        displayValue = String(describing: newValue * 0.01)
-        self.newValue = Decimal(string: displayValue)
     }
     
     mutating func toggle() {
         guard let calculationResult = calculationResult else {
             return
         }
-        guard let newValue = newValue else {
+        if let newValue = newValue {
+            displayValue = String(describing: -newValue)
+            self.newValue = Decimal(string: displayValue)
+        } else {
             displayValue = String(describing: -calculationResult)
             self.calculationResult = Decimal(string: displayValue)
-            return
         }
-        displayValue = String(describing: newValue)
-        self.newValue = Decimal(string: displayValue)
     }
     
     mutating func allClear() {
-        calculationResult = 0
         displayValue = "0"
-        operation = .add
         newValue = nil
+        calculationResult = 0
+        operation = .add
     }
     
     mutating func clear() {
         displayValue = "0"
         newValue = nil
         isAllClear = true
+    }
+    
+    mutating func undoWhenDragged() {
+        if newValue == nil {
+            if displayValue.count > 1 {
+                displayValue.removeLast()
+                calculationResult = Decimal(string: displayValue)
+            } else if displayValue.count == 1 {
+                displayValue = "0"
+                calculationResult = Decimal(string: displayValue)
+            }
+        } else {
+            if displayValue.count > 1 {
+                displayValue.removeLast()
+                newValue = Decimal(string: displayValue)
+            } else if displayValue.count == 1 {
+                displayValue = "0"
+                newValue = Decimal(string: displayValue)
+            }
+        }
     }
     
     private func calculate(_ operation: BinaryOperator, _ newValue: Decimal) -> Decimal? {
@@ -133,26 +155,6 @@ struct Calculator {
             return calculationResult / newValue
         case .multiply:
             return calculationResult * newValue
-        }
-    }
-    
-    mutating func backWhenDragged() {
-        if newValue != nil {
-            if displayValue.count > 1 {
-                displayValue.removeLast()
-                newValue = Decimal(string: displayValue)
-            } else if displayValue.count == 1 {
-                displayValue = "0"
-                newValue = Decimal(string: displayValue)
-            }
-        } else {
-            if displayValue.count > 1 {
-                displayValue.removeLast()
-                calculationResult = Decimal(string: displayValue)
-            } else if displayValue.count == 1 {
-                displayValue = "0"
-                calculationResult = Decimal(string: displayValue)
-            }
         }
     }
 }

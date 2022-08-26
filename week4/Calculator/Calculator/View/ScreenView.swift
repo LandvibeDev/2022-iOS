@@ -17,15 +17,15 @@ struct ScreenView: View {
                 .lineLimit(1)
                 .foregroundColor(.white)
                 .frame(alignment: .bottomTrailing)
-                .font(.system(size: 50))
-                .minimumScaleFactor(0.3)
+                .font(.system(size: 80))
+                .minimumScaleFactor(0.5)
                 .padding()
         }
     }
 }
+
 struct ScreenView_Previews: PreviewProvider {
     static var previews: some View {
         ScreenView()
     }
 }
-

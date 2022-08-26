@@ -12,7 +12,7 @@ struct PadView: View {
     
     var body: some View {
         VStack {
-            ForEach(calculatorManager.buttonLayout, id: \.self) { row in
+            ForEach(calculatorManager.pad, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { button in
                         EachButton(button: button)
