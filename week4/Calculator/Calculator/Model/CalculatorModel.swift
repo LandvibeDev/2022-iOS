@@ -28,6 +28,7 @@ struct Caculator {
     didSet {
       showingText = "\(result)"
       previousNumber = result
+      nextNumber = nil
     }
   }
   
@@ -84,13 +85,22 @@ struct Caculator {
   
   mutating func changeSign() {
     if let priorNumber = previousNumber {
-      previousNumber = -priorNumber
+      if let afterNumber = nextNumber {
+        nextNumber = -afterNumber
+      } else {
+        previousNumber = -priorNumber
+      }
     }
   }
   
   mutating func percent() {
-    guard let showingText = Decimal(string: showingText) else { return }
-    result = showingText / 100
+    if let priorNumber = previousNumber {
+      if let afterNumber = nextNumber {
+        nextNumber = afterNumber / 100
+      } else {
+        previousNumber = priorNumber / 100
+      }
+    }
   }
   
   mutating func addPoint() {
