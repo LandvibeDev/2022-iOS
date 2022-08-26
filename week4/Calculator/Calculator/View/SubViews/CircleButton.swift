@@ -1,24 +1,42 @@
 //
-//  CircleButton.swift
+//  ButtonView.swift
 //  Calculator
 //
-//  Created by 임주민 on 2022/08/21.
+//  Created by changgyo seo on 2022/08/26.
 //
 
 import SwiftUI
 
 struct CircleButton: View {
   
-  let content: String
-  let color: Color
+  var buttonData: Calculator.ArithmeticOperation
   
   var body: some View {
-    Circle()
-      .frame(width: 70, height: 70)
-      .foregroundColor(color)
-      .overlay {
-        Text(content)
-          .font(.system(size: 40))
+    GeometryReader { geometry in
+      ZStack {
+        RoundedRectangle(cornerRadius: cornerRadius(in: geometry.size))
+          .foregroundColor(Color(hex: buttonData.backgroundColor))
+        Text(buttonData.content)
+          .foregroundColor(Color(hex: buttonData.textColor))
+          .font(font(in: geometry.size))
       }
+    }
+  }
+  
+  private func cornerRadius(in size: CGSize) -> CGFloat {
+    size.width * DrawConstans.buttonCornerRadius
+  }
+  
+  private func font(in size: CGSize) -> Font {
+    Font.system(size: size.height * DrawConstans.fontSizeScale)
   }
 }
+
+extension CircleButton {
+  
+  private enum DrawConstans {
+    static let buttonCornerRadius = 0.5
+    static let fontSizeScale = 0.4
+  }
+}
+

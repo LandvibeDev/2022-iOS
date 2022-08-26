@@ -15,23 +15,16 @@ struct ContentView: View {
     ZStack{
       Color.black.ignoresSafeArea()
       VStack {
+        Spacer()
         ResultView(showingText: calculatorManager.showingText)
-        HStack {
-          VStack {
-            FunctionButtons(calculatorManager: calculatorManager)
-            NumberPadView(calculatorManager: calculatorManager)
+        CalculatorButtonGrid(items: calculatorManager.buttonList , columnsCount: 4) { item in
+          Button {
+            calculatorManager.click(item)
+          } label: {
+            CircleButton(buttonData: item)
           }
-          ArithmeticOperationButtons(calculatorManager: calculatorManager)
         }
       }
-    }.foregroundColor(.white)
-  }
-}
-
-struct ContentView_Previews: PreviewProvider {
-  
-  static var previews: some View {
-    let caculatorManager = CalculatorManager()
-    ContentView(calculatorManager: caculatorManager)
+    }
   }
 }

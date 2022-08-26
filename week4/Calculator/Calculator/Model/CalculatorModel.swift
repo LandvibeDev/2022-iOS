@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Caculator {
+struct Calculator {
   
   var state: InputState = .newPreviousNumber
   var operation: ArithmeticOperation?
-  private(set) var showingText: String
+  var showingText: String
   private(set) var previousNumber: Decimal? {
     didSet {
       guard let previousNumber = previousNumber else { return }
@@ -30,13 +30,6 @@ struct Caculator {
       previousNumber = result
       nextNumber = nil
     }
-  }
-  
-  enum ArithmeticOperation {
-    case multiply
-    case divide
-    case minus
-    case plus
   }
   
   enum InputState {
@@ -74,6 +67,8 @@ struct Caculator {
       result = priorNumber - laterNumber
     case .plus:
       result = priorNumber + laterNumber
+    default:
+      print("error")
     }
   }
   
@@ -110,5 +105,108 @@ struct Caculator {
         state = .ongoingPreviousNumber
       }
     }
+  }
+}
+
+extension Calculator {
+  
+  enum ArithmeticOperation: Identifiable, Equatable {
+    case equal
+    case plus(Bool)
+    case minus(Bool)
+    case multiply(Bool)
+    case divide(Bool)
+    case percent
+    case sign
+    case clear(clearType)
+    case number(Decimal)
+    case point
+    
+    var id: String { return content }
+    
+    var content: String {
+      switch self {
+      case .equal:
+        return "="
+      case .plus:
+        return "+"
+      case .minus:
+        return "-"
+      case .multiply:
+        return "*"
+      case .divide:
+        return "/"
+      case .percent:
+        return "%"
+      case .sign:
+        return "±"
+      case .clear(.displayResult):
+        return "C"
+      case .clear(.allData):
+        return "AC"
+      case .number(let value):
+        return "\(value)"
+      case .point:
+        return "."
+      }
+    }
+    
+    var isActive: Bool {
+      switch self {
+      case .plus(let isActive), .multiply(let isActive), .minus(let isActive), .divide(let isActive):
+        return isActive
+      default:
+        return false
+      }
+    }
+    
+    var backgroundColor: String {
+      switch self {
+      case .clear, .percent, .sign:
+        return "#A0A0A0"
+      case .number, .point:
+        return "#323232"
+      case .plus, .divide, .multiply, .minus, .equal:
+        return isActive ? "#FFFFFF" : "#E99D39"
+      }
+    }
+    
+    var textColor: String {
+      switch self {
+      case .clear, .percent, .sign:
+        return "#000000"
+      case .plus, .divide, .multiply, .minus, .equal, .number, .point:
+        return isActive ? "#E99D39" : "#FFFFFF"
+      }
+    }
+    
+    var buttonSize: Int {
+      switch self {
+      case .number(0):
+        return 2
+      default:
+        return 1
+      }
+    }
+    
+    mutating func activeButton(active: Bool) {
+      switch self {
+      case .divide:
+        self = .divide(active)
+      case .multiply:
+        self = .multiply(active)
+      case .minus:
+        self = .minus(active)
+      case .plus:
+        self = .plus(active)
+      default:
+        break
+      }
+    }
+  }
+  
+  enum clearType {
+    case allData
+    case displayResult
   }
 }
