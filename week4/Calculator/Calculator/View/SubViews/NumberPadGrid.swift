@@ -4,9 +4,10 @@
 //
 //  Created by changgyo seo on 2022/08/26.
 //
+
 import SwiftUI
 
-struct CalculatorButtonGrid<buttonListView: View>: View {
+struct NumberPadGrid<buttonListView: View>: View {
     
     let buttonDataArray: [ButtonDataArray]
     let columnsCount: Int
@@ -37,12 +38,12 @@ struct CalculatorButtonGrid<buttonListView: View>: View {
     
     private func widthForColumnsCount(in size: CGSize, buttonWidth width: Int) -> CGFloat {
         let sizeForOne = size.width / CGFloat(columnsCount)
-        
         return sizeForOne * CGFloat(width)
     }
 }
 
-extension CalculatorButtonGrid {
+extension NumberPadGrid {
+    
     struct ButtonDataArray: Identifiable {
         var id: Int
         var array: [Calculator.ArithmeticOperation]
@@ -72,8 +73,7 @@ extension CalculatorButtonGrid {
                 if rowWidth + item.buttonSize <= columnsCount {
                     arrayWithColumnsCount.append(item)
                     rowWidth += item.buttonSize
-                }
-                else {
+                } else {
                     arrayWithColumnsCount.totalWidth = rowWidth
                     TwoDemesionArray.append(arrayWithColumnsCount)
                     arrayWithColumnsCount.changeId()

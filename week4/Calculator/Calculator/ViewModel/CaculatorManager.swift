@@ -24,8 +24,7 @@ class CalculatorManager: ObservableObject {
             if calculateModel.showingText != "0" {
                 guard let clearIndex = buttonList.firstIndex(of: .clear(.allData)) else { return calculateModel.showingText }
                 buttonList[clearIndex] = .clear(.displayResult)
-            }
-            else {
+            } else {
                 guard let clearIndex = buttonList.firstIndex(of: .clear(.displayResult)) else { return calculateModel.showingText }
                 buttonList[clearIndex] = .clear(.allData)
             }
@@ -43,9 +42,12 @@ class CalculatorManager: ObservableObject {
     func click(_ clickType: Calculator.ArithmeticOperation) {
         switch clickType {
         case .number(let decimal):
-            print(decimal)
+            if calculateModel.operation == nil,
+               calculateModel.state != .ongoingPreviousNumber {
+                calculateModel.state = .newPreviousNumber
+            }
             for index in buttonList.indices {
-                if buttonList[index].isActive == true {
+                if buttonList[index].isActive {
                     switch buttonList[index] {
                     case .plus, .minus, .divide, .multiply:
                         buttonList[index].activeButton(active: false)
@@ -69,12 +71,9 @@ class CalculatorManager: ObservableObject {
             addPoint()
         default:
             for index in buttonList.indices {
-                if buttonList[index] == clickType {
-                    buttonList[index].activeButton(active: true)
-                }
-                else {
-                    buttonList[index].activeButton(active: false)
-                }
+                buttonList[index] == clickType
+                ? buttonList[index].activeButton(active: true)
+                : buttonList[index].activeButton(active: false)
             }
             clickOperation(clickType)
         }

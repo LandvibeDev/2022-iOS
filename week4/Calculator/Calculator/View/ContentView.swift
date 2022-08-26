@@ -17,11 +17,14 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 ResultView(showingText: calculatorManager.showingText)
-                CalculatorButtonGrid(items: calculatorManager.buttonList , columnsCount: 4) { item in
-                    ButtonView(buttonData: item)
-                        .onTapGesture { calculatorManager.click(item) }
+                NumberPadGrid(items: calculatorManager.buttonList , columnsCount: 4) { item in
+                    Button {
+                        calculatorManager.click(item)
+                    } label: {
+                        NumberPad(buttonData: item)
+                    }
                 }
             }
-        }.foregroundColor(.white)
+        }
     }
 }
