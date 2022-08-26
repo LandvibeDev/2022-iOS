@@ -12,21 +12,18 @@ class CalculatorManager: ObservableObject {
     // MARK: Property(ies)
     
     @Published private var calculator = Calculator()
+    let maxNumberDisplayNormalNotation: Decimal = 999999999
     var displayValue: String {
-        /*
-         -------------------- README 5번 --------------------
-         */
-        //        if calculator.displayValue.count > 9 {
-        //            return Double(calculator.displayValue.insertComma)!.exponentialNotation
-        //        } else {
-        //            return calculator.displayValue.insertComma
-        //        }
-        //        return calculator.displayValue.insertComma
-        return String(calculator.displayValue.insertComma)
-        //------------------------------------------------------------
+        guard let decimalTypeDisplayValue = Decimal(string: calculator.displayValue) else {
+            return "오류"
+        }
+        if decimalTypeDisplayValue > maxNumberDisplayNormalNotation {
+            return decimalTypeDisplayValue.exponentialNotation
+        }
+        return calculator.displayValue.insertComma
     }
-    var buttonLayout: [[Button]] {
-        var buttonLayoutTemp: [[Button]] = [
+    var pad: [[Button]] {
+        var buttonLayout: [[Button]] = [
             [.allClear, .toggle, .percent, .binaryOperator(.divide)],
             [.digit(.seven), .digit(.eight), .digit(.nine), .binaryOperator(.multiply)],
             [.digit(.four), .digit(.five), .digit(.six), .binaryOperator(.substarct)],
@@ -34,9 +31,9 @@ class CalculatorManager: ObservableObject {
             [.digit(.zero), .dot, .equal]
         ]
         if !calculator.isAllClear {
-            buttonLayoutTemp[buttonLayoutTemp.startIndex][buttonLayoutTemp.startIndex] = .clear
+            buttonLayout[buttonLayout.startIndex][buttonLayout[buttonLayout.startIndex].startIndex] = .clear
         }
-        return buttonLayoutTemp
+        return buttonLayout
     }
     
     // MARK: Method(s)
@@ -45,8 +42,8 @@ class CalculatorManager: ObservableObject {
         return (button.backgroundColor, button.foregorundColor)
     }
     
-    func backWhenSwiped() {
-        calculator.backWhenDragged()
+    func undoWhenSwiped() {
+        calculator.undoWhenDragged()
     }
     
     func touchButton(_ button: Button) {

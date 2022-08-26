@@ -69,9 +69,9 @@
 		A67D5A1D28AB566600624B25 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				A67D5A1E28AB566600624B25 /* CalculatorApp.swift */,
 				A67D5A5728B7025B00624B25 /* Extensions */,
 				A67D5A5428B4BC3900624B25 /* Style */,
-				A67D5A1E28AB566600624B25 /* CalculatorApp.swift */,
 				A67D5A2C28AB56A700624B25 /* Model */,
 				A67D5A2D28AB56AF00624B25 /* View */,
 				A67D5A2E28AB56B800624B25 /* ViewModel */,

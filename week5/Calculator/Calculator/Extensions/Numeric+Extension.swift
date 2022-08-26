@@ -9,6 +9,6 @@ import Foundation
 
 extension Numeric {
     var exponentialNotation: String {
-        return Formatter.scientific.string(for: self) ?? ""
+        return Formatter.exponentialNotation.string(for: self) ?? ""
     }
 }

@@ -23,9 +23,9 @@ struct ScreenView: View {
         }
     }
 }
+
 struct ScreenView_Previews: PreviewProvider {
     static var previews: some View {
         ScreenView()
     }
 }
-
