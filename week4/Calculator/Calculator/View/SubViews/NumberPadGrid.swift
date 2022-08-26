@@ -1,5 +1,5 @@
 //
-//  CalculatorButtonGrid.swift
+//  NumberPadGrid.swift
 //  Calculator
 //
 //  Created by changgyo seo on 2022/08/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalculatorButtonGrid<buttonListView: View>: View {
+struct NumberPadGrid<buttonListView: View>: View {
   
   let buttonDataArray: [ButtonDataArray]
   let columnsCount: Int
@@ -42,9 +42,10 @@ struct CalculatorButtonGrid<buttonListView: View>: View {
   }
 }
 
-extension CalculatorButtonGrid {
+extension NumberPadGrid {
   
   struct ButtonDataArray: Identifiable {
+    
     var id: Int
     var array: [Calculator.ArithmeticOperation]
     var totalWidth: Int

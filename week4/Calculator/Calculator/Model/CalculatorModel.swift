@@ -10,7 +10,11 @@ import Foundation
 struct Calculator {
   
   var state: InputState = .newPreviousNumber
-  var operation: ArithmeticOperation?
+  var operation: ArithmeticOperation? {
+    willSet {
+      if nextNumber != nil { calculate() }
+    }
+  }
   var showingText: String
   private(set) var previousNumber: Decimal? {
     didSet {
@@ -29,6 +33,7 @@ struct Calculator {
       showingText = "\(result)"
       previousNumber = result
       nextNumber = nil
+      state = .finishInput
     }
   }
   
@@ -37,11 +42,12 @@ struct Calculator {
     case newNextNumber
     case ongoingPreviousNumber
     case ongoingNextNumber
+    case finishInput
   }
   
   mutating func clickNumber(_ number: Decimal) {
     switch state {
-    case .newPreviousNumber:
+    case .newPreviousNumber, .finishInput:
       previousNumber = number
       state = .ongoingPreviousNumber
     case .newNextNumber:

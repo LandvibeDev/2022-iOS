@@ -21,10 +21,12 @@ struct ResultView: View {
         .minimumScaleFactor(DrawConstans.fontMinimumSacleFactor)
         .padding(.trailing, DrawConstans.textPadding)
     }
+    .contentShape(Rectangle())
   }
 }
 
 extension ResultView {
+  
   private enum DrawConstans {
     static let fontSize = 80.0
     static let fontMinimumSacleFactor = 0.5

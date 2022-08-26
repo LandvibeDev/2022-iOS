@@ -14,9 +14,10 @@
 		6F1A922928B13AE8009FBF28 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A922828B13AE8009FBF28 /* CalculatorModel.swift */; };
 		6F1A922B28B13B04009FBF28 /* CaculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A922A28B13B04009FBF28 /* CaculatorManager.swift */; };
 		6F1A922D28B2159B009FBF28 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A922C28B2159B009FBF28 /* ResultView.swift */; };
-		6F2AB33028B8D9970054B4BB /* CalculatorButtonGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AB32F28B8D9970054B4BB /* CalculatorButtonGrid.swift */; };
-		6F2AB33228B8D9A60054B4BB /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AB33128B8D9A60054B4BB /* CircleButton.swift */; };
+		6F2AB33028B8D9970054B4BB /* NumberPadGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AB32F28B8D9970054B4BB /* NumberPadGrid.swift */; };
+		6F2AB33228B8D9A60054B4BB /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AB33128B8D9A60054B4BB /* NumberPad.swift */; };
 		6F2AB33528B8DC930054B4BB /* Ex+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AB33428B8DC930054B4BB /* Ex+Color.swift */; };
+		6F2AB33728B90EB10054B4BB /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AB33628B90EB10054B4BB /* Ex+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +29,10 @@
 		6F1A922828B13AE8009FBF28 /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
 		6F1A922A28B13B04009FBF28 /* CaculatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculatorManager.swift; sourceTree = "<group>"; };
 		6F1A922C28B2159B009FBF28 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		6F2AB32F28B8D9970054B4BB /* CalculatorButtonGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonGrid.swift; sourceTree = "<group>"; };
-		6F2AB33128B8D9A60054B4BB /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		6F2AB32F28B8D9970054B4BB /* NumberPadGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadGrid.swift; sourceTree = "<group>"; };
+		6F2AB33128B8D9A60054B4BB /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
 		6F2AB33428B8DC930054B4BB /* Ex+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+Color.swift"; sourceTree = "<group>"; };
+		6F2AB33628B90EB10054B4BB /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				6F1A922C28B2159B009FBF28 /* ResultView.swift */,
-				6F2AB32F28B8D9970054B4BB /* CalculatorButtonGrid.swift */,
-				6F2AB33128B8D9A60054B4BB /* CircleButton.swift */,
+				6F2AB32F28B8D9970054B4BB /* NumberPadGrid.swift */,
+				6F2AB33128B8D9A60054B4BB /* NumberPad.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				6F2AB33428B8DC930054B4BB /* Ex+Color.swift */,
+				6F2AB33628B90EB10054B4BB /* Ex+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,10 +202,11 @@
 				6F1A922928B13AE8009FBF28 /* CalculatorModel.swift in Sources */,
 				6F1A921A28B13A71009FBF28 /* ContentView.swift in Sources */,
 				6F1A922D28B2159B009FBF28 /* ResultView.swift in Sources */,
+				6F2AB33728B90EB10054B4BB /* Ex+String.swift in Sources */,
 				6F1A922B28B13B04009FBF28 /* CaculatorManager.swift in Sources */,
 				6F1A921828B13A71009FBF28 /* CalculatorApp.swift in Sources */,
-				6F2AB33228B8D9A60054B4BB /* CircleButton.swift in Sources */,
-				6F2AB33028B8D9970054B4BB /* CalculatorButtonGrid.swift in Sources */,
+				6F2AB33228B8D9A60054B4BB /* NumberPad.swift in Sources */,
+				6F2AB33028B8D9970054B4BB /* NumberPadGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

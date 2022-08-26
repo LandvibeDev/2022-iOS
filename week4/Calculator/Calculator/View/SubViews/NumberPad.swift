@@ -1,5 +1,5 @@
 //
-//  ButtonView.swift
+//  NumberPad.swift
 //  Calculator
 //
 //  Created by changgyo seo on 2022/08/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircleButton: View {
+struct NumberPad: View {
   
   var buttonData: Calculator.ArithmeticOperation
   
@@ -32,11 +32,10 @@ struct CircleButton: View {
   }
 }
 
-extension CircleButton {
+extension NumberPad {
   
   private enum DrawConstans {
     static let buttonCornerRadius = 0.5
     static let fontSizeScale = 0.4
   }
 }
-

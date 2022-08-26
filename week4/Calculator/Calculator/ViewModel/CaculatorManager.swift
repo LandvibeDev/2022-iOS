@@ -42,6 +42,10 @@ class CalculatorManager: ObservableObject {
   func click(_ clickType: Calculator.ArithmeticOperation) {
     switch clickType {
     case .number(let decimal):
+      if calculateModel.operation == nil,
+         calculateModel.state != .ongoingPreviousNumber {
+        calculateModel.state = .newPreviousNumber
+      }
       for index in buttonList.indices {
         if buttonList[index].isActive {
           switch buttonList[index] {
@@ -94,6 +98,10 @@ class CalculatorManager: ObservableObject {
   
   func changeSign() {
     calculateModel.changeSign()
+  }
+  
+  func slideToRemove() {
+    showingText.removeWithDecimal()
   }
   
   func percent() {
