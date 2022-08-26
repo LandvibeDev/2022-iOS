@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+
 class CalculatorManager: ObservableObject {
     
     // MARK: Property(ies)

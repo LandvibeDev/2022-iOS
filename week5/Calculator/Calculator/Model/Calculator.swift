@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Calculator {
     
     // MARK: Alias(es)
