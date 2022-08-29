@@ -15,7 +15,7 @@ struct PadView: View {
             ForEach(calculatorManager.pad, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { button in
-                        EachButton(button: button)
+                        PadButton(button: button)
                     }
                 }
             }

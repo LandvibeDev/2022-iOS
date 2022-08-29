@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EachButton: View {
+struct PadButton: View {
     @EnvironmentObject var calculatorManager: CalculatorManager
     let button: CalculatorManager.Button
     
@@ -15,7 +15,12 @@ struct EachButton: View {
         ZStack {
             Button(button.appearance) {
                 calculatorManager.touchButton(button)
-            } .buttonStyle(CalculateButtonStyle(buttonColor: calculatorManager.buttonColor(button), isZero: button.appearance == "0"))
+            } .buttonStyle(
+                CalculateButtonStyle(
+                    buttonColor: calculatorManager.buttonColor(button),
+                    isZero: button.appearance == "0"
+                )
+            )
         }
     }
 }

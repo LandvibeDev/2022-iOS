@@ -9,6 +9,9 @@ import Foundation
 
 extension Numeric {
     var exponentialNotation: String {
-        return Formatter.exponentialNotation.string(for: self) ?? ""
+        guard let exponentialNotationString = Formatter.exponentialNotation.string(for: self) else {
+            return "오류"
+        }
+        return exponentialNotationString
     }
 }

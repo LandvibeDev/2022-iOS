@@ -14,13 +14,10 @@ struct CalculatorView: View {
         VStack {
             Spacer()
             ScreenView()
+                .border(.red)
             PadView()
+                .border(.blue)
         }
-        .contentShape(Rectangle())
-        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-            .onEnded({ _ in
-                calculatorManager.undoWhenSwiped()
-            }))
         .background(.black)
     }
 }
