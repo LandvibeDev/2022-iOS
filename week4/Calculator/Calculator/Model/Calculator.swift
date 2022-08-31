@@ -9,18 +9,14 @@ import Foundation
 
 struct Calculator {
     
-    // MARK: Alias(es)
-    
-    typealias BinaryOperator = CalculatorManager.BinaryOperator
-    typealias Digit = CalculatorManager.Digit
-    
     // MARK: Propery(ies)
     
     private(set) var displayValue = "0"
     private(set) var isAllClear = true
     private var calculationResult: Decimal? = 0
     private var newValue: Decimal? = nil
-    private var operation: BinaryOperator? = .add
+    private var `operator`: BinaryOperator? = .add
+    private var isPreOperatorEqual = false
     private var isCalculationResultIsNil: Bool {
         calculationResult == nil
     }
@@ -41,36 +37,38 @@ struct Calculator {
         }
     }
     
-    mutating func setOperation(_ newOperation: BinaryOperator) {
-        guard let operation = operation, let newValue = newValue else {
-            self.operation = newOperation
-            return
+    mutating func setOperator(_ newOperator: BinaryOperator) {
+        if isPreOperatorEqual {
+            `operator` = nil
+            newValue = nil
+            isPreOperatorEqual = false
         }
-        calculationResult = calculate(operation, newValue)
-        guard let calculationResult = calculationResult else {
-            displayValue = "오류"
-            return
-        }
-        displayValue = String(describing: calculationResult)
+        proveAndCalculate(newOperator: newOperator)
         self.newValue = nil
-        self.operation = newOperation
+        self.`operator` = newOperator
     }
     
     mutating func equal() {
-        guard let operation = operation, let newValue = newValue else {
+        proveAndCalculate(newOperator: nil)
+    }
+    
+    mutating func proveAndCalculate(newOperator: BinaryOperator?) {
+        let isEqual = newOperator == nil
+        guard let `operator` = `operator`, let newValue = newValue else {
             return
         }
-        calculationResult = calculate(operation, newValue)
+        if isEqual {
+            isPreOperatorEqual = true
+        }
+        calculationResult = calculate(`operator`, newValue)
         guard let calculationResult = calculationResult else {
             displayValue = "오류"
             self.newValue = nil
             return
         }
         displayValue = String(describing: calculationResult)
-        self.newValue = nil
-        self.operation = nil
     }
-    
+        
     mutating func dot() {
         if displayValue.contains(".") || isCalculationResultIsNil {
             return
@@ -81,36 +79,32 @@ struct Calculator {
     }
     
     mutating func percent() {
-        guard let calculationResult = calculationResult else {
-            return
-        }
-        if let newValue = newValue {
-            displayValue = String(describing: newValue * 0.01)
-            self.newValue = Decimal(string: displayValue)
-        } else {
-            displayValue = String(describing: calculationResult * 0.01)
-            self.calculationResult = Decimal(string: displayValue)
-        }
+        percentOrToggleDisplayNumberSign(isToggle: false)
     }
     
-    mutating func toggle() {
+    mutating func toggleDisplayNumberSign() {
+        percentOrToggleDisplayNumberSign(isToggle: true)
+    }
+    
+    private mutating func percentOrToggleDisplayNumberSign(isToggle: Bool) {
         guard let calculationResult = calculationResult else {
             return
         }
-        if let newValue = newValue {
-            displayValue = String(describing: -newValue)
+        let operand = isToggle ? -1 : 0.01
+        if let newValue = newValue, !isPreOperatorEqual {
+            displayValue = String(describing: newValue * Decimal(operand))
             self.newValue = Decimal(string: displayValue)
         } else {
-            displayValue = String(describing: -calculationResult)
+            displayValue = String(describing: calculationResult * Decimal(operand))
             self.calculationResult = Decimal(string: displayValue)
         }
     }
     
     mutating func allClear() {
-        displayValue = "0"
-        newValue = nil
+        clear()
+        isPreOperatorEqual = false
         calculationResult = 0
-        operation = .add
+        `operator` = .add
     }
     
     mutating func clear() {
@@ -120,22 +114,21 @@ struct Calculator {
     }
     
     mutating func undoWhenDragged() {
-        if newValue == nil {
-            if displayValue.count > 1 {
-                displayValue.removeLast()
-                calculationResult = Decimal(string: displayValue)
-            } else if displayValue.count == 1 {
-                displayValue = "0"
-                calculationResult = Decimal(string: displayValue)
-            }
+        let isNewValueNil = newValue == nil
+        if displayValue.count == 1 {
+            displayValue = "0"
+            assignValueWhenUndo(isNewValueNil)
         } else {
-            if displayValue.count > 1 {
-                displayValue.removeLast()
-                newValue = Decimal(string: displayValue)
-            } else if displayValue.count == 1 {
-                displayValue = "0"
-                newValue = Decimal(string: displayValue)
-            }
+            displayValue.removeLast()
+            assignValueWhenUndo(isNewValueNil)
+        }
+    }
+    
+    private mutating func assignValueWhenUndo(_ newValueIsNil: Bool) {
+        if newValueIsNil {
+            calculationResult = Decimal(string: displayValue)
+        } else {
+            newValue = Decimal(string: displayValue)
         }
     }
     
@@ -150,11 +143,82 @@ struct Calculator {
             return calculationResult - newValue
         case .divide:
             if newValue == 0 {
-               return nil
+                return nil
             }
             return calculationResult / newValue
         case .multiply:
             return calculationResult * newValue
+        }
+    }
+}
+
+extension Calculator {
+    enum Button: Hashable {
+        case digit(_ digit: Digit)
+        case binaryOperator(_ binaryOperator: BinaryOperator)
+        case equal
+        case dot
+        case percent
+        case toggle
+        case allClear
+        case clear
+        
+        var appearance: String {
+            switch self {
+            case .digit(let digit):
+                return digit.appearance
+            case .binaryOperator(let binaryOperator):
+                return binaryOperator.appearance
+            case .equal:
+                return "="
+            case .dot:
+                return "."
+            case .percent:
+                return "%"
+            case .toggle:
+                return "+/-"
+            case .allClear:
+                return "AC"
+            case .clear:
+                return "C"
+            }
+        }
+    }
+    
+    enum BinaryOperator {
+        case add
+        case substarct
+        case divide
+        case multiply
+        
+        var appearance: String {
+            switch self {
+            case .add:
+                return "+"
+            case .substarct:
+                return "-"
+            case .divide:
+                return "/"
+            case .multiply:
+                return "*"
+            }
+        }
+    }
+    
+    enum Digit: Int {
+        case zero
+        case one
+        case two
+        case three
+        case four
+        case five
+        case six
+        case seven
+        case eight
+        case nine
+        
+        var appearance: String {
+            return String(describing: self.rawValue)
         }
     }
 }

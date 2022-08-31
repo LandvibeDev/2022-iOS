@@ -16,11 +16,6 @@ struct CalculatorView: View {
             ScreenView()
             PadView()
         }
-        .contentShape(Rectangle())
-        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-            .onEnded({ _ in
-                calculatorManager.undoWhenSwiped()
-            }))
         .background(.black)
     }
 }
@@ -28,5 +23,6 @@ struct CalculatorView: View {
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         CalculatorView()
+            .environmentObject(CalculatorManager())
     }
 }
