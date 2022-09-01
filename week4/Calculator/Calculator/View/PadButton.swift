@@ -25,8 +25,9 @@ struct PadButton: View {
     }
 }
 
-//struct Button_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Button()
-//    }
-//}
+struct Button_Previews: PreviewProvider {
+    static var previews: some View {
+        PadButton(button: CalculatorManager.Button.allClear)
+            .environmentObject(CalculatorManager())
+    }
+}

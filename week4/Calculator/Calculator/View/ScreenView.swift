@@ -8,21 +8,12 @@
 import SwiftUI
 
 struct ScreenView: View {
-    @EnvironmentObject var calculatorManager: CalculatorManager
-    
-    private func swipe() -> some Gesture {
-        DragGesture(minimumDistance: 10, coordinateSpace: .local)
-            .onEnded { drag in
-                if 0 < drag.translation.width {
-                    calculatorManager.undoWhenSwiped()
-                }
-            }
-    }
+    let displayValue: String
     
     var body: some View {
         HStack {
             Spacer()
-            Text(calculatorManager.displayValue)
+            Text(displayValue)
                 .lineLimit(DrawConstants.lineLimit)
                 .foregroundColor(.white)
                 .frame(alignment: .bottomTrailing)
@@ -30,8 +21,6 @@ struct ScreenView: View {
                 .minimumScaleFactor(DrawConstants.minimumScaleFactor)
                 .padding()
         }
-        .contentShape(Rectangle())
-        .gesture(swipe())
     }
 }
 
@@ -47,6 +36,6 @@ extension ScreenView {
 
 struct ScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        ScreenView()
+        ScreenView(displayValue: "aa")
     }
 }

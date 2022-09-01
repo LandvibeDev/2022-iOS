@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PadView: View {
-    @EnvironmentObject var calculatorManager: CalculatorManager
+    @EnvironmentObject var calculator: CalculatorManager
     
     var body: some View {
         VStack {
-            ForEach(calculatorManager.pad, id: \.self) { row in
+            ForEach(calculator.pad, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { button in
                         PadButton(button: button)
@@ -26,5 +26,6 @@ struct PadView: View {
 struct PadView_Previews: PreviewProvider {
     static var previews: some View {
         PadView()
+            .environmentObject(CalculatorManager())
     }
 }
