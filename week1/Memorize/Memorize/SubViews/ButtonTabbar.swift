@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ButtonTabbar: View {
+  
   @Binding var countOfCards: Int
   @Binding var content: [String]
   @State var previousCount = 0
@@ -89,6 +90,7 @@ struct ButtonTabbar: View {
 }
 
 struct ButtonTabbar_Previews: PreviewProvider {
+ 
   static var previews: some View {
     ButtonTabbar(countOfCards: .constant(8), content: .constant([""]))
       .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1))

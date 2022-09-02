@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  
   @State var countOfCards = 8
   @State var contents = Emoji.vehicles.emojiList
   
@@ -29,6 +30,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+ 
   static var previews: some View {
     ContentView()
   }

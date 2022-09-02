@@ -24,13 +24,6 @@ enum Emoji {
   }
   
   var shuffle: [String] {
-    switch self {
-    case .vehicles:
-      return Emoji.vehicles.emojiList.shuffled()
-    case .faces:
-      return Emoji.faces.emojiList.shuffled()
-    case .sports:
-      return Emoji.sports.emojiList.shuffled()
-    }
+    return self.emojiList.shuffled()
   }
 }
