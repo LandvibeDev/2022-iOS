@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		F386FAC028BFDF2100B1DF25 /* NaverOpenAPITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386FABF28BFDF2100B1DF25 /* NaverOpenAPITestApp.swift */; };
-		F386FAC228BFDF2100B1DF25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386FAC128BFDF2100B1DF25 /* ContentView.swift */; };
+		F386FAC228BFDF2100B1DF25 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386FAC128BFDF2100B1DF25 /* MovieList.swift */; };
 		F386FAC428BFDF2200B1DF25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F386FAC328BFDF2200B1DF25 /* Assets.xcassets */; };
 		F386FAC728BFDF2200B1DF25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F386FAC628BFDF2200B1DF25 /* Preview Assets.xcassets */; };
+		F3A5EDF028C09C05001871F9 /* BoxOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5EDEF28C09C05001871F9 /* BoxOffice.swift */; };
+		F3A5EDF228C0A29D001871F9 /* MovieFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5EDF128C0A29D001871F9 /* MovieFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F386FABC28BFDF2100B1DF25 /* NaverOpenAPITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverOpenAPITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F386FABF28BFDF2100B1DF25 /* NaverOpenAPITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverOpenAPITestApp.swift; sourceTree = "<group>"; };
-		F386FAC128BFDF2100B1DF25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F386FAC128BFDF2100B1DF25 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		F386FAC328BFDF2200B1DF25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F386FAC628BFDF2200B1DF25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3A5EDEF28C09C05001871F9 /* BoxOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOffice.swift; sourceTree = "<group>"; };
+		F3A5EDF128C0A29D001871F9 /* MovieFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				F386FABF28BFDF2100B1DF25 /* NaverOpenAPITestApp.swift */,
-				F386FAC128BFDF2100B1DF25 /* ContentView.swift */,
+				F3A5EDEF28C09C05001871F9 /* BoxOffice.swift */,
+				F386FAC128BFDF2100B1DF25 /* MovieList.swift */,
+				F3A5EDF128C0A29D001871F9 /* MovieFinder.swift */,
 				F386FAC328BFDF2200B1DF25 /* Assets.xcassets */,
 				F386FAC528BFDF2200B1DF25 /* Preview Content */,
 			);
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F386FAC228BFDF2100B1DF25 /* ContentView.swift in Sources */,
+				F3A5EDF228C0A29D001871F9 /* MovieFinder.swift in Sources */,
+				F386FAC228BFDF2100B1DF25 /* MovieList.swift in Sources */,
 				F386FAC028BFDF2100B1DF25 /* NaverOpenAPITestApp.swift in Sources */,
+				F3A5EDF028C09C05001871F9 /* BoxOffice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

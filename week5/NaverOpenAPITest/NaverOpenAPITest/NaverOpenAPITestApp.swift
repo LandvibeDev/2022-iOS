@@ -11,7 +11,7 @@ import SwiftUI
 struct NaverOpenAPITestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: MovieFinder())
         }
     }
 }
