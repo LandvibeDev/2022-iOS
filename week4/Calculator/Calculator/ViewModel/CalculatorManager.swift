@@ -16,13 +16,12 @@ class CalculatorManager: ObservableObject {
     // MARK: Property(ies)
     
     @Published private var calculator = Calculator()
-    let maxNumberDisplayNormalNotation: Decimal = 999999999
-    let minNumberDisplayNormalNotation: Decimal = -999999999
     var displayValue: String {
         guard let decimalTypeDisplayValue = Decimal(string: calculator.displayValue) else {
             return "오류"
         }
-        if decimalTypeDisplayValue < minNumberDisplayNormalNotation || decimalTypeDisplayValue > maxNumberDisplayNormalNotation  {
+        let maxLengthOfDisplayValue = String(describing: calculator.displayValue).contains(".") ? 10 : 9
+        if calculator.displayValue.count > maxLengthOfDisplayValue  {
             return decimalTypeDisplayValue.exponentialNotation
         }
         return calculator.displayValue.decimalFormat
@@ -71,7 +70,7 @@ class CalculatorManager: ObservableObject {
         case .percent:
             calculator.percent()
         case .toggle:
-            calculator.toggleDisplayNumberSign()
+            calculator.toggleSignOfDisplayNumber()
         case .allClear:
             calculator.allClear()
         case .clear:
@@ -79,4 +78,3 @@ class CalculatorManager: ObservableObject {
         }
     }
 }
-

@@ -29,7 +29,8 @@ struct Calculator {
             self.newValue = Decimal(string: displayValue)
             isAllClear = false
         } else {
-            if String(describing: self.newValue ?? 0).count >= 9  {
+            let maxLengthOfInputDigit = displayValue.contains(".") ? 10 : 9
+            if displayValue.count >= maxLengthOfInputDigit {
                 return
             }
             displayValue = displayValue.appending(String(describing: newValue.rawValue))
@@ -52,7 +53,7 @@ struct Calculator {
         proveAndCalculate(newOperator: nil)
     }
     
-    mutating func proveAndCalculate(newOperator: BinaryOperator?) {
+    private mutating func proveAndCalculate(newOperator: BinaryOperator?) {
         let isEqual = newOperator == nil
         guard let `operator` = `operator`, let newValue = newValue else {
             return
@@ -79,14 +80,14 @@ struct Calculator {
     }
     
     mutating func percent() {
-        percentOrToggleDisplayNumberSign(isToggle: false)
+        percentOrToggleSignOfDisplayNumber(isToggle: false)
     }
     
-    mutating func toggleDisplayNumberSign() {
-        percentOrToggleDisplayNumberSign(isToggle: true)
+     mutating func toggleSignOfDisplayNumber() {
+         percentOrToggleSignOfDisplayNumber(isToggle: true)
     }
     
-    private mutating func percentOrToggleDisplayNumberSign(isToggle: Bool) {
+    private mutating func percentOrToggleSignOfDisplayNumber(isToggle: Bool) {
         guard let calculationResult = calculationResult else {
             return
         }
