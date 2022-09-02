@@ -13,7 +13,7 @@ struct BookSearch {
   var books: [Book] = []
 }
 
-struct Response: Codable {
+struct ResponseBook: Codable {
   
   let lastBuildDate: String
   let total, start, display: Int

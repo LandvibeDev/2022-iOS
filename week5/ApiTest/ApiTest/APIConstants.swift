@@ -8,7 +8,9 @@
 import Foundation
 
 enum APIConstants: String {
+  
   case getBookInfo =  "/v1/search/book.json"
+  case getBookBlog = "/v1/search/blog.json"
   
   static let clientID = "_hygi4FZdNOUpQsd7K__"
   static let clientSecret = "CFBpqq7uVg"

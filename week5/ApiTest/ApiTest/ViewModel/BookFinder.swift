@@ -9,7 +9,8 @@ import SwiftUI
 
 class BookFinder: ObservableObject {
   
-  @Published var model = BookSearch()
+  @Published var bookModel = BookSearch()
+  @Published var blogModel = BookBlogSearch()
   
   private func makeURLComponents(path: String, query: String) -> URLComponents {
     var urlComponents = URLComponents()
@@ -32,7 +33,7 @@ class BookFinder: ObservableObject {
   
   func fetchBookList() {
     guard let componentsURL = makeURLComponents(path: APIConstants.getBookInfo.rawValue,
-                                                query: model.searchKeyword).url
+                                                query: bookModel.searchKeyword).url
     else { return }
     let requestURL = makeURLGETRequest(url: componentsURL)
     let task = URLSession.shared.dataTask(with: requestURL) { data, response, error in
@@ -41,11 +42,34 @@ class BookFinder: ObservableObject {
             APIConstants.successRange.contains(httpURLResponse.statusCode)
       else { return }
       guard let data = data,
-            let parsedData = try? JSONDecoder().decode(Response.self, from: data)
+            let parsedData = try? JSONDecoder().decode(ResponseBook.self, from: data)
       else { return }
       DispatchQueue.main.async { [weak self] in
-        self?.model.books = parsedData.items.indices.map {
+        self?.bookModel.books = parsedData.items.indices.map {
           Book(parsedData.items[$0], id: parsedData.start + $0)
+        }
+      }
+    }
+    task.resume()
+  }
+  
+  func fetchBookBlog() {
+    guard let componentsURL = makeURLComponents(path: APIConstants.getBookBlog.rawValue,
+                                                query: bookModel.searchKeyword + "책").url
+    else { return }
+    let requestURL = makeURLGETRequest(url: componentsURL)
+    let task = URLSession.shared.dataTask(with: requestURL) { data, response, error in
+      guard error == nil,
+            let httpURLResponse = response as? HTTPURLResponse,
+            APIConstants.successRange.contains(httpURLResponse.statusCode)
+      else { return }
+      guard let data = data,
+            let parsedData = try? JSONDecoder().decode(ResponseBlog.self, from: data)
+      else { return }
+      DispatchQueue.main.async { [weak self] in
+        self?.blogModel.blogs = parsedData.items
+        self?.blogModel.blogs = parsedData.items.indices.map {
+          Blog(parsedData.items[$0], id: parsedData.start + $0)
         }
       }
     }

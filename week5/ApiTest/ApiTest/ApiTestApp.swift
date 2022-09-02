@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct ApiTestApp: App {
+  
     var body: some Scene {
         WindowGroup {
           let viewModel = BookFinder()
-            BookList(viewModel: viewModel)
+            SearchList(bookFinder: viewModel)
         }
     }
 }
