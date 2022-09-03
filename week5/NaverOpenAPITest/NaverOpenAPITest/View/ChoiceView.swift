@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChoiceView: View {
+
     var body: some View {
         NavigationView {
             List {

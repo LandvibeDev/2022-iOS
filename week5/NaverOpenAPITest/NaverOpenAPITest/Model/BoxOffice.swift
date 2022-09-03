@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct BoxOffice: MyProtocol {
+struct BoxOffice: Searchable {
     var searchKeyword = ""
     var elements: [Any] = []
     var path = "/v1/search/movie.json"
+    
     init() {}
 }
 

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct MovieList: View {
-    
-    @ObservedObject var viewModel: MovieFinder
+    @ObservedObject var movieFinder: RequestAPI<BoxOffice>
     
     var body: some View {
         ZStack {
@@ -40,7 +39,7 @@ struct MovieList: View {
                     }
                 }
             }
-            if viewModel.fetchingStatus == .fetching {
+            if movieFinder.fetchingStatus == .fetching {
                 ProgressView()
                     .scaleEffect(1.5)
             }

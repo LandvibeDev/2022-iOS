@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct NewsList: View {
-    @StateObject var viewModel = Network<
+    @ObservedObject var newsFinder: RequestAPI<NewsDesk>
     var body: some View {
         ZStack {
             List {
@@ -23,7 +21,7 @@ struct NewsList: View {
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(viewModel.model.movies) { movie in
+                    ForEach(newsFinder.model.el) { movie in
                         VStack {
                             Spacer()
                             Group {
@@ -40,7 +38,7 @@ struct NewsList: View {
                     }
                 }
             }
-            if viewModel.fetchingStatus == .fetching {
+            if newsFinder.fetchingStatus == .fetching {
                 ProgressView()
                     .scaleEffect(1.5)
             }
@@ -48,7 +46,6 @@ struct NewsList: View {
         .foregroundColor(.black)
     }
 }
-
 
 struct NewsList_Previews: PreviewProvider {
     static var previews: some View {

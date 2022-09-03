@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DocumentList: View {
-    @ObservedObject var documentFinder: MovieFinder
+    @ObservedObject var documentFinder: RequestAPI<Encyclopedia>
     
     var body: some View {
         ZStack {
@@ -22,7 +22,7 @@ struct DocumentList: View {
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(viewModel.model.movies) { movie in
+                    ForEach(documentFinder.model.) { movie in
                         VStack {
                             Spacer()
                             Group {
@@ -39,7 +39,7 @@ struct DocumentList: View {
                     }
                 }
             }
-            if viewModel.fetchingStatus == .fetching {
+            if documentFinder.fetchingStatus == .fetching {
                 ProgressView()
                     .scaleEffect(1.5)
             }

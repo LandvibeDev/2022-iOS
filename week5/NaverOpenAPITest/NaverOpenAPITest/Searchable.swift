@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MyProtocol {
+protocol Searchable {
     var path: String {get}
     var searchKeyword: String {get}
     init()

@@ -14,11 +14,9 @@ fileprivate enum NaverOpenAPI {
     static let host = "openapi.naver.com"
 }
 
-class RequestAPI<T: MyProtocol>: ObservableObject {
-    
+class RequestAPI<T: Searchable>: ObservableObject {
     @Published var model = T()
     @Published var fetchingStatus = FetchStatus.idle
-    
     private var urlComponents = URLComponents()
     
     init() {
@@ -58,7 +56,6 @@ class RequestAPI<T: MyProtocol>: ObservableObject {
         case idle
         case fetching
     }
-    
 }
 
 struct Response: Codable {
@@ -94,4 +91,3 @@ struct Response: Codable {
         let thumbnail: String
     }
 }
-

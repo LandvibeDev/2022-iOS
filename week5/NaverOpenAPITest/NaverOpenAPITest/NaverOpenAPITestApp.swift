@@ -12,7 +12,7 @@ struct NaverOpenAPITestApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MovieList(viewModel: MovieFinder())
+            ChoiceView()
         }
     }
 }
