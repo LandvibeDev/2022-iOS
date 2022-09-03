@@ -14,8 +14,8 @@ fileprivate enum NaverOpenAPI {
     static let host = "openapi.naver.com"
 }
 
-class RequestAPI<T: Searchable>: ObservableObject {
-    @Published var model = T()
+class Finder<Article: Searchable>: ObservableObject {
+    @Published var model = Article()
     @Published var fetchingStatus = FetchStatus.idle
     private var urlComponents = URLComponents()
     
@@ -24,7 +24,7 @@ class RequestAPI<T: Searchable>: ObservableObject {
         urlComponents.host = NaverOpenAPI.host
     }
     
-    func fetchDataList(wantToSearch: T) {
+    func fetchDataList(wantToSearch: Article) {
         fetchingStatus = .fetching
         urlComponents.path = wantToSearch.path
         urlComponents.queryItems = [URLQueryItem(name: "query", value: wantToSearch.searchKeyword)]
@@ -35,7 +35,7 @@ class RequestAPI<T: Searchable>: ObservableObject {
         urlRequest.addValue(NaverOpenAPI.clientID, forHTTPHeaderField: "X-Naver-Client-Id")
         urlRequest.addValue(NaverOpenAPI.clientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            // 각기 다른 예외처리를 하는 것이 좋겠죠 ?
+            // 각기 다른 예외처리를 하는 것이 좋겠죠 ?  --> 기능 완성하고 변경하겠습니다 ㅠ
             guard error == nil,
                   let httpURLResponse = response as? HTTPURLResponse,
                   (200 ... 299).contains(httpURLResponse.statusCode),

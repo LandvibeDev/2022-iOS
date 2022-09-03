@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DocumentList: View {
-    @ObservedObject var documentFinder: RequestAPI<Encyclopedia>
+    @ObservedObject var documentFinder: Finder<Encyclopedia>
     
     var body: some View {
         ZStack {

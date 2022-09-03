@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MovieList: View {
-    @ObservedObject var movieFinder: RequestAPI<BoxOffice>
+    @ObservedObject var movieFinder: Finder<BoxOffice>
     
     var body: some View {
         ZStack {
@@ -22,7 +22,7 @@ struct MovieList: View {
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(viewModel.model.movies) { movie in
+                    ForEach(movieFinder) { movie in
                         VStack {
                             Spacer()
                             Group {
