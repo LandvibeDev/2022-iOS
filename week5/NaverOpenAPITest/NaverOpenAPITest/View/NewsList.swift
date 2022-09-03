@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewsList: View {
     @ObservedObject var newsFinder: Finder<NewsDesk>
+    
     var body: some View {
         ZStack {
             List {
@@ -21,7 +22,7 @@ struct NewsList: View {
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(newsFinder.model.) { movie in
+                    ForEach() { movie in
                         VStack {
                             Spacer()
                             Group {

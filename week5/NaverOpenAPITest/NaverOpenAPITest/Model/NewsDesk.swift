@@ -11,6 +11,7 @@ struct NewsDesk: Searchable  {
     var searchKeyword = ""
     var elements: [Any] = []
     var path = "/v1/search/news.json"
+    
     init() {}
 }
 

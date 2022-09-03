@@ -52,6 +52,7 @@ class Finder<Article: Searchable>: ObservableObject {
         task.resume()
         fetchingStatus = .idle
     }
+    
     enum FetchStatus {
         case idle
         case fetching

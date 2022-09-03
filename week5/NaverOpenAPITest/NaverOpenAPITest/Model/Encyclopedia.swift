@@ -11,6 +11,7 @@ struct Encyclopedia: Searchable {
     var searchKeyword = ""
     var elements: [Any] = []
     var path = "/v1/search/encyc.json"
+    
     init() {}
 }
 

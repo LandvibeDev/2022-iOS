@@ -10,6 +10,7 @@ import Foundation
 protocol Searchable {
     var path: String {get}
     var searchKeyword: String {get}
-    init()
     var elements: [Any] {get set}
+    
+    init()
 }
