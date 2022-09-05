@@ -99,5 +99,6 @@ protocol FetchableParameter {
 
 extension FetchableParameter {
     
+    var data: Encodable? { nil }
     var headers: [String: String]? { nil }
 }
