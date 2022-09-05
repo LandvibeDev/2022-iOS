@@ -19,3 +19,11 @@ Layout을 이해하고, @ViewBuilder을 활용해 볼 수 있도록 합니다.
 ## Week 5
 
 Network와 Multithread 프로그래밍을 배워볼 수 있도록 합니다.
+
+## Week 6
+
+Combine을 배우고, 실제로 적용해 볼 수 있도록 합니다.
+
+## Week 7
+
+TBD..
