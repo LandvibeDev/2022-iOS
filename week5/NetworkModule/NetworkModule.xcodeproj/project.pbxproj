@@ -11,10 +11,11 @@
 		D434BDE428BCE54000A2E32B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434BDE328BCE54000A2E32B /* ContentView.swift */; };
 		D434BDE628BCE54100A2E32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434BDE528BCE54100A2E32B /* Assets.xcassets */; };
 		D434BDE928BCE54100A2E32B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434BDE828BCE54100A2E32B /* Preview Assets.xcassets */; };
-		D434BDF028BCE55400A2E32B /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434BDEF28BCE55400A2E32B /* NetworkModule.swift */; };
+		D434BDF028BCE55400A2E32B /* NetworkModuleAlamofireStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434BDEF28BCE55400A2E32B /* NetworkModuleAlamofireStyle.swift */; };
 		D434BDF428BDDB1600A2E32B /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434BDF328BDDB1600A2E32B /* Finder.swift */; };
 		D434BDF628BE0C6300A2E32B /* NaverOpenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434BDF528BE0C6300A2E32B /* NaverOpenAPI.swift */; };
 		D434BDFB28BE0EEB00A2E32B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434BDFA28BE0EEB00A2E32B /* SearchModel.swift */; };
+		D49D2D1628C64F1A0024E844 /* NetworkModulMoyaStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D2D1528C64F1A0024E844 /* NetworkModulMoyaStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,10 +24,11 @@
 		D434BDE328BCE54000A2E32B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D434BDE528BCE54100A2E32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D434BDE828BCE54100A2E32B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D434BDEF28BCE55400A2E32B /* NetworkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
+		D434BDEF28BCE55400A2E32B /* NetworkModuleAlamofireStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModuleAlamofireStyle.swift; sourceTree = "<group>"; };
 		D434BDF328BDDB1600A2E32B /* Finder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finder.swift; sourceTree = "<group>"; };
 		D434BDF528BE0C6300A2E32B /* NaverOpenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverOpenAPI.swift; sourceTree = "<group>"; };
 		D434BDFA28BE0EEB00A2E32B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		D49D2D1528C64F1A0024E844 /* NetworkModulMoyaStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModulMoyaStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +83,9 @@
 		D434BDF728BE0EC000A2E32B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D434BDEF28BCE55400A2E32B /* NetworkModule.swift */,
+				D434BDEF28BCE55400A2E32B /* NetworkModuleAlamofireStyle.swift */,
 				D434BDF528BE0C6300A2E32B /* NaverOpenAPI.swift */,
+				D49D2D1528C64F1A0024E844 /* NetworkModulMoyaStyle.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -185,8 +188,9 @@
 				D434BDF628BE0C6300A2E32B /* NaverOpenAPI.swift in Sources */,
 				D434BDE428BCE54000A2E32B /* ContentView.swift in Sources */,
 				D434BDFB28BE0EEB00A2E32B /* SearchModel.swift in Sources */,
+				D49D2D1628C64F1A0024E844 /* NetworkModulMoyaStyle.swift in Sources */,
 				D434BDE228BCE54000A2E32B /* NetworkModuleApp.swift in Sources */,
-				D434BDF028BCE55400A2E32B /* NetworkModule.swift in Sources */,
+				D434BDF028BCE55400A2E32B /* NetworkModuleAlamofireStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

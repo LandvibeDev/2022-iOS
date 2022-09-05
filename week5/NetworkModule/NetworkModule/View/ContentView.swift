@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var viewModel: Finder
-    @State var movieTitle: String
+    @State private var movieTitle: String = ""
     
     var body: some View {
         

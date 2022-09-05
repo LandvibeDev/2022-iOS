@@ -13,7 +13,7 @@ struct NetworkModuleApp: App {
     let movieFetcher = Finder()
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: movieFetcher, movieTitle: "")
+            ContentView(viewModel: movieFetcher)
         }
     }
     

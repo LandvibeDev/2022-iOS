@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct NetworkModule {
+struct NetworkModuleAlamofireStyle {
     
-    static let shared = NetworkModule()
+    private init() {}
+    
+    static let shared = NetworkModuleAlamofireStyle()
+    
+    var defaultHeadr = [String: String]()
     
     /// fetchData는 원하는 종류의 엔티티를 제네릭의 입력후 필요한 prameter를 입력하면 됩니다.
     ///
@@ -20,27 +24,45 @@ struct NetworkModule {
     ///   - paramaters: 원하는 파라미터를 넣으면 됩니다. 이때. value는 반드시 string protocol을 따라야합니다.
     ///   - header: 토큰이나 필수 요소를 파라미터와 같은 형태로 넣으면 됩니다.
     ///   - completion: 제네릭의 넣은 모델을 바탕으로 결과값을 보내줍니다.
-    func fetchData<EntityType: Decodable>(_ url: String, entity: EntityType.Type, httpMethod: HttpMethod, paramaters: [String: String]? = nil, header: [String: String]? = nil,completion: @escaping (NetworkResult<EntityType>?) -> Void) {
+    func fetchData<EntityType: Codable>(_ url: String,
+                                        entity: EntityType.Type,
+                                        httpMethod: HttpMethod,
+                                        paramaters: [String: String]? = nil,
+                                        header: [String: String]? = nil,
+                                        completion: @escaping (NetworkResult<EntityType>?) -> Void) {
         
         var urlComponent = URLComponents(string: url)
-        var queryItems = [URLQueryItem]()
-        paramaters?.forEach { key, value in
-            queryItems.append(URLQueryItem(name: key, value: value))
-        }
-        urlComponent?.queryItems = queryItems
+        var urlRequest = URLRequest(url: URL(string: url)!)
         
-        guard let url = urlComponent?.url else { return }
-        var urlRequest = URLRequest(url: url)
+        switch httpMethod {
+        case .get:
+            var queryItems = [URLQueryItem]()
+            paramaters?.forEach { key, value in
+                queryItems.append(URLQueryItem(name: key, value: value))
+            }
+            urlComponent?.queryItems = queryItems
+            urlRequest.url = urlComponent!.url
+        case .post, .put, .delete:
+            guard let paramaters = paramaters else { return }
+            let paramData = try! JSONSerialization.data(withJSONObject: paramaters, options: [])
+            urlRequest.url = URL(string: url)
+            urlRequest.httpBody = paramData
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue(String(paramData.count), forHTTPHeaderField: "Content-Length")
+        }
+        
         urlRequest.httpMethod = httpMethod.rawValue
-        header?.forEach { key, value in
-            
-            urlRequest.addValue(value, forHTTPHeaderField: key)
-        }
-        
+        header?.forEach { urlRequest.addValue($1, forHTTPHeaderField: $0) }
+
+       //guard let urlRequest = urlRequest else { return }
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, urlResponse, error in
             
-            guard error == nil,
-                  let httpURLResponse = urlResponse as? HTTPURLResponse,
+            guard error == nil else {
+                completion(.error)
+                return
+            }
+            
+            guard let httpURLResponse = urlResponse as? HTTPURLResponse,
                   let data = data else { return }
             
             var networkResult: NetworkResult<EntityType>?
@@ -75,7 +97,7 @@ struct NetworkModule {
     }
 }
 
-extension NetworkModule {
+extension NetworkModuleAlamofireStyle {
     
     enum NetworkResult<T> {
         
@@ -83,6 +105,15 @@ extension NetworkModule {
         case serverError
         case clientError
         case error
+    }
+    
+    struct FetchParameter<T: Codable> {
+        
+        var url: String
+        var entity: T
+        var httpMethod: HttpMethod
+        var parameters: [String: String]?
+        var header: [String: String]?
     }
 }
 

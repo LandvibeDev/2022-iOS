@@ -14,15 +14,15 @@ class Finder: ObservableObject {
     
     func fetchMovieList(parameterList: [Movie.Request]) {
         
-        NetworkModule.shared.fetchData(NaverOpenAPI.movieJsonURL,
+        NetworkModuleAlamofireStyle.shared.fetchData(NaverOpenAPI.movieJsonURL,
                                        entity: NaverOpneAPICommonResponse<Movie>.self,
                                        httpMethod: .get,
-                                       paramaters: NetworkModule.shared.makeParameter(parameterList),
+                                       paramaters: NetworkModuleAlamofireStyle.shared.makeParameter(parameterList),
                                        header: NaverOpenAPI.header) { [weak self] response in
             
             guard let self = self,
                   let response = response else { return }
-
+            
             switch response {
                 
             case .success(let data):
