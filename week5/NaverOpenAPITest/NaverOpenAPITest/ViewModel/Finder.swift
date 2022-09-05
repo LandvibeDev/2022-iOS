@@ -7,50 +7,23 @@
 
 import Foundation
 
-fileprivate enum NaverOpenAPI {
-    static let clientID = "QDph9OaM58FywxjbaSDe"
-    static let clientSecret = "7BEzAGG02o"
-    static let scheme = "https"
-    static let host = "openapi.naver.com"
-}
-
-class Finder<Article: Searchable>: ObservableObject {
-    @Published var model = Article()
+class Finder: ObservableObject {
+    @Published var newsModei = NewsDesk()
+    @Published var movieModel = BoxOffice()
+    @Published var documentModel = Encyclopedia()
     @Published var fetchingStatus = FetchStatus.idle
-    private var urlComponents = URLComponents()
-    
-    init() {
-        urlComponents.scheme = NaverOpenAPI.scheme
-        urlComponents.host = NaverOpenAPI.host
-    }
-    
-    func fetchDataList(wantToSearch: Article) {
+    var networkManager = NetworkManager()
+  
+    func fetch() {
         fetchingStatus = .fetching
-        urlComponents.path = wantToSearch.path
-        urlComponents.queryItems = [URLQueryItem(name: "query", value: wantToSearch.searchKeyword)]
-        guard let url = urlComponents.url
-        else { return }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        urlRequest.addValue(NaverOpenAPI.clientID, forHTTPHeaderField: "X-Naver-Client-Id")
-        urlRequest.addValue(NaverOpenAPI.clientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            // 각기 다른 예외처리를 하는 것이 좋겠죠 ?  --> 기능 완성하고 변경하겠습니다 ㅠ
-            guard error == nil,
-                  let httpURLResponse = response as? HTTPURLResponse,
-                  (200 ... 299).contains(httpURLResponse.statusCode),
-                  let data = data,
-                  let parsedData = try? JSONDecoder().decode(Response.self, from: data)
-            else { return }
+        networkManager.fetchDataList(path: movieModel.path, query: movieModel.searchKeyword) { parsedData in
             DispatchQueue.main.async { [weak self] in
-                self?.model.elements = parsedData.items.indices.map {
+                self?.movieModel.movies = parsedData.items.indices.map {
                     BoxOffice.Movie(parsedData.items[$0], id: parsedData.start + $0)
                 }
                 self?.fetchingStatus = .idle
             }
         }
-        task.resume()
-        fetchingStatus = .idle
     }
     
     enum FetchStatus {

@@ -7,12 +7,10 @@
 
 import Foundation
 
-struct NewsDesk: Searchable  {
+struct NewsDesk {
     var searchKeyword = ""
-    var elements: [Any] = []
+    var news: [News] = []
     var path = "/v1/search/news.json"
-    
-    init() {}
 }
 
 extension NewsDesk{

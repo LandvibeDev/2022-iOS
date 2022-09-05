@@ -7,12 +7,10 @@
 
 import Foundation
 
-struct BoxOffice: Searchable {
+struct BoxOffice {
     var searchKeyword = ""
-    var elements: [Any] = []
+    var movies: [Movie] = []
     var path = "/v1/search/movie.json"
-    
-    init() {}
 }
 
 extension BoxOffice {

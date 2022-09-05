@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct MovieList: View {
-    @ObservedObject var movieFinder: Finder<BoxOffice>
+    @ObservedObject var movieFinder: Finder
     
     var body: some View {
         ZStack {
             List {
                 HStack {
-                    TextField(text: $viewModel.model.searchKeyword, label: {
+                    TextField(text: $movieFinder.movieModel.searchKeyword, label: {
                         Text("검색어를 입력하세요.") })
-                    Button(action: {viewModel.fetchMovieList() }) {
+                    Button(action: {movieFinder.fetch() }) {
                         Text("검색")
                     }
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(movieFinder) { movie in
+                    ForEach(movieFinder.movieModel.movies) { movie in
                         VStack {
                             Spacer()
                             Group {

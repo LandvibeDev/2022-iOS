@@ -7,12 +7,10 @@
 
 import Foundation
 
-struct Encyclopedia: Searchable {
+struct Encyclopedia {
     var searchKeyword = ""
-    var elements: [Any] = []
+    var documents: [Document] = []
     var path = "/v1/search/encyc.json"
-    
-    init() {}
 }
 
 extension Encyclopedia {
