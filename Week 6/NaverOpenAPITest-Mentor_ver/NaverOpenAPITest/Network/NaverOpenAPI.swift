@@ -44,12 +44,17 @@ extension NaverOpenAPI {
         var headers: [String : String]? = defaultHeader
         
         init(keyword: String) {
-            data = Parameter(query: keyword)
+            data = Parameter(keyword: keyword)
         }
         
         private struct Parameter: Encodable {
             
-            let query: String
+            let keyword: String
+            
+            enum CodingKeys: String, CodingKey {
+                
+                case keyword = "query"
+            }
         }
         
         struct Response: Decodable {
@@ -57,6 +62,7 @@ extension NaverOpenAPI {
             let correction: String
             
             enum CodingKeys: String, CodingKey {
+                
                 case correction = "errata"
             }
         }
