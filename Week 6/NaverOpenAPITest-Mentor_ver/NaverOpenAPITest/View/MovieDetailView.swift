@@ -15,7 +15,7 @@ struct MovieDetailView: View {
     
     var body: some View {
         HStack {
-            KFImage(URL(string: movie.image))
+            KFImage(URL(string: movie.thumbnail))
                 .cancelOnDisappear(true)
                 .placeholder { _ in
                     ProgressView()
@@ -24,14 +24,14 @@ struct MovieDetailView: View {
                 .frame(width: DrawingConstants.thumbnailWidth)
                 .aspectRatio(DrawingConstants.thumbnailAspectRatio, contentMode: .fit)
             VStack(alignment: .leading) {
-                Text(movie.attributedTitle)
+                Text(movie.title)
                     .font(.title3)
                     .bold()
                     .lineLimit(DrawingConstants.DescriptionLineLimit)
                 Text(movie.subtitle)
                     .font(.body)
                     .lineLimit(DrawingConstants.DescriptionLineLimit)
-                Text(movie.actor)
+                Text(movie.actors)
                     .font(.caption)
                     .lineLimit(DrawingConstants.DescriptionLineLimit)
                 Spacer(minLength: 0)

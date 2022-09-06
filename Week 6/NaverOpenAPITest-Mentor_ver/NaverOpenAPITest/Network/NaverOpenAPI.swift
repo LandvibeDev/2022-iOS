@@ -36,7 +36,7 @@ extension NaverOpenAPI {
     
     struct Typo: FetchableParameter {
         
-        static let placeholder = Response(errata: "")
+        static let placeholder = Response(correction: "")
         
         let path = Path.typo.rawValue
         let httpMethod = HTTPMethod.get
@@ -54,7 +54,11 @@ extension NaverOpenAPI {
         
         struct Response: Decodable {
             
-            let errata: String
+            let correction: String
+            
+            enum CodingKeys: String, CodingKey {
+                case correction = "errata"
+            }
         }
     }
 }
@@ -73,13 +77,19 @@ extension NaverOpenAPI {
         var headers: [String : String]? = defaultHeader
         
         init(keyword: String, genre: SearchForm.Genre) {
-            data = Parameter(query: keyword, genre: genre.code)
+            data = Parameter(keyword: keyword, genre: genre.code)
         }
         
         private struct Parameter: Encodable {
             
-            let query: String
+            let keyword: String
             var genre: String?
+            
+            enum CodingKeys: String, CodingKey {
+                
+                case keyword = "query"
+                case genre
+            }
         }
         
         struct Response: Decodable {
@@ -94,12 +104,20 @@ extension NaverOpenAPI {
                 
                 let title: String
                 let link: String
-                let image: String
+                let thumbnail: String
                 let subtitle: String
-                let pubDate: String
+                let releaseDate: String
                 let director: String
-                let actor: String
+                let actors: String
                 let userRating: String
+                
+                enum CodingKeys: String, CodingKey {
+                    
+                    case title, link, subtitle, director, userRating
+                    case thumbnail = "image"
+                    case releaseDate = "pubDate"
+                    case actors = "actor"
+                }
             }
         }
     }

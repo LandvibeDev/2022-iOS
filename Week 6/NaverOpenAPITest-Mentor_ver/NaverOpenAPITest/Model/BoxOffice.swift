@@ -18,24 +18,24 @@ extension BoxOffice {
     
     struct Movie: Codable, Identifiable {
         
-        let attributedTitle: String
-        let image: String
+        let title: String
+        let thumbnail: String
         let subtitle: String
-        let pubDate: String
+        let releaseDate: String
         let director: String
-        let actor: String
+        let actors: String
         let userRating: String
         let id: Int
         
         // MARK: Initializer(s)
         
         init(_ movie: NaverOpenAPI.Movie.Response.Item, id: Int) {
-            attributedTitle = String(htmlString: movie.title)
-            image = movie.image
+            title = String(htmlString: movie.title)
+            thumbnail = movie.thumbnail
             subtitle = String(htmlString: movie.subtitle)
-            pubDate = movie.pubDate
+            releaseDate = movie.releaseDate
             director = movie.director
-            actor = movie.actor
+            actors = movie.actors
             userRating = movie.userRating
             self.id = id
         }

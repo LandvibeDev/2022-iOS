@@ -120,7 +120,7 @@ class MovieFinder: ObservableObject {
                     self?.errorHandling(error)
                 }
             }) { (requestResult: NaverOpenAPI.Typo.Response) in
-                completion(requestResult.errata)
+                completion(requestResult.correction)
             }
     }
     
