@@ -14,7 +14,7 @@ struct CalculatorApp: App {
   
     var body: some Scene {
         WindowGroup {
-          ContentView(calculatorManager: caculatorManager)
+            ContentView().environmentObject(caculatorManager)
         }
     }
 }
