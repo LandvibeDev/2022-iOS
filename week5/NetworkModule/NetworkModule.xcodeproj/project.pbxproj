@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3A2015928C782E6002BD05E /* ImageFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2015828C782E6002BD05E /* ImageFinder.swift */; };
+		F3A2016028C7C647002BD05E /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A2015F28C7C647002BD05E /* ImageInfo.swift */; };
 		F3E93D6528C77FD500642890 /* NetworkModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E93D6428C77FD500642890 /* NetworkModuleApp.swift */; };
 		F3E93D6728C77FD500642890 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E93D6628C77FD500642890 /* ContentView.swift */; };
 		F3E93D6928C77FD600642890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E93D6828C77FD600642890 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3A2015828C782E6002BD05E /* ImageFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinder.swift; sourceTree = "<group>"; };
+		F3A2015F28C7C647002BD05E /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		F3E93D6128C77FD500642890 /* NetworkModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E93D6428C77FD500642890 /* NetworkModuleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModuleApp.swift; sourceTree = "<group>"; };
 		F3E93D6628C77FD500642890 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,9 +36,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3A2016128C7C652002BD05E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3A2015F28C7C647002BD05E /* ImageInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F3E93D5828C77FD500642890 = {
 			isa = PBXGroup;
 			children = (
+				F3A2016128C7C652002BD05E /* Model */,
 				F3E93D6328C77FD500642890 /* NetworkModule */,
 				F3E93D6228C77FD500642890 /* Products */,
 			);
@@ -53,6 +66,7 @@
 			children = (
 				F3E93D6428C77FD500642890 /* NetworkModuleApp.swift */,
 				F3E93D6628C77FD500642890 /* ContentView.swift */,
+				F3A2015828C782E6002BD05E /* ImageFinder.swift */,
 				F3E93D6828C77FD600642890 /* Assets.xcassets */,
 				F3E93D6A28C77FD600642890 /* Preview Content */,
 			);
@@ -138,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E93D6728C77FD500642890 /* ContentView.swift in Sources */,
+				F3A2016028C7C647002BD05E /* ImageInfo.swift in Sources */,
+				F3A2015928C782E6002BD05E /* ImageFinder.swift in Sources */,
 				F3E93D6528C77FD500642890 /* NetworkModuleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

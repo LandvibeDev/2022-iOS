@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+fileprivate enum NaverOpenAPI {
+    static let clientID = "vfkVCXywSz01QA2Jchtx"
+    static let clientSecret = "ZXK_oFQNXc"
+    
+    static let scheme = "https"
+    static let host = "openapi.naver.com"
+    
+    enum Path: String {
+        case image = "v1/search/image.json"
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+class ImageFinder: ObservableObject {
+    
 }
