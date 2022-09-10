@@ -15,7 +15,7 @@ fileprivate enum NaverOpenAPI {
     static let host = "openapi.naver.com"
     
     enum Path: String {
-        case image = "v1/search/image.json"
+        case image = "/v1/search/image.json"
     }
 }
 
