@@ -36,6 +36,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30E661E28CC36E500FA2D3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3E93D6628C77FD500642890 /* ImageFinder.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F30E661F28CC371F00FA2D3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3A2015828C782E6002BD05E /* ImageList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F3A2016128C7C652002BD05E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -47,7 +63,6 @@
 		F3E93D5828C77FD500642890 = {
 			isa = PBXGroup;
 			children = (
-				F3A2016128C7C652002BD05E /* Model */,
 				F3E93D6328C77FD500642890 /* NetworkModule */,
 				F3E93D6228C77FD500642890 /* Products */,
 			);
@@ -65,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				F3E93D6428C77FD500642890 /* NetworkModuleApp.swift */,
-				F3E93D6628C77FD500642890 /* ImageFinder.swift */,
-				F3A2015828C782E6002BD05E /* ImageList.swift */,
+				F30E661F28CC371F00FA2D3B /* View */,
+				F3A2016128C7C652002BD05E /* Model */,
+				F30E661E28CC36E500FA2D3B /* ViewModel */,
 				F3E93D6828C77FD600642890 /* Assets.xcassets */,
 				F3E93D6A28C77FD600642890 /* Preview Content */,
 			);

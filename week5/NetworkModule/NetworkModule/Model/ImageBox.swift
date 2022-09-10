@@ -28,6 +28,7 @@ extension ImageBox {
             sizeheight = imageInfo.sizeheight
             sizewidth = imageInfo.sizewidth
             self.id = id
+            print(self)
         }
     }
 }
