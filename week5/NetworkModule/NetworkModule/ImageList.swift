@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel: ImageFinder
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            HStack {
+                TextField(text: $viewModel.model.searchKeyword, label: { Text("검색어를 입력하세요.") })
+                Button(action: { viewModel.fetchImageList()}) {
+                    Text("검색")
+                }
+            }
+            Section {
+                ForEach(viewModel.model.images) { image in
+                    VStack {
+                        Text("\(image.link)")
+                        Image(image.link)
+                    }
+
+                }
+            }
+        }
+        
+        .buttonStyle(.bordered)
     }
 }
 
 struct ImageList_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ImageFinder())
     }
 }

@@ -22,6 +22,7 @@ fileprivate enum NaverOpenAPI {
 class ImageFinder: ObservableObject {
     @Published var model = ImageBox()
     @Published var fetchingStatus = FetchStatus.idle
+    
     func fetchImageList() {
         fetchingStatus = .fetching
         var urlComponents = URLComponents()
