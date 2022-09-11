@@ -7,34 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ImageList: View {
     @ObservedObject var viewModel: ImageFinder
     
     var body: some View {
-        List {
-            HStack {
-                TextField(text: $viewModel.model.searchKeyword, label: { Text("검색어를 입력하세요.") })
-                Button(action: { viewModel.fetchImageList()}) {
-                    Text("검색")
-                }
-            }
-            Section {
-                ForEach(viewModel.model.images) { image in
-                    VStack {
-                        Text("\(image.link)")
-                        Image(image.link)
-                    }
-
-                }
+        Section {
+            ForEach(viewModel.model.images) { image in
+                ImageItem(image: image)
             }
         }
-        
-        .buttonStyle(.bordered)
+        if viewModel.fetchingStatus == .fetching {
+            ProgressView()
+                .scaleEffect(1.5)
+        }
     }
 }
 
 struct ImageList_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ImageFinder())
+        ImageList(viewModel: ImageFinder())
     }
 }
