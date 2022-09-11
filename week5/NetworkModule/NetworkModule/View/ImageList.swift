@@ -12,8 +12,8 @@ struct ImageList: View {
     
     var body: some View {
         Section {
-            ForEach(viewModel.model.images) { image in
-                ImageItem(image: image)
+            ForEach(viewModel.model.images) { imageInfo in
+                ImageItem(imageInfo: imageInfo)
             }
         }
     }

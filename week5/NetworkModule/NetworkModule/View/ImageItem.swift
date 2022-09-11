@@ -8,21 +8,34 @@
 import SwiftUI
 
 struct ImageItem: View {
-    var image: ImageBox.ImageInfo
+    var imageInfo: ImageBox.ImageInfo
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             Group {
-                AsyncImage(url: URL(string: String(image.link)))
-                Text("\(image.link)")
-                Image(image.link)
+                AsyncImage(url: URL(string: imageInfo.link)) { image in
+                        image
+                        .ImageModifier()
+                } placeholder: {
+                    Image(systemName: "paperplane.circle.fill")
+                        .IconModifier()
+                }
+                .padding(20)
+                Text(imageInfo.attributedTitle!)
+                Image(imageInfo.link)
             }
         }
     }
 }
 
 struct ImageItem_Previews: PreviewProvider {
-    static var image = ImageBox.ImageInfo(ImageFinder.Response.ImageInfo(title: "자원입대 500% 늘린 영화 <탑건> 비하인드 스토리", link: "http://post.phinf.naver.net/MjAxODA4MjJfMjAw/MDAxNTM0OTI3Njc1Mjk0.daIupY-wEvNG9LoxCg7AOjLXydpmWHSKjM0RjhmnZ9Ag.FlHSqho2HkMY4WBB3dW9RZ30atPHIC6wCMSy7lt_k3Ig.JPEG/I-YpERuxNT8j5aTOrTlvlb0YIp7Q.jpg", thumbnail: "https://search.pstatic.net/common/?src=http://post.phinf.naver.net/MjAxODA4MjJfMjAw/MDAxNTM0OTI3Njc1Mjk0.daIupY-wEvNG9LoxCg7AOjLXydpmWHSKjM0RjhmnZ9Ag.FlHSqho2HkMY4WBB3dW9RZ30atPHIC6wCMSy7lt_k3Ig.JPEG/I-YpERuxNT8j5aTOrTlvlb0YIp7Q.jpg&type=b150", sizeheight: "1201", sizewidth: "1600"), id: 6)
+    static var imageInfo = ImageBox.ImageInfo(ImageFinder.Response.ImageInfo(
+        title: "나도 탑건 2018년 재개봉때 받은 굿즈올려봄 - 영화 카테고리",
+        link: "https://img.theqoo.net/img/DteeL.jpg",
+        thumbnail: "https://search.pstatic.net/sunny/?src=https://img.theqoo.net/img/DteeL.jpg&type=b150",
+        sizeheight: "1200",
+        sizewidth: "1200"
+    ), id: 1)
     static var previews: some View {
-        ImageItem(image: image)
+        ImageItem(imageInfo: imageInfo)
     }
 }
