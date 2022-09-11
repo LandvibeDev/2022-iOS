@@ -9,11 +9,14 @@ import SwiftUI
 
 struct ImageList: View {
     @ObservedObject var viewModel: ImageFinder
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
         Section {
-            ForEach(viewModel.model.images) { imageInfo in
-                ImageItem(imageInfo: imageInfo)
+            LazyVGrid(columns: columns) {
+                ForEach(viewModel.model.images) { imageInfo in
+                    ImageItem(imageInfo: imageInfo)
+                }
             }
         }
     }
