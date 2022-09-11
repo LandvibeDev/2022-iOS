@@ -22,8 +22,7 @@ struct SearchView: View {
             }
             .padding()
         }
-        }
-        
+    }
 }
 
 struct SearchView_Previews: PreviewProvider {

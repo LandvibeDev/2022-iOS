@@ -20,8 +20,7 @@ struct ImageItem: View {
                         .IconModifier()
                 }
                 .padding(20)
-                Text(imageInfo.attributedTitle!)
-                    .padding()
+                Text(imageInfo.attributedTitle!).padding(EdgeInsets(top: 0, leading: 10, bottom: 50, trailing: 10))
             }
         }
     }
