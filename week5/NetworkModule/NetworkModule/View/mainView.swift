@@ -13,17 +13,7 @@ struct ContentView: View {
     var body: some View {
         List {
             SearchView(viewModel: viewModel)
-            Section {
-                ForEach(viewModel.model.images) { image in
-                    VStack {
-                        Group {
-                            AsyncImage(url: URL(string: String(image.link)))
-                            Text("\(image.link)")
-                            Image(image.link)
-                        }
-                    }
-                }
-            }
+            ImageList(viewModel: viewModel)
             if viewModel.fetchingStatus == .fetching {
                 ProgressView()
                     .scaleEffect(1.5)

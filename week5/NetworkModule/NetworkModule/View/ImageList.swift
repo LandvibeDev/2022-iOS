@@ -16,10 +16,6 @@ struct ImageList: View {
                 ImageItem(image: image)
             }
         }
-        if viewModel.fetchingStatus == .fetching {
-            ProgressView()
-                .scaleEffect(1.5)
-        }
     }
 }
 
