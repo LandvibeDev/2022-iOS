@@ -11,15 +11,20 @@ struct ContentView: View {
     @ObservedObject var viewModel: ImageFinder
     
     var body: some View {
-        List {
-            SearchView(viewModel: viewModel)
-            ImageList(viewModel: viewModel)
-            if viewModel.fetchingStatus == .fetching {
-                ProgressView()
-                    .scaleEffect(1.5)
+        NavigationView {
+            ZStack {
+                ScrollView {
+                    SearchView(viewModel: viewModel)
+                    ImageList(viewModel: viewModel)
+                }
+                .foregroundColor(.black)
+                .navigationTitle("Image Search API")
+                if viewModel.fetchingStatus == .fetching {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                }
             }
         }
-        .foregroundColor(.black)
     }
 }
 

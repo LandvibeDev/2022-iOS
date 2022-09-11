@@ -12,9 +12,11 @@ struct ImageList: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
-        Section {
-            LazyVGrid(columns: columns) {
-                ForEach(viewModel.model.images) { imageInfo in
+        LazyVGrid(columns: columns) {
+            ForEach(viewModel.model.images) { imageInfo in
+                NavigationLink {
+                    ImageItem(imageInfo: imageInfo)
+                } label: {
                     ImageItem(imageInfo: imageInfo)
                 }
             }

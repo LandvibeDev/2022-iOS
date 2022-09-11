@@ -21,7 +21,7 @@ struct ImageItem: View {
                 }
                 .padding(20)
                 Text(imageInfo.attributedTitle!)
-                Image(imageInfo.link)
+                    .padding()
             }
         }
     }

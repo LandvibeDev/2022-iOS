@@ -10,14 +10,20 @@ import SwiftUI
 struct SearchView: View {
     @ObservedObject var viewModel: ImageFinder;
     var body: some View {
-        HStack {
-            TextField(text: $viewModel.model.searchKeyword, label: { Text("검색어를 입력하세요.") })
-            Button(action: { viewModel.fetchImageList()}) {
-                Text("검색")
+        ZStack {
+            Color.gray.opacity(0.1)
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+            HStack {
+                TextField(text: $viewModel.model.searchKeyword, label: { Text("검색어를 입력하세요.") })
+                Button(action: { viewModel.fetchImageList()}) {
+                    Text("검색")
+                }
+                .buttonStyle(.bordered)
             }
-            .buttonStyle(.bordered)
+            .padding()
         }
-    }
+        }
+        
 }
 
 struct SearchView_Previews: PreviewProvider {
