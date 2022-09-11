@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImageList: View {
     @ObservedObject var viewModel: ImageFinder
-    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
         Section {
