@@ -8,21 +8,17 @@
 import Foundation
 
 extension String {
-    var insertComma: String {
+    var decimalFormat: String {
         let numberFormatter = NumberFormatter();
         numberFormatter.numberStyle = .decimal
-        if self.contains(".") {
-            let numberArray = self.components(separatedBy: ".")
-            let numberString = numberArray.first ?? "0"
-            guard let doubleValue = Double(numberString) else {
-                return self
-            }
-            return (numberFormatter.string(from: NSNumber(value: doubleValue)) ?? numberString) + ".\(numberArray[numberArray.index(numberArray.startIndex, offsetBy: 1)])"
-        } else {
-            guard let doubleValue = Double(self) else {
-                return self
-            }
-            return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? self
+        let decimalFractionComponents = components(separatedBy: ".")
+        guard let decimalString = decimalFractionComponents.first,
+              let decimal = Int(decimalString),
+              var decimalFormat = numberFormatter.string(from: NSNumber(value: decimal))
+        else { return "오류"}
+        if 1 < decimalFractionComponents.count, let fractionString = decimalFractionComponents.last {
+            decimalFormat += ".\(fractionString)"
         }
+        return decimalFormat
     }
 }
