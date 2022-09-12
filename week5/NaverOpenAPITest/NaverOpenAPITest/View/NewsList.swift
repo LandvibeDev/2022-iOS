@@ -15,7 +15,7 @@ struct NewsList: View {
         ZStack {
             List {
                 HStack {
-                    TextField(text: $newsFinder.newsModel.searchKeyword, label: {
+                    TextField(text: $newsFinder.newsDesk.searchKeyword, label: {
                         Text("검색어를 입력하세요.") })
                     Button(action: {newsFinder.fetchNews() }) {
                         Text("검색")
@@ -23,7 +23,7 @@ struct NewsList: View {
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(newsFinder.newsModel.news) { movie in
+                    ForEach(newsFinder.newsDesk.news) { movie in
                         VStack {
                             Spacer()
                             Group {

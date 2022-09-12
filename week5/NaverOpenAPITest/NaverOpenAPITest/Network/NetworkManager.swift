@@ -41,16 +41,13 @@ class NetworkManager {
         let urlRequest = fillUrlReuqest(url: url, httpMethod: HttpMethod.get.rawValue)
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
-                print("에러가 occur!")
                 return
             }
             guard let response = response as? HTTPURLResponse,
                   (200...299).contains(response.statusCode) else {
-                print ("server error!!")
                 return
             }
             guard let data = data, let parsedData = try? JSONDecoder().decode(NewsResponse.self, from: data) else {
-                print("data error!")
                 return
             }
             fetchDataInBackground(parsedData)
@@ -66,16 +63,13 @@ class NetworkManager {
         let urlRequest = fillUrlReuqest(url: url, httpMethod: HttpMethod.get.rawValue)
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
-                print("에러가 occur!")
                 return
             }
             guard let response = response as? HTTPURLResponse,
                   (200...299).contains(response.statusCode) else {
-                print ("server error!!")
                 return
             }
             guard let data = data, let parsedData = try? JSONDecoder().decode(DocumentResponse.self, from: data) else {
-                print("data error!")
                 return
             }
             fetchDataInBackground(parsedData)

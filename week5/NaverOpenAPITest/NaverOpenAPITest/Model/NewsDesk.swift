@@ -17,7 +17,7 @@ extension NewsDesk{
     
     struct News: Codable, Identifiable {
         let attributedTitle: AttributedString?
-        let originallink: String
+        let originalLink: String
         let link: String
         let description: String
         let pubDate: String
@@ -26,11 +26,10 @@ extension NewsDesk{
         init(_ news: NewsResponse.News, id: Int) {
             attributedTitle = AttributedString(htmlString: news.title)
             pubDate = news.pubDate
-            originallink = news.originallink
+            originalLink = news.originallink
             link = news.link
             description = news.description
             self.id = id
         }
     }
 }
-

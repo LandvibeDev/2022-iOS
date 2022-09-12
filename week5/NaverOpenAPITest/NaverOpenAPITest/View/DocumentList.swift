@@ -14,7 +14,7 @@ struct DocumentList: View {
         ZStack {
             List {
                 HStack {
-                    TextField(text: $documentFinder.documentModel.searchKeyword, label: {
+                    TextField(text: $documentFinder.encyclopedia.searchKeyword, label: {
                         Text("검색어를 입력하세요.") })
                     Button(action: {documentFinder.fetchDocument() }) {
                         Text("검색")
@@ -22,7 +22,7 @@ struct DocumentList: View {
                     .buttonStyle(.bordered)
                 }
                 Section {
-                    ForEach(documentFinder.documentModel.documents) { movie in
+                    ForEach(documentFinder.encyclopedia.documents) { movie in
                         VStack {
                             Spacer()
                             Group {

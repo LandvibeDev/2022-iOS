@@ -8,16 +8,16 @@
 import Foundation
 
 class Finder: ObservableObject {
-    @Published var newsModel = NewsDesk()
-    @Published var documentModel = Encyclopedia()
+    @Published var newsDesk = NewsDesk()
+    @Published var encyclopedia = Encyclopedia()
     @Published var fetchingStatus = FetchStatus.idle
     let networkManager = NetworkManager()
     
     func fetchNews() {
         fetchingStatus = .fetching
-        networkManager.fetchNewsList(path: newsModel.path, query: newsModel.searchKeyword) { parsedData in
+        networkManager.fetchNewsList(path: newsDesk.path, query: newsDesk.searchKeyword) { parsedData in
             DispatchQueue.main.async { [weak self] in
-                self?.newsModel.news = parsedData.items.indices.map {
+                self?.newsDesk.news = parsedData.items.indices.map {
                     NewsDesk.News(parsedData.items[$0], id: parsedData.start + $0)
                 }
                 self?.fetchingStatus = .idle
@@ -25,12 +25,11 @@ class Finder: ObservableObject {
         }
     }
     
-    
     func fetchDocument() {
         fetchingStatus = .fetching
-        networkManager.fetchDocumentList(path: documentModel.path, query: documentModel.searchKeyword) { parsedData in
+        networkManager.fetchDocumentList(path: encyclopedia.path, query: encyclopedia.searchKeyword) { parsedData in
             DispatchQueue.main.async { [weak self] in
-                self?.documentModel.documents = parsedData.items.indices.map {
+                self?.encyclopedia.documents = parsedData.items.indices.map {
                     Encyclopedia.Document(parsedData.items[$0], id: parsedData.start + $0)
                 }
                 self?.fetchingStatus = .idle
