@@ -22,7 +22,7 @@ extension Encyclopedia {
         let tumbnail: String
         let id: Int
         
-        init(_ document: Response.Document, id: Int) {
+        init(_ document: DocumentResponse.Document, id: Int) {
             attributedTitle = AttributedString(htmlString: document.title)
             link = document.link
             description = document.description

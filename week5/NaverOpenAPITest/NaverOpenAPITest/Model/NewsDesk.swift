@@ -23,7 +23,7 @@ extension NewsDesk{
         let pubDate: String
         let id: Int
         
-        init(_ news: Response.News, id: Int) {
+        init(_ news: NewsResponse.News, id: Int) {
             attributedTitle = AttributedString(htmlString: news.title)
             pubDate = news.pubDate
             originallink = news.originallink
@@ -33,3 +33,4 @@ extension NewsDesk{
         }
     }
 }
+
