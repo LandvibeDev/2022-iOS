@@ -26,4 +26,4 @@ Combine을 배우고, 실제로 적용해 볼 수 있도록 합니다.
 
 ## Week 7
 
-TBD..
+Animation으로 UX를 개선할 수 있도록 합니다.
