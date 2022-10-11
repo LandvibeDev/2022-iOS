@@ -7,22 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A690699028F5413B0070676A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A690698F28F5413B0070676A /* Extensions.swift */; };
 		A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17AE288E87F600AF88CC /* MemorizeApp.swift */; };
 		A69F17B1288E87F600AF88CC /* MemorizeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17B0288E87F600AF88CC /* MemorizeGameView.swift */; };
 		A69F17B3288E87F700AF88CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69F17B2288E87F700AF88CC /* Assets.xcassets */; };
 		A69F17B6288E87F700AF88CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69F17B5288E87F700AF88CC /* Preview Assets.xcassets */; };
 		A69F17C5288F77E100AF88CC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17C4288F77E100AF88CC /* Theme.swift */; };
 		A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CA288F8BC400AF88CC /* CardView.swift */; };
-		A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17CE288F9B6400AF88CC /* CardListView.swift */; };
 		A69F17D72890CBC700AF88CC /* MemorizeGameDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17D62890CBC700AF88CC /* MemorizeGameDealer.swift */; };
-		A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E42898B11C00AF88CC /* ThemeNameView.swift */; };
-		A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E62898B26C00AF88CC /* NewGameButton.swift */; };
 		A69F17E92898C1CD00AF88CC /* MemorizeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17E82898C1CD00AF88CC /* MemorizeGame.swift */; };
-		A69F17F1289A2D7A00AF88CC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17F0289A2D7A00AF88CC /* ScoreView.swift */; };
 		A69F17F7289B5A9300AF88CC /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F17F6289B5A9300AF88CC /* SuccessView.swift */; };
+		A6FD786128E40041009A2677 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FD786028E40041009A2677 /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A690698F28F5413B0070676A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A69F17AB288E87F600AF88CC /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69F17AE288E87F600AF88CC /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		A69F17B0288E87F600AF88CC /* MemorizeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeGameView.swift; sourceTree = "<group>"; };
@@ -30,13 +29,10 @@
 		A69F17B5288E87F700AF88CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A69F17C4288F77E100AF88CC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A69F17CA288F8BC400AF88CC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		A69F17CE288F9B6400AF88CC /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		A69F17D62890CBC700AF88CC /* MemorizeGameDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeGameDealer.swift; sourceTree = "<group>"; };
-		A69F17E42898B11C00AF88CC /* ThemeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNameView.swift; sourceTree = "<group>"; };
-		A69F17E62898B26C00AF88CC /* NewGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameButton.swift; sourceTree = "<group>"; };
 		A69F17E82898C1CD00AF88CC /* MemorizeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeGame.swift; sourceTree = "<group>"; };
-		A69F17F0289A2D7A00AF88CC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		A69F17F6289B5A9300AF88CC /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		A6FD786028E40041009A2677 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +71,7 @@
 				A69F17C3288F77AC00AF88CC /* Model */,
 				A69F17F8289FD3E600AF88CC /* View */,
 				A69F17F9289FD43A00AF88CC /* ViewModel */,
+				A690698F28F5413B0070676A /* Extensions.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -101,11 +98,8 @@
 			children = (
 				A69F17B0288E87F600AF88CC /* MemorizeGameView.swift */,
 				A69F17CA288F8BC400AF88CC /* CardView.swift */,
-				A69F17CE288F9B6400AF88CC /* CardListView.swift */,
-				A69F17E42898B11C00AF88CC /* ThemeNameView.swift */,
-				A69F17E62898B26C00AF88CC /* NewGameButton.swift */,
-				A69F17F0289A2D7A00AF88CC /* ScoreView.swift */,
 				A69F17F6289B5A9300AF88CC /* SuccessView.swift */,
+				A6FD786028E40041009A2677 /* Cardify.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,14 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A69F17E92898C1CD00AF88CC /* MemorizeGame.swift in Sources */,
+				A690699028F5413B0070676A /* Extensions.swift in Sources */,
 				A69F17C5288F77E100AF88CC /* Theme.swift in Sources */,
 				A69F17B1288E87F600AF88CC /* MemorizeGameView.swift in Sources */,
 				A69F17F7289B5A9300AF88CC /* SuccessView.swift in Sources */,
-				A69F17E72898B26C00AF88CC /* NewGameButton.swift in Sources */,
-				A69F17E52898B11C00AF88CC /* ThemeNameView.swift in Sources */,
+				A6FD786128E40041009A2677 /* Cardify.swift in Sources */,
 				A69F17AF288E87F600AF88CC /* MemorizeApp.swift in Sources */,
-				A69F17F1289A2D7A00AF88CC /* ScoreView.swift in Sources */,
-				A69F17CF288F9B6400AF88CC /* CardListView.swift in Sources */,
 				A69F17CB288F8BC400AF88CC /* CardView.swift in Sources */,
 				A69F17D72890CBC700AF88CC /* MemorizeGameDealer.swift in Sources */,
 			);

@@ -1,6 +1,9 @@
 import Foundation
 
 struct MemorizeGame<CardContent: Equatable> {
+    
+    // MARK: Property(ies)
+    
     private(set) var cards: [Card] = []
     private(set) var score = 0
     private var currentOpenedCards: [Card] = []
@@ -8,9 +11,13 @@ struct MemorizeGame<CardContent: Equatable> {
         cards.filter({ $0.isMatched }).count / 2 == cards.count / 2
     }
     
+    // MARK: Initializer(s)
+    
     init(numberOfPairsOfCards: Int, createContent: (Int) -> CardContent) {
         cards = makeCards(numberOfPairsOfCards: numberOfPairsOfCards, createContent: createContent)
     }
+    
+    // MARK: Method(s)
     
     func makeCards(numberOfPairsOfCards: Int, createContent: (Int) -> CardContent) -> [Card] {
         var cards: [Card] = []
@@ -61,8 +68,7 @@ struct MemorizeGame<CardContent: Equatable> {
                     cards[chosenIndex].isMatched = true
                 }
             }
-        }
-        else {
+        } else {
             currentOpenedCards.forEach { opendCard in
                 if opendCard.isFaceUpAtLeastOnce == true {
                     score -= 1
@@ -74,8 +80,12 @@ struct MemorizeGame<CardContent: Equatable> {
         }
     }
     
+    mutating func shuffle() {
+        cards.shuffle()
+    }
+    
     struct Card: Identifiable {
-        var isFaceUp = false
+        var isFaceUp = true
         var isMatched = false
         var isFaceUpAtLeastOnce = false
         let content: CardContent

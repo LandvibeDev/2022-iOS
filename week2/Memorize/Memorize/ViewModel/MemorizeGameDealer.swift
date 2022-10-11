@@ -65,4 +65,8 @@ class MemorizeGameDealer: ObservableObject {
     func choose(card: MemorizeGame<String>.Card) {
         memorizeGameManager.choose(card: card)
     }
+    
+    func shuffle() {
+        memorizeGameManager.shuffle()
+    }
 }
