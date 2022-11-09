@@ -9,18 +9,24 @@ import SwiftUI
 
 struct CalculatorView: View {
     @EnvironmentObject var calculatorManager: CalculatorManager
-
+    
+    private func swipe() -> some Gesture {
+        DragGesture(minimumDistance: 10, coordinateSpace: .local)
+            .onEnded { drag in
+                if 0 < drag.translation.width {
+                    calculatorManager.undoWhenSwiped()
+                }
+            }
+    }
+    
     var body: some View {
         VStack {
             Spacer()
-            ScreenView()
+            ScreenView(displayValue: calculatorManager.displayValue)
+                .contentShape(Rectangle())
+                .gesture(swipe())
             PadView()
         }
-        .contentShape(Rectangle())
-        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-            .onEnded({ _ in
-                calculatorManager.undoWhenSwiped()
-            }))
         .background(.black)
     }
 }
@@ -28,5 +34,6 @@ struct CalculatorView: View {
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         CalculatorView()
+            .environmentObject(CalculatorManager())
     }
 }
